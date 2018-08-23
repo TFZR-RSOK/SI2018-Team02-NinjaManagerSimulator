@@ -1,0 +1,16 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#btnCompareNinjas {
+	-fx-background-color: #392a1a; 
+}
+
+#btnNinjaDatabase  {
+	-fx-background-color: #392a1a; 
+}
+
+#btnTeamBuilder {
+	-fx-background-color: #392a1a; 
+}
+
+#btnKaguyaSimulator {
+	-fx-background-color: #392a1a; 
+}
