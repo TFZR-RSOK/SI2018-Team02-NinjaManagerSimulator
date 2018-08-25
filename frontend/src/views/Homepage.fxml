@@ -9,23 +9,41 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1500.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.HomePageController">
+<AnchorPane fx:id="homepage" prefHeight="900.0" prefWidth="1500.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.HomePageController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" layoutX="-13.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../resources/homepage-background.jpg" />
          </image>
       </ImageView>
-      <Text fill="#392a1a" layoutX="260.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NINJA MANAGER SIMULATOR">
+      <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#392a1a" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
+         <effect>
+            <DropShadow color="#0a0704" height="40.42" radius="9.605" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Text layoutX="260.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NINJA MANAGER SIMULATOR">
          <font>
             <Font name="International Regular" size="65.0" />
          </font>
          <effect>
             <DropShadow height="6.22" radius="1.055" width="0.0" />
          </effect>
+         <fill>
+            <LinearGradient endX="0.9902912621359223" endY="0.45145631067961167" startY="1.0">
+               <stops>
+                  <Stop color="#ffb74e" />
+                  <Stop color="#ffb74e" offset="0.007246376811594203" />
+                  <Stop color="#ffe351" offset="0.47485080988917305" />
+                  <Stop color="#ffa644" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
       </Text>
       <GridPane hgap="40.0" prefHeight="900.0" prefWidth="1500.0" vgap="10.0">
         <columnConstraints>
@@ -53,7 +71,7 @@
                   <DropShadow height="46.65" radius="22.0475" width="43.54" />
                </effect>
             </Button>
-            <Button fx:id="btnKaguyaSimulator" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="253.0" prefWidth="388.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="btnKaguyaSimulator" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goToKaguyaSimulator" prefHeight="253.0" prefWidth="388.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <graphic>
                   <ImageView fitHeight="230.0" fitWidth="366.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,7 +82,7 @@
                <effect>
                   <DropShadow height="46.65" radius="22.0475" width="43.54" />
                </effect></Button>
-            <Button fx:id="btnTeamBuilder" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="253.0" prefWidth="388.0" GridPane.rowIndex="2">
+            <Button fx:id="btnTeamBuilder" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goToTeamBuilder" prefHeight="253.0" prefWidth="388.0" GridPane.rowIndex="2">
                <graphic>
                   <ImageView fitHeight="228.0" fitWidth="366.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -76,7 +94,7 @@
                   <DropShadow height="46.65" radius="22.0475" width="43.54" />
                </effect>
             </Button>
-            <Button fx:id="btnNinjaDatabase" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="253.0" prefWidth="388.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnNinjaDatabase" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goToNinjaDatabase" prefHeight="253.0" prefWidth="388.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="245.0" fitWidth="368.0" pickOnBounds="true" preserveRatio="true">
                      <image>

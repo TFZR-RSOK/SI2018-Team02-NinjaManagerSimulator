@@ -1,27 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="compareNinjas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/compare-ninjas-background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="71.0" text="Back" />
-      <DropdownButton layoutX="111.0" layoutY="118.0">
-          <items>
-              <MenuItem text="Choice 1" />
-              <MenuItem text="Choice 2" />
-              <MenuItem text="Choice 3" />
-          </items>
-      </DropdownButton>
+      <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" text="Back" />
+      <GridPane gridLinesVisible="true" hgap="40.0" layoutY="87.0" prefHeight="815.0" prefWidth="1500.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="397.3333435058594" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="767.0" minHeight="10.0" prefHeight="767.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ChoiceBox prefHeight="41.0" prefWidth="350.0" />
+            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="1" />
+            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="2" />
+            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="3" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="334.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="334.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="334.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="143.0" fitWidth="138.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../../../Kaguya04.png" />
+                     </image>
+                  </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="333.0" />
+                  <Label layoutX="168.0" layoutY="14.0" text="BASESTATS:" />
+                  <VBox layoutX="194.0" layoutY="41.0" prefHeight="112.0" prefWidth="42.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
+                        <Label text="NIN:" />
+                        <Label text="BUKI:" />
+                        <Label text="STA:" />
+                        <Label text="ELE:" />
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="253.0" layoutY="41.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="52.0" text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                     </children>
+                  </VBox>
+                  <TextField layoutX="14.0" layoutY="167.0" text="LVL" />
+                  <VBox layoutX="14.0" layoutY="437.0" prefHeight="131.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin></Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="3.0" top="2.0" />
+                           </VBox.margin></Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="8.0" top="5.0" />
+                           </VBox.margin></Label>
+                        <Label text="STAHIMA:">
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="3.0" />
+                           </VBox.margin></Label>
+                        <Label text="BUKI REC:" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="14.0" layoutY="205.0" prefHeight="190.0" prefWidth="268.0">
+                     <children>
+                        <Label text="ABILITY 1:" />
+                        <ChoiceBox prefHeight="28.0" prefWidth="235.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:" />
+                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="28.0" prefWidth="235.0" />
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:" />
+                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="28.0" prefWidth="235.0" />
+                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:" />
+                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="0.0" prefWidth="235.0" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="14.0" layoutY="412.0" text="ADD STATS:" />
+                  <VBox layoutX="87.0" layoutY="430.0" prefHeight="86.0" prefWidth="71.0">
+                     <children>
+                        <TextField prefHeight="4.0" prefWidth="71.0" />
+                        <TextField>
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></TextField>
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <Line endX="185.0" fill="#f5efef" layoutX="148.0" layoutY="582.0" startX="-148.00003051757812" stroke="#f8f6f6" />
+                  <Label layoutX="116.0" layoutY="591.0" text="TOTAL STATS" />
+                  <VBox layoutX="14.0" layoutY="609.0" prefHeight="112.0" prefWidth="42.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
+                        <Label text="NIN:" />
+                        <Label text="BUKI:" />
+                        <Label text="ELE:" />
+                        <Label text="STAM:" />
+                        <Label text="GEN:" />
+                        <Label text="BUKIR:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="64.0" layoutY="609.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="52.0" text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="147.0" layoutY="612.0" prefHeight="126.0" prefWidth="92.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="72.0" text="BUKIB:" />
+                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIBE:" />
+                        <Label text="CRITCH:" />
+                        <Label text="CRITENG::" />
+                        <Label text="REROLL:" />
+                        <Label text="ATTACK:" />
+                        <Label text="ENDURANCE:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="253.0" layoutY="612.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="52.0" text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                        <Label text="100000" />
+                     </children>
+                  </VBox>
+               </children>
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+            </Pane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </GridPane>
    </children>
 </AnchorPane>

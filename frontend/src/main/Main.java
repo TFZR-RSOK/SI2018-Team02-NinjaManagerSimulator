@@ -32,15 +32,7 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 	
-	public void showCompareNinjasScene() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/views/CompareNinjas.fxml"));
-		AnchorPane compareNinjas = (AnchorPane) loader.load();
-		Scene scene = new Scene(compareNinjas);
-		primaryStage.setScene(scene);
-		primaryStage.show();
 	
-	}
 
 	public static void main(String[] args) {
 		launch(args);
