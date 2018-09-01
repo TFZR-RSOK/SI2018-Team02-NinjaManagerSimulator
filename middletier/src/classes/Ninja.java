@@ -1,10 +1,11 @@
 package classes;
 import enums.Stanja;
+import interfaces.IBasicOperations;
 
 import java.sql.*;
 import java.util.Random;
 
-public class Ninja {
+public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode iz druge klase, trazi da klasa Ninja bude abstraktna zajedno sa klasom iz koje se poziva metoda
 
 	protected String name, tip;
 	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
@@ -762,18 +763,21 @@ public class Ninja {
 		setChakra(0);
 	}
 	
-	public void calculateDmg () {
+	public double calculateDMG () {
 		int runda = 0;
 		double dmg;
-		dmg=((this.taijutsu+ifCrit())/2) + ninjutsuDMG() + this.bukijutsu*this.bukijutsuBoost/100 + this.attack;
-		runda++;
-		
-		
+		dmg = taijutsuDMG() + ninjutsuDMG() + bukijutsuDMG() + this.attack;	
+		return dmg;
+	}
+	
+	public double taijutsuDMG () {
+		double taiDmg = ((this.taijutsu+ifCrit())/2);
+		return taiDmg;
 	}
 	
 	public double ifCrit () {
 		int  n = rand.nextInt(100) + 1;
-		if(n-1<this.critChance) {
+		if(n<=this.critChance) {
 			return this.taijutsu*this.critStrike/100;
 		} else return 0;
 	}
@@ -782,14 +786,119 @@ public class Ninja {
 		int nin = (int) getNinjutsu();
 		int n1 = rand.nextInt(nin) + 1;
 		int roll = rand.nextInt(100) + 1;
-		if(roll-1<this.reroll) {
+		if(roll<=this.reroll) {
 			int n2 = rand.nextInt(nin) + 1;
 				if(n2>n1) {
 					return n2;
 				} else return n1;
 		} else return n1;
-		
+		//Ovde fali seal da se uzme u obzir, ali moze da se racuna i bez seal tako da za sada radi jednostavnosti i same
+		//provere za pocetak bez seal atributa
 	}
+	
+	public double bukijutsuDMG () {
+		double bukiDMG = this.bukijutsu*this.bukijutsuBoost/100;
+		return bukiDMG;
+	}
+	
+	public double DMGvsKaguya () {
+		double total = 0;
+		double tempDMG;
+		double KaguyaDMG;
+		double pen;
+		int runda = 0;
+		
+		double lvl = 30, neededStamina = 0, x = 0; // ovo treba da se uzme od gore, ali sam zaboravio pa samo prebaci kasnije!!!!
+		
+		neededStamina = lvl*2.5+60;
+		x=100*100/neededStamina;
+		runda++; // 1
+		tempDMG = calculateDMG();
+		//KaguyaDMG = 100; //UMESTO 100 TREBA FUNKCIJA ZA KAGUYU
+		KaguyaDMG = KaguyaAttack(); //OVO BI TREBALO DA BUDE DOBRO! ONO OD GORE JE PRETHODNA VERZIJA
+		total += tempDMG;
+		
+		if (tempDMG>KaguyaDMG) {
+			runda++; // 2
+			
+		} else return total;
+		
+		if (runda==2) {
+			pen = 35*x/100;
+			pen += 60;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 3
+			} else return total;
+		} else return total;
+		
+		if (runda==3) {
+			pen = 50*x/100;
+			pen += 30;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 4
+			} else return total;
+		} else return total;
+		
+		if (runda==4) {
+			pen = 45*x/100;
+			pen += 10;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 5
+			} else return total;
+		} else return total;
+		
+		if (runda==5) {
+			pen = 50*x/100;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 6
+			} else return total;
+		} else return total;
+		
+		if (runda==6) {
+			pen = 35*x/100;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 7
+			} else return total;
+		} else return total;
+		
+		if (runda==7) {
+			pen = 20*x/100;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 7
+			} else return total;
+		} else return total;
+		
+		if (runda>7) {
+			pen = 5*x/100;
+			tempDMG = calculateDMG();
+			tempDMG=tempDMG*pen/100;
+			total+=tempDMG;
+			if (tempDMG>KaguyaDMG) {
+				runda++; // 8
+			} else return total;
+		} else return total;
+		
+		return total;
+	}
+	
 	
 	// FUNKCIJA ZA POVLACENJE IZ BAZE!!!
 	public void pullPodataka () {

@@ -1,7 +1,7 @@
 package classes;
 import enums.Stanja;
 
-public class Team {
+public class Team extends Ninja{
 	
 	protected Object ninja1, ninja2, ninja3, ninja4, ninja5, ninja6;
 	protected Stanja stanje;
