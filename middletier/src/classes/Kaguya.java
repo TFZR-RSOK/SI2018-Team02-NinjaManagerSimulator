@@ -3,15 +3,15 @@ package classes;
 import enums.StanjaKaguya;
 import interfaces.IBasicOperations;
 
-public class Kaguya implements IBasicOperations {
+public class Kaguya {
 	
 	protected double taijutsu, ninjutsu, bukijutsu, bukijutsuBoost;
 	protected StanjaKaguya tezina;
 	
 	public Kaguya () {
 		this.taijutsu = 80;
-		this.ninjutsu = 80;
-		this.bukijutsu = 90;
+		this.ninjutsu = 60;
+		this.bukijutsu = 36;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.begginer;
 	}
@@ -88,56 +88,56 @@ public class Kaguya implements IBasicOperations {
 	
 	public void setBegginerStanje () {
 		this.taijutsu = 80;
-		this.ninjutsu = 40;
-		this.bukijutsu = 90;
+		this.ninjutsu = 60;
+		this.bukijutsu = 36;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.begginer;
 	}
 	
 	public void setEasyStanje () {
-		this.taijutsu = 100;
-		this.ninjutsu = 45;
-		this.bukijutsu = 100;
+		this.taijutsu = 90;
+		this.ninjutsu = 70;
+		this.bukijutsu = 42;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.easy;
 	}
 	
 	public void setMediumStanje () {
 		this.taijutsu = 100;
-		this.ninjutsu = 50;
-		this.bukijutsu = 105;
+		this.ninjutsu = 70;
+		this.bukijutsu = 50;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.medium;
 	}
 	
 	public void setHardStanje () {
-		this.taijutsu = 125;
-		this.ninjutsu = 60;
-		this.bukijutsu = 110;
+		this.taijutsu = 115;
+		this.ninjutsu = 75;
+		this.bukijutsu = 55;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.hard;
 	}
 	
 	public void setExtremeStanje () {
-		this.taijutsu = 140;
-		this.ninjutsu = 70;
-		this.bukijutsu = 120;
+		this.taijutsu = 130;
+		this.ninjutsu = 85;
+		this.bukijutsu = 60;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.extreme;
 	}
 	
 	public void setImpossibleStanje () {
-		this.taijutsu = 160;
-		this.ninjutsu = 80;
-		this.bukijutsu = 120;
+		this.taijutsu = 150;
+		this.ninjutsu = 100;
+		this.bukijutsu = 75;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.impossible;
 	}
 	
 	public void setForbiddenStanje () {
-		this.taijutsu = 160;
-		this.ninjutsu = 90;
-		this.bukijutsu = 130;
+		this.taijutsu = 180;
+		this.ninjutsu = 120;
+		this.bukijutsu = 100;
 		this.bukijutsuBoost = 30;
 		this.tezina = StanjaKaguya.forbidden;
 	}

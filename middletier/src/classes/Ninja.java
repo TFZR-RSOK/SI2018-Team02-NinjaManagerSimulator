@@ -13,15 +13,19 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	protected double attack, genjutsuActivation, genjutsuMastery, genjutsuRecharge, genjutsuAbsorb, genjutsuLearn, genjutsuCopy, //Rest of the stats
 						bukijutsuRecovery, bukijutsuBoost, critChance, critStrike, reroll, focus, focusBurst, focusRange, 
 						endurance, fatigue, offPositioning, taijutsuImmunity, ninjutsuImmunity, bukijutsuImmunity, attackImmunity,
-						genjutsuImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, morph, chakra;
+						genjutsuImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, morph, chakra, level, seal;
+
 	protected Stanja stanje;
 
-	Random rand = new Random();
+	Random rand;
+	Kaguya Kaguya;
 	
 	/**
 	 * Constructor for Ninja class
 	 */
 	public Ninja () {
+		this.rand = new Random();
+		this.Kaguya = new Kaguya();
 		this.name="";
 		this.tip="";
 		this.taijutsu=0;
@@ -67,6 +71,8 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		this.bloodlineNullify=0;
 		this.morph=0;
 		this.chakra=0;
+		this.level=0;
+		this.seal=0;
 		this.stanje=Stanja.clearNinja;
 	}
 
@@ -699,6 +705,34 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	public void setChakra(double chakra) {
 		this.chakra = chakra;
 	}
+	
+	/**
+	 * @return the level
+	 */
+	public double getLevel() {
+		return level;
+	}
+
+	/**
+	 * @param level the level to set
+	 */
+	public void setLevel(double level) {
+		this.level = level;
+	}
+	
+	/**
+	 * @return the seal
+	 */
+	public double getSeal() {
+		return seal;
+	}
+
+	/**
+	 * @param seal the seal to set
+	 */
+	public void setSeal(double seal) {
+		this.seal = seal;
+	}
 
 	/**
 	 * @return the stanje
@@ -761,6 +795,8 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		setBloodlineNullify(0);
 		setMorph(0);
 		setChakra(0);
+		setLevel(0);
+		setSeal(0);
 	}
 	
 	public double calculateDMG () {
@@ -783,17 +819,24 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	}
 	
 	public double ninjutsuDMG () {
-		int nin = (int) getNinjutsu();
-		int n1 = rand.nextInt(nin) + 1;
+		double seal = this.seal;
+		double upLimit = 0;
+		double downLimit = 0;
+		
+		downLimit = ((10+seal)*2.5)*this.ninjutsu; //pitati Peceva da li je ovo ok ili ne treba da se koriste int up/down primenljive!?!?!?
+		upLimit = (100-(10+seal)*2.5)*this.ninjutsu;
+		
+		int down = (int) downLimit;
+		int up = (int) upLimit;
+		
+		int n1 = rand.nextInt(up) + down;
 		int roll = rand.nextInt(100) + 1;
 		if(roll<=this.reroll) {
-			int n2 = rand.nextInt(nin) + 1;
+			int n2 = rand.nextInt(up) + down;
 				if(n2>n1) {
 					return n2;
 				} else return n1;
 		} else return n1;
-		//Ovde fali seal da se uzme u obzir, ali moze da se racuna i bez seal tako da za sada radi jednostavnosti i same
-		//provere za pocetak bez seal atributa
 	}
 	
 	public double bukijutsuDMG () {
@@ -802,20 +845,25 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	}
 	
 	public double DMGvsKaguya () {
-		double total = 0;
-		double tempDMG;
-		double KaguyaDMG;
-		double pen;
-		int runda = 0;
+		double KaguyaDMG = Kaguya.KaguyaAttack();;
+		double fatigue = this.fatigue;
+		double stamina = this.stamina;
+		double endurance = this.endurance;
+		double level = this.level;
 		
-		double lvl = 30, neededStamina = 0, x = 0; // ovo treba da se uzme od gore, ali sam zaboravio pa samo prebaci kasnije!!!!
+		double pen; // promenljiva za racunanje vrednosti penalty-a napada
+		double total = 0; // promenljiva za total dmg iz borbe
+		double stamEff = 0; // promenljiva za racunjanje stamina efficiency-a
+		double penBoost = 0; // promenljiva za skladistenje endurance boost-a za smanjivanje penalty-a
+		double penBoost2 = 0; // promenljiva za racunanje endurance boost-a za smanjivanje penalty-a 
+		int runda = 0; // promenljiva za racunanja broja runde
+		double neededStamina = 0; // promeljiva za racunaje koliko stamina je potrebno za 100% efficiency
 		
-		neededStamina = lvl*2.5+60;
-		x=100*100/neededStamina;
+		neededStamina = level*2.5+60;
+		stamEff = stamina*100/neededStamina;
+		
 		runda++; // 1
-		tempDMG = calculateDMG();
-		//KaguyaDMG = 100; //UMESTO 100 TREBA FUNKCIJA ZA KAGUYU
-		KaguyaDMG = KaguyaAttack(); //OVO BI TREBALO DA BUDE DOBRO! ONO OD GORE JE PRETHODNA VERZIJA
+		double tempDMG = calculateDMG ();
 		total += tempDMG;
 		
 		if (tempDMG>KaguyaDMG) {
@@ -824,30 +872,53 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==2) {
-			pen = 35*x/100;
+			pen = (35+fatigue)*stamEff/100;
 			pen += 60;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			} 
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
+			
 			if (tempDMG>KaguyaDMG) {
 				runda++; // 3
 			} else return total;
 		} else return total;
 		
 		if (runda==3) {
-			pen = 50*x/100;
+			pen = (50+fatigue)*stamEff/100;
 			pen += 30;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
+			
 			if (tempDMG>KaguyaDMG) {
 				runda++; // 4
 			} else return total;
 		} else return total;
 		
 		if (runda==4) {
-			pen = 45*x/100;
+			pen = (55+fatigue)*stamEff/100;
 			pen += 10;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
@@ -857,40 +928,72 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==5) {
-			pen = 50*x/100;
+			pen = (50+fatigue)*stamEff/100;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
+			
 			if (tempDMG>KaguyaDMG) {
 				runda++; // 6
 			} else return total;
 		} else return total;
 		
 		if (runda==6) {
-			pen = 35*x/100;
+			pen = (35+fatigue)*stamEff/100;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
+			
 			if (tempDMG>KaguyaDMG) {
 				runda++; // 7
 			} else return total;
 		} else return total;
 		
 		if (runda==7) {
-			pen = 20*x/100;
+			pen = (20+fatigue)*stamEff/100;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
+			
 			if (tempDMG>KaguyaDMG) {
 				runda++; // 7
 			} else return total;
 		} else return total;
 		
 		if (runda>7) {
-			pen = 5*x/100;
+			pen = (5+fatigue)*stamEff/100;
+			penBoost = 100 - pen;
+			penBoost2 = penBoost*200/(200+endurance);
+			penBoost = penBoost - penBoost2;
+			pen += penBoost;
+			if (pen>=100) {
+				pen = 100;
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
+			
 			if (tempDMG>KaguyaDMG) {
 				runda++; // 8
 			} else return total;
@@ -900,7 +1003,8 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	}
 	
 	
-	// FUNKCIJA ZA POVLACENJE IZ BAZE!!!
+	// FUNKCIJA ZA POVLACENJE IZ BAZE!!! 
+	// Potencijalno bespotrebno :3
 	public void pullPodataka () {
 		try
 		{
@@ -948,5 +1052,4 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 			System.err.println(e.getMessage());
     	}
 	}
-	
 }

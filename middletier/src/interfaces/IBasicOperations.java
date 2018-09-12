@@ -8,6 +8,4 @@ public interface IBasicOperations {
 	public double ifCrit();
 	public double ninjutsuDMG();
 	public double bukijutsuDMG();
-
-	public double KaguyaAttack();
 }
