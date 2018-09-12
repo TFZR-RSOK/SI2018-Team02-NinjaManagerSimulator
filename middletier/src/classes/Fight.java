@@ -2,7 +2,8 @@ package classes;
 
 public class Fight {
 	
-	protected Object Team, Kaguya;
+	Team Team;
+	Kaguya Kaguya;
 	
 	public Fight () {
 		this.Team = new Team();
@@ -12,33 +13,30 @@ public class Fight {
 	/**
 	 * @return the team
 	 */
-	public Object getTeam() {
+	public Team getTeam() {
 		return Team;
 	}
 
 	/**
 	 * @param team the team to set
 	 */
-	public void setTeam(Object team) {
+	public void setTeam(Team team) {
 		Team = team;
 	}
 
 	/**
 	 * @return the kaguya
 	 */
-	public Object getKaguya() {
+	public Kaguya getKaguya() {
 		return Kaguya;
 	}
 
 	/**
 	 * @param kaguya the kaguya to set
 	 */
-	public void setKaguya(Object kaguya) {
+	public void setKaguya(Kaguya kaguya) {
 		Kaguya = kaguya;
 	}
-	/*
-	public double calcTotalDmg() {
 
-	}
-	*/
+
 }

@@ -13,7 +13,8 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	protected double attack, genjutsuActivation, genjutsuMastery, genjutsuRecharge, genjutsuAbsorb, genjutsuLearn, genjutsuCopy, //Rest of the stats
 						bukijutsuRecovery, bukijutsuBoost, critChance, critStrike, reroll, focus, focusBurst, focusRange, 
 						endurance, fatigue, offPositioning, taijutsuImmunity, ninjutsuImmunity, bukijutsuImmunity, attackImmunity,
-						genjutsuImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, morph, chakra, level, seal;
+						genjutsuImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, morph, chakra, level, seal,
+						restBuki;
 
 	protected Stanja stanje;
 
@@ -73,6 +74,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		this.chakra=0;
 		this.level=0;
 		this.seal=0;
+		this.restBuki=0;
 		this.stanje=Stanja.clearNinja;
 	}
 
@@ -733,6 +735,20 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	public void setSeal(double seal) {
 		this.seal = seal;
 	}
+	
+	/**
+	 * @return the restBuki
+	 */
+	public double getRestBuki() {
+		return restBuki;
+	}
+
+	/**
+	 * @param restBuki the restBuki to set
+	 */
+	public void setRestBuki(double restBuki) {
+		this.restBuki = restBuki;
+	}
 
 	/**
 	 * @return the stanje
@@ -797,6 +813,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		setChakra(0);
 		setLevel(0);
 		setSeal(0);
+		setRestBuki(0);
 	}
 	
 	public double calculateDMG () {
@@ -839,12 +856,25 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return n1;
 	}
 	
-	public double bukijutsuDMG () {
+	public double bukijutsuDMG () { //Potrebno je testirati ovo ponovo ! Cisto da budem siguran :D
+		double x = 0;
 		double bukiDMG = this.bukijutsu*this.bukijutsuBoost/100;
+		if (this.restBuki>bukiDMG) {
+			x = this.restBuki - bukiDMG;
+		} else if (this.restBuki<=bukiDMG) {
+			bukiDMG = this.restBuki;
+			x = bukiDMG - this.restBuki;
+		} 
+		double r = this.bukijutsuRecovery*this.bukijutsu/100;
+		this.restBuki = x + r;
+		if (this.restBuki>this.bukijutsu) {
+			this.restBuki = this.bukijutsu;
+		} 
 		return bukiDMG;
 	}
 	
 	public double DMGvsKaguya () {
+		this.restBuki = this.bukijutsu;
 		double KaguyaDMG = Kaguya.KaguyaAttack();;
 		double fatigue = this.fatigue;
 		double stamina = this.stamina;
