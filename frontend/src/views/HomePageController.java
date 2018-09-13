@@ -19,10 +19,11 @@ public class HomePageController {
 		loader.setLocation(Main.class.getResource("/views/CompareNinjas.fxml"));
 		Parent compareNinjas = loader.load();
 		Scene scene = new Scene(compareNinjas);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Compare Ninjas");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		Stage compareNinjasStage = new Stage();
+		//compareNinjasStage.setTitle("Compare Ninjas");
+		compareNinjasStage.setScene(scene);
+		compareNinjasStage.show();
+		
 	}
 	
 	@FXML

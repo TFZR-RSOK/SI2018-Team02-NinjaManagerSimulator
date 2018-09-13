@@ -14,3 +14,99 @@
 #btnKaguyaSimulator {
 	-fx-background-color: #392a1a; 
 }
+#btnFight {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+	
+}
+
+#btnLoadKS {
+	-fx-background-color: #6e4730;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnSaveKS {
+	-fx-background-color: #6e4730;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcGenin1 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcGenin2 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcGenin3 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcJounin1{
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcJounin2 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcKage {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnSave {
+	-fx-background-color: #6e4730;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnLoad {
+	-fx-background-color: #6e4730;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnSS {
+	-fx-background-color: #6e4730;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+}
