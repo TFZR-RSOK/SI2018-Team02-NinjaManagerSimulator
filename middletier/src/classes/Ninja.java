@@ -5,7 +5,7 @@ import interfaces.IBasicOperations;
 import java.sql.*;
 import java.util.Random;
 
-public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode iz druge klase, trazi da klasa Ninja bude abstraktna zajedno sa klasom iz koje se poziva metoda
+public class Ninja implements IBasicOperations { 
 
 	protected String name, tip;
 	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
@@ -723,6 +723,20 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	}
 	
 	/**
+	 * @param level the level to decrement
+	 */
+	public void setLevelMinus(double level) {
+		this.level = level-1;
+	}
+	
+	/**
+	 * @param level the level to increment
+	 */
+	public void setLevelPlus(double level) {
+		this.level = level+1;
+	}
+	
+	/**
 	 * @return the seal
 	 */
 	public double getSeal() {
@@ -840,7 +854,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		double upLimit = 0;
 		double downLimit = 0;
 		
-		downLimit = ((10+seal)*2.5)*this.ninjutsu; //pitati Peceva da li je ovo ok ili ne treba da se koriste int up/down primenljive!?!?!?
+		downLimit = ((10+seal)*2.5)*this.ninjutsu;
 		upLimit = (100-(10+seal)*2.5)*this.ninjutsu;
 		
 		int down = (int) downLimit;
@@ -876,10 +890,6 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	public double DMGvsKaguya () {
 		this.restBuki = this.bukijutsu;
 		double KaguyaDMG = Kaguya.KaguyaAttack();;
-		double fatigue = this.fatigue;
-		double stamina = this.stamina;
-		double endurance = this.endurance;
-		double level = this.level;
 		
 		double pen; // promenljiva za racunanje vrednosti penalty-a napada
 		double total = 0; // promenljiva za total dmg iz borbe
@@ -889,8 +899,8 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		int runda = 0; // promenljiva za racunanja broja runde
 		double neededStamina = 0; // promeljiva za racunaje koliko stamina je potrebno za 100% efficiency
 		
-		neededStamina = level*2.5+60;
-		stamEff = stamina*100/neededStamina;
+		neededStamina = this.level*2.5+60;
+		stamEff = this.stamina*100/neededStamina;
 		
 		runda++; // 1
 		double tempDMG = calculateDMG ();
@@ -902,29 +912,29 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==2) {
-			pen = (35+fatigue)*stamEff/100;
+			pen = (35+this.fatigue)*stamEff/100;
 			pen += 60;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
 				pen = 100;
-			} 
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
 			
 			if (tempDMG>KaguyaDMG) {
-				runda++; // 3
+				runda++; // 4
 			} else return total;
 		} else return total;
 		
 		if (runda==3) {
-			pen = (50+fatigue)*stamEff/100;
+			pen = (50+this.fatigue)*stamEff/100;
 			pen += 30;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -940,10 +950,10 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==4) {
-			pen = (55+fatigue)*stamEff/100;
+			pen = (55+this.fatigue)*stamEff/100;
 			pen += 10;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -958,9 +968,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==5) {
-			pen = (50+fatigue)*stamEff/100;
+			pen = (50+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -976,9 +986,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==6) {
-			pen = (35+fatigue)*stamEff/100;
+			pen = (35+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -994,9 +1004,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==7) {
-			pen = (20+fatigue)*stamEff/100;
+			pen = (20+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -1012,9 +1022,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda>7) {
-			pen = (5+fatigue)*stamEff/100;
+			pen = (5+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -1082,4 +1092,41 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 			System.err.println(e.getMessage());
     	}
 	}
+	
+	
+	// OVO RADI! O.o
+	public void ispisImena () {
+			try
+				{
+					// create our mysql database connection
+					String myDriver = "org.gjt.mm.mysql.Driver";
+					String myUrl = "jdbc:mysql://localhost:3307/nmsimulatorproba2";
+					Class.forName(myDriver);
+					Connection conn = DriverManager.getConnection(myUrl, "root", "");
+		      
+					// our SQL SELECT query. 
+					// if you only need a few columns, specify them by name instead of using "*"
+					String query = "SELECT * FROM genin";
+					
+					// create the java statement
+					Statement st = conn.createStatement();
+					
+					// execute the query, and get a java resultset
+					ResultSet rs = st.executeQuery(query);
+					
+					// iterate through the java resultset
+					while (rs.next())
+					{
+						this.name = rs.getString("ImeNinje");
+						System.out.println(this.name+"\n");
+						
+					}
+					st.close();
+				}
+				catch (Exception e)
+				{
+					System.err.println("Got an exception! ");
+					System.err.println(e.getMessage());
+		    	}
+		}
 }
