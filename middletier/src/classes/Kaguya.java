@@ -170,5 +170,5 @@ public class Kaguya {
 		double attack = this.taijutsu/2+this.ninjutsu+this.bukijutsu*this.bukijutsuBoost/100;
 		return attack;
 	} 
-
+	
 }

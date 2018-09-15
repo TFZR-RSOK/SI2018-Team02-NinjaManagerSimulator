@@ -3,6 +3,7 @@ import enums.Stanja;
 import interfaces.IBasicOperations;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Ninja implements IBasicOperations { 
@@ -20,6 +21,8 @@ public class Ninja implements IBasicOperations {
 
 	Random rand;
 	Kaguya Kaguya;
+	Ability ability1, ability2, ability3;
+	Stats stats;
 	
 	/**
 	 * Constructor for Ninja class
@@ -27,6 +30,12 @@ public class Ninja implements IBasicOperations {
 	public Ninja () {
 		this.rand = new Random();
 		this.Kaguya = new Kaguya();
+		
+		this.ability1 = new Ability();
+		this.ability2 = new Ability();
+		this.ability3 = new Ability();
+		this.stats = new Stats();
+		
 		this.name="";
 		this.tip="";
 		this.taijutsu=0;
@@ -77,6 +86,55 @@ public class Ninja implements IBasicOperations {
 		this.restBuki=0;
 		this.stanje=Stanja.clearNinja;
 	}
+
+	
+	/**
+	 * @return the ability1
+	 */
+	public Ability getAbility1() {
+		return ability1;
+	}
+
+
+	/**
+	 * @param ability1 the ability1 to set
+	 */
+	public void setAbility1(Ability ability1) {
+		this.ability1 = ability1;
+	}
+
+
+	/**
+	 * @return the ability2
+	 */
+	public Ability getAbility2() {
+		return ability2;
+	}
+
+
+	/**
+	 * @param ability2 the ability2 to set
+	 */
+	public void setAbility2(Ability ability2) {
+		this.ability2 = ability2;
+	}
+
+
+	/**
+	 * @return the ability3
+	 */
+	public Ability getAbility3() {
+		return ability3;
+	}
+
+
+	/**
+	 * @param ability3 the ability3 to set
+	 */
+	public void setAbility3(Ability ability3) {
+		this.ability3 = ability3;
+	}
+
 
 	/**
 	 * @return the name
@@ -870,7 +928,7 @@ public class Ninja implements IBasicOperations {
 		} else return n1;
 	}
 	
-	public double bukijutsuDMG () { //Potrebno je testirati ovo ponovo ! Cisto da budem siguran :D
+	public double bukijutsuDMG () {
 		double x = 0;
 		double bukiDMG = this.bukijutsu*this.bukijutsuBoost/100;
 		if (this.restBuki>bukiDMG) {
@@ -879,7 +937,7 @@ public class Ninja implements IBasicOperations {
 			bukiDMG = this.restBuki;
 			x = bukiDMG - this.restBuki;
 		} 
-		double r = this.bukijutsuRecovery*this.bukijutsu/100;
+		double r = this.bukijutsuRecovery*bukiDMG/100;
 		this.restBuki = x + r;
 		if (this.restBuki>this.bukijutsu) {
 			this.restBuki = this.bukijutsu;
@@ -889,7 +947,7 @@ public class Ninja implements IBasicOperations {
 	
 	public double DMGvsKaguya () {
 		this.restBuki = this.bukijutsu;
-		double KaguyaDMG = Kaguya.KaguyaAttack();;
+		double KaguyaDMG = Kaguya.KaguyaAttack();
 		
 		double pen; // promenljiva za racunanje vrednosti penalty-a napada
 		double total = 0; // promenljiva za total dmg iz borbe
@@ -1040,6 +1098,42 @@ public class Ninja implements IBasicOperations {
 		} else return total;
 		
 		return total;
+	}
+	//OVO JE OCAJNO, MORA DA LETI, ZA SADA SAMO DA BI RADILO POSTOJI...
+	public void dugmeCalculate () {
+		this.name = "";
+		//this.id = 0;
+		this.taijutsu += ability1.taijutsu + ability2.taijutsu + ability3.taijutsu + stats.t;
+		this.ninjutsu += ability1.ninjutsu + ability2.ninjutsu + ability3.ninjutsu + stats.n;
+		this.bukijutsu += ability1.bukijutsu + ability2.bukijutsu + ability3.bukijutsu + stats.b;
+		this.element += ability1.element + ability2.element + ability3.element + stats.e;
+		this.stamina += ability1.stamina + ability2.stamina + ability3.stamina + stats.s;
+		this.genjutsu += ability1.gen + ability2.gen + ability3.gen + stats.g;
+		this.attack += ability1.attack + ability2.attack + ability3.attack;
+		this.bukijutsuRecovery += ability1.bukiRec + ability2.bukiRec + ability3.bukiRec + stats.br;
+		this.bukijutsuBoost += ability1.bukiBoost + ability2.bukiBoost + ability3.bukiBoost;
+		this.critChance += ability1.critChance + ability2.critChance + ability3.critChance;
+		this.critStrike += ability1.critStrike + ability2.critStrike + ability3.critStrike + stats.cs;
+		this.reroll += ability1.reroll + ability2.reroll + ability3.reroll;
+		this.endurance += ability1.endurance + ability2.endurance + ability3.endurance;
+		this.fatigue += ability1.fatigue + ability2.fatigue + ability3.fatigue;
+		this.taijutsuImmunity += ability1.taiImmunity + ability2.taiImmunity + ability3.taiImmunity;
+		this.ninjutsuImmunity += ability1.ninImmunity + ability2.ninImmunity + ability3.ninImmunity;
+		this.bukijutsuImmunity += ability1.bukiImmunity + ability2.bukiImmunity + ability3.bukiImmunity;
+		this.attackImmunity += ability1.attackImmunity + ability2.attackImmunity + ability3.attackImmunity;
+		this.genjutsuImmunity += ability1.genImmunity + ability2.genImmunity + ability3.genImmunity;
+		this.poisonImmunity += ability1.poisonImmunity + ability2.poisonImmunity + ability3.poisonImmunity;
+		this.poison += ability1.poison + ability2.poison + ability3.poison;
+		this.guard += ability1.guard + ability2.guard + ability3.guard;
+		this.absorb += ability1.absorb + ability2.absorb + ability3.absorb;
+		this.lvl5Death += ability1.lvl5Death + ability2.lvl5Death + ability3.lvl5Death;
+		this.bloodlineNullify += ability1.bloodlineNullify + ability2.bloodlineNullify + ability3.bloodlineNullify;
+		this.genjutsuActivation += ability1.genAct + ability2.genAct + ability3.genAct;
+		this.genjutsuMastery += ability1.genMast + ability2.genMast + ability3.genMast;
+		this.genjutsuRecharge += ability1.genRec + ability2.genRec + ability3.genRec;
+		this.genjutsuAbsorb += ability1.genAbs + ability2.genAbs + ability3.genAbs;
+		this.genjutsuLearn += ability1.genLearn + ability2.genLearn + ability3.genLearn;
+		this.genjutsuCopy += ability1.genCopy + ability2.genCopy + ability3.genCopy;
 	}
 	
 	
