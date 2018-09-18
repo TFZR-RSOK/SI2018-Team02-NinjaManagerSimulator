@@ -2,7 +2,7 @@ package classes;
 
 public class Stats {
 	
-	protected double t, n, b, e, s, g, cs, br;
+	protected double t, n, b, e, s, g, r, cs, br;
 	
 	public Stats () {
 		this.t = 0;
@@ -11,8 +11,23 @@ public class Stats {
 		this.e = 0;
 		this.s = 0;
 		this.g = 0;
+		this.r = 0;
 		this.cs = 0;
 		this.br = 0;
+	}
+
+	/**
+	 * @return the r
+	 */
+	public double getR() {
+		return r;
+	}
+
+	/**
+	 * @param r the r to set
+	 */
+	public void setR(double r) {
+		this.r = r;
 	}
 
 	/**

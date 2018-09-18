@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class Ninja implements IBasicOperations { 
 
+	protected ArrayList <Ability> abilities;
 	protected String name, tip;
 	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
 						taijutsuGrowth, ninjutsuGrowth, bukijutsuGrowth, elementGrowth, genjutsuGrowth, staminaGrowth; //Base stats growth
@@ -19,9 +20,8 @@ public class Ninja implements IBasicOperations {
 
 	protected Stanja stanje;
 
-	Random rand;
+	Random rand; 
 	Kaguya Kaguya;
-	Ability ability1, ability2, ability3;
 	Stats stats;
 	
 	/**
@@ -31,9 +31,12 @@ public class Ninja implements IBasicOperations {
 		this.rand = new Random();
 		this.Kaguya = new Kaguya();
 		
-		this.ability1 = new Ability();
-		this.ability2 = new Ability();
-		this.ability3 = new Ability();
+		abilities = new ArrayList<Ability>();
+		Ability abil = new Ability();
+		this.abilities.add(abil);
+		this.abilities.add(abil);
+		this.abilities.add(abil);
+		
 		this.stats = new Stats();
 		
 		this.name="";
@@ -88,52 +91,41 @@ public class Ninja implements IBasicOperations {
 	}
 
 	
+	
 	/**
-	 * @return the ability1
+	 * @return the abilities
 	 */
-	public Ability getAbility1() {
-		return ability1;
+	public ArrayList<Ability> getAbilities() {
+		return abilities;
 	}
 
 
+
 	/**
-	 * @param ability1 the ability1 to set
+	 * @param abilities the abilities to set
 	 */
-	public void setAbility1(Ability ability1) {
-		this.ability1 = ability1;
+	public void setAbilities(ArrayList<Ability> abilities) {
+		this.abilities = abilities;
 	}
 
 
+
 	/**
-	 * @return the ability2
+	 * @return the stats
 	 */
-	public Ability getAbility2() {
-		return ability2;
+	public Stats getStats() {
+		return stats;
 	}
 
 
-	/**
-	 * @param ability2 the ability2 to set
-	 */
-	public void setAbility2(Ability ability2) {
-		this.ability2 = ability2;
-	}
-
 
 	/**
-	 * @return the ability3
+	 * @param stats the stats to set
 	 */
-	public Ability getAbility3() {
-		return ability3;
+	public void setStats(Stats stats) {
+		this.stats = stats;
 	}
 
-
-	/**
-	 * @param ability3 the ability3 to set
-	 */
-	public void setAbility3(Ability ability3) {
-		this.ability3 = ability3;
-	}
 
 
 	/**
@@ -1099,128 +1091,53 @@ public class Ninja implements IBasicOperations {
 		
 		return total;
 	}
-	//OVO JE OCAJNO, MORA DA LETI, ZA SADA SAMO DA BI RADILO POSTOJI...
+	// Fixed it. #peaceOut
 	public void dugmeCalculate () {
-		this.name = "";
-		//this.id = 0;
-		this.taijutsu += ability1.taijutsu + ability2.taijutsu + ability3.taijutsu + stats.t;
-		this.ninjutsu += ability1.ninjutsu + ability2.ninjutsu + ability3.ninjutsu + stats.n;
-		this.bukijutsu += ability1.bukijutsu + ability2.bukijutsu + ability3.bukijutsu + stats.b;
-		this.element += ability1.element + ability2.element + ability3.element + stats.e;
-		this.stamina += ability1.stamina + ability2.stamina + ability3.stamina + stats.s;
-		this.genjutsu += ability1.gen + ability2.gen + ability3.gen + stats.g;
-		this.attack += ability1.attack + ability2.attack + ability3.attack;
-		this.bukijutsuRecovery += ability1.bukiRec + ability2.bukiRec + ability3.bukiRec + stats.br;
-		this.bukijutsuBoost += ability1.bukiBoost + ability2.bukiBoost + ability3.bukiBoost;
-		this.critChance += ability1.critChance + ability2.critChance + ability3.critChance;
-		this.critStrike += ability1.critStrike + ability2.critStrike + ability3.critStrike + stats.cs;
-		this.reroll += ability1.reroll + ability2.reroll + ability3.reroll;
-		this.endurance += ability1.endurance + ability2.endurance + ability3.endurance;
-		this.fatigue += ability1.fatigue + ability2.fatigue + ability3.fatigue;
-		this.taijutsuImmunity += ability1.taiImmunity + ability2.taiImmunity + ability3.taiImmunity;
-		this.ninjutsuImmunity += ability1.ninImmunity + ability2.ninImmunity + ability3.ninImmunity;
-		this.bukijutsuImmunity += ability1.bukiImmunity + ability2.bukiImmunity + ability3.bukiImmunity;
-		this.attackImmunity += ability1.attackImmunity + ability2.attackImmunity + ability3.attackImmunity;
-		this.genjutsuImmunity += ability1.genImmunity + ability2.genImmunity + ability3.genImmunity;
-		this.poisonImmunity += ability1.poisonImmunity + ability2.poisonImmunity + ability3.poisonImmunity;
-		this.poison += ability1.poison + ability2.poison + ability3.poison;
-		this.guard += ability1.guard + ability2.guard + ability3.guard;
-		this.absorb += ability1.absorb + ability2.absorb + ability3.absorb;
-		this.lvl5Death += ability1.lvl5Death + ability2.lvl5Death + ability3.lvl5Death;
-		this.bloodlineNullify += ability1.bloodlineNullify + ability2.bloodlineNullify + ability3.bloodlineNullify;
-		this.genjutsuActivation += ability1.genAct + ability2.genAct + ability3.genAct;
-		this.genjutsuMastery += ability1.genMast + ability2.genMast + ability3.genMast;
-		this.genjutsuRecharge += ability1.genRec + ability2.genRec + ability3.genRec;
-		this.genjutsuAbsorb += ability1.genAbs + ability2.genAbs + ability3.genAbs;
-		this.genjutsuLearn += ability1.genLearn + ability2.genLearn + ability3.genLearn;
-		this.genjutsuCopy += ability1.genCopy + ability2.genCopy + ability3.genCopy;
+			
+			this.taijutsu += stats.getT();
+			this.ninjutsu += stats.getN();
+			this.bukijutsu += stats.getB();
+			this.stamina += stats.getS();
+			this.element += stats.getE();
+			this.genjutsu += stats.getG();
+			this.reroll += stats.getR();
+			this.critStrike += stats.getCs();
+			this.bukijutsuRecovery += stats.getBr();
+		
+		for (Ability abil : this.abilities) {
+			this.taijutsu += abil.getTaijutsu();	
+			this.ninjutsu += abil.getNinjutsu();
+			this.bukijutsu += abil.getBukijutsu();
+			this.element += abil.getElement();
+			this.stamina += abil.getStamina();
+			this.genjutsu += abil.getGen();
+			this.attack += abil.getAttack();
+			this.bukijutsuRecovery += abil.getBukiRec();
+			this.bukijutsuBoost += abil.getBukiBoost();
+			this.critChance += abil.getCritChance();
+			this.critStrike += abil.getCritStrike();
+			this.reroll += abil.getReroll();
+			this.endurance += abil.getEndurance();
+			this.fatigue += abil.getFatigue();
+			this.taijutsuImmunity += abil.getTaiImmunity();
+			this.ninjutsuImmunity += abil.getNinImmunity();
+			this.bukijutsuImmunity += abil.getBukiImmunity();
+			this.attackImmunity += abil.getAttackImmunity();
+			this.genjutsuImmunity += abil.getGenImmunity();
+			this.poisonImmunity += abil.getPoisonImmunity();
+			this.poison += abil.getPoison();
+			this.guard += abil.getGuard();
+			this.absorb += abil.getAbsorb();
+			this.lvl5Death += abil.getLvl5Death();
+			this.bloodlineNullify += abil.getBloodlineNullify();
+			this.genjutsuActivation += abil.getGenAct();
+			this.genjutsuMastery += abil.getGenMast();
+			this.genjutsuRecharge += abil.getGenRec();
+			this.genjutsuAbsorb += abil.getGenAbs();
+			this.genjutsuLearn += abil.getGenLearn();
+			this.genjutsuCopy += abil.getGenCopy();
+			}	
+		
 	}
 	
-	
-	// FUNKCIJA ZA POVLACENJE IZ BAZE!!! 
-	// Potencijalno bespotrebno :3
-	public void pullPodataka () {
-		try
-		{
-			// create our mysql database connection
-			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost/test";
-			Class.forName(myDriver);
-			Connection conn = DriverManager.getConnection(myUrl, "root", "");
-      
-			// our SQL SELECT query. 
-			// if you only need a few columns, specify them by name instead of using "*"
-			String query = "SELECT * FROM genin";
-			
-			// create the java statement
-			Statement st = conn.createStatement();
-			
-			// execute the query, and get a java resultset
-			ResultSet rs = st.executeQuery(query);
-			
-			// iterate through the java resultset
-			while (rs.next())
-			{
-				int id = rs.getInt("id"); //OVO TI NI NE TREBA U SUSTINI
-				this.name = rs.getString("ImeNinje");
-				this.tip = rs.getString(""); //STEFAN NEMA U BAZI OZNAKU ILI JA NE ZNA KAKO DA POVUCEM!
-				this.taijutsu = rs.getDouble("Taijutsu");
-				this.ninjutsu = rs.getDouble("Ninjutsu");
-				this.bukijutsu = rs.getDouble("Bukijutsu");
-				this.element = rs.getDouble("Element");
-				this.genjutsu = rs.getDouble("Genjutsu");
-				this.stamina = rs.getDouble("Stamina");
-				this.taijutsuGrowth = rs.getDouble("TaijutsuGrow");
-				this.ninjutsuGrowth = rs.getDouble("NinjutsuGrow");
-				this.bukijutsuGrowth = rs.getDouble("BukijutsuGrow");
-				this.elementGrowth = rs.getDouble("ElementGrow");
-				this.genjutsuGrowth = rs.getDouble("GenjutsuGrow");
-				this.staminaGrowth = rs.getDouble("StaminaGrow");
-				
-			}
-			st.close();
-		}
-		catch (Exception e)
-		{
-			System.err.println("Got an exception! ");
-			System.err.println(e.getMessage());
-    	}
-	}
-	
-	
-	// OVO RADI! O.o
-	public void ispisImena () {
-			try
-				{
-					// create our mysql database connection
-					String myDriver = "org.gjt.mm.mysql.Driver";
-					String myUrl = "jdbc:mysql://localhost:3307/nmsimulatorproba2";
-					Class.forName(myDriver);
-					Connection conn = DriverManager.getConnection(myUrl, "root", "");
-		      
-					// our SQL SELECT query. 
-					// if you only need a few columns, specify them by name instead of using "*"
-					String query = "SELECT * FROM genin";
-					
-					// create the java statement
-					Statement st = conn.createStatement();
-					
-					// execute the query, and get a java resultset
-					ResultSet rs = st.executeQuery(query);
-					
-					// iterate through the java resultset
-					while (rs.next())
-					{
-						this.name = rs.getString("ImeNinje");
-						System.out.println(this.name+"\n");
-						
-					}
-					st.close();
-				}
-				catch (Exception e)
-				{
-					System.err.println("Got an exception! ");
-					System.err.println(e.getMessage());
-		    	}
-		}
 }
