@@ -3,10 +3,12 @@ import enums.Stanja;
 import interfaces.IBasicOperations;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Random;
 
-public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode iz druge klase, trazi da klasa Ninja bude abstraktna zajedno sa klasom iz koje se poziva metoda
+public class Ninja implements IBasicOperations { 
 
+	protected ArrayList <Ability> abilities;
 	protected String name, tip;
 	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
 						taijutsuGrowth, ninjutsuGrowth, bukijutsuGrowth, elementGrowth, genjutsuGrowth, staminaGrowth; //Base stats growth
@@ -18,8 +20,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 
 	protected Stanja stanje;
 
-	Random rand;
+	Random rand; 
 	Kaguya Kaguya;
+	Stats stats;
 	
 	/**
 	 * Constructor for Ninja class
@@ -27,6 +30,15 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	public Ninja () {
 		this.rand = new Random();
 		this.Kaguya = new Kaguya();
+		
+		abilities = new ArrayList<Ability>();
+		Ability abil = new Ability();
+		this.abilities.add(abil);
+		this.abilities.add(abil);
+		this.abilities.add(abil);
+		
+		this.stats = new Stats();
+		
 		this.name="";
 		this.tip="";
 		this.taijutsu=0;
@@ -77,6 +89,44 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		this.restBuki=0;
 		this.stanje=Stanja.clearNinja;
 	}
+
+	
+	
+	/**
+	 * @return the abilities
+	 */
+	public ArrayList<Ability> getAbilities() {
+		return abilities;
+	}
+
+
+
+	/**
+	 * @param abilities the abilities to set
+	 */
+	public void setAbilities(ArrayList<Ability> abilities) {
+		this.abilities = abilities;
+	}
+
+
+
+	/**
+	 * @return the stats
+	 */
+	public Stats getStats() {
+		return stats;
+	}
+
+
+
+	/**
+	 * @param stats the stats to set
+	 */
+	public void setStats(Stats stats) {
+		this.stats = stats;
+	}
+
+
 
 	/**
 	 * @return the name
@@ -723,6 +773,20 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	}
 	
 	/**
+	 * @param level the level to decrement
+	 */
+	public void setLevelMinus(double level) {
+		this.level = level-1;
+	}
+	
+	/**
+	 * @param level the level to increment
+	 */
+	public void setLevelPlus(double level) {
+		this.level = level+1;
+	}
+	
+	/**
 	 * @return the seal
 	 */
 	public double getSeal() {
@@ -840,7 +904,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		double upLimit = 0;
 		double downLimit = 0;
 		
-		downLimit = ((10+seal)*2.5)*this.ninjutsu; //pitati Peceva da li je ovo ok ili ne treba da se koriste int up/down primenljive!?!?!?
+		downLimit = ((10+seal)*2.5)*this.ninjutsu;
 		upLimit = (100-(10+seal)*2.5)*this.ninjutsu;
 		
 		int down = (int) downLimit;
@@ -856,7 +920,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return n1;
 	}
 	
-	public double bukijutsuDMG () { //Potrebno je testirati ovo ponovo ! Cisto da budem siguran :D
+	public double bukijutsuDMG () {
 		double x = 0;
 		double bukiDMG = this.bukijutsu*this.bukijutsuBoost/100;
 		if (this.restBuki>bukiDMG) {
@@ -865,7 +929,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 			bukiDMG = this.restBuki;
 			x = bukiDMG - this.restBuki;
 		} 
-		double r = this.bukijutsuRecovery*this.bukijutsu/100;
+		double r = this.bukijutsuRecovery*bukiDMG/100;
 		this.restBuki = x + r;
 		if (this.restBuki>this.bukijutsu) {
 			this.restBuki = this.bukijutsu;
@@ -875,11 +939,7 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 	
 	public double DMGvsKaguya () {
 		this.restBuki = this.bukijutsu;
-		double KaguyaDMG = Kaguya.KaguyaAttack();;
-		double fatigue = this.fatigue;
-		double stamina = this.stamina;
-		double endurance = this.endurance;
-		double level = this.level;
+		double KaguyaDMG = Kaguya.KaguyaAttack();
 		
 		double pen; // promenljiva za racunanje vrednosti penalty-a napada
 		double total = 0; // promenljiva za total dmg iz borbe
@@ -889,8 +949,8 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		int runda = 0; // promenljiva za racunanja broja runde
 		double neededStamina = 0; // promeljiva za racunaje koliko stamina je potrebno za 100% efficiency
 		
-		neededStamina = level*2.5+60;
-		stamEff = stamina*100/neededStamina;
+		neededStamina = this.level*2.5+60;
+		stamEff = this.stamina*100/neededStamina;
 		
 		runda++; // 1
 		double tempDMG = calculateDMG ();
@@ -902,29 +962,29 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==2) {
-			pen = (35+fatigue)*stamEff/100;
+			pen = (35+this.fatigue)*stamEff/100;
 			pen += 60;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
 				pen = 100;
-			} 
+			}
 			tempDMG = calculateDMG();
 			tempDMG=tempDMG*pen/100;
 			total+=tempDMG;
 			
 			if (tempDMG>KaguyaDMG) {
-				runda++; // 3
+				runda++; // 4
 			} else return total;
 		} else return total;
 		
 		if (runda==3) {
-			pen = (50+fatigue)*stamEff/100;
+			pen = (50+this.fatigue)*stamEff/100;
 			pen += 30;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -940,10 +1000,10 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==4) {
-			pen = (55+fatigue)*stamEff/100;
+			pen = (55+this.fatigue)*stamEff/100;
 			pen += 10;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -958,9 +1018,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==5) {
-			pen = (50+fatigue)*stamEff/100;
+			pen = (50+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -976,9 +1036,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==6) {
-			pen = (35+fatigue)*stamEff/100;
+			pen = (35+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -994,9 +1054,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda==7) {
-			pen = (20+fatigue)*stamEff/100;
+			pen = (20+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -1012,9 +1072,9 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		} else return total;
 		
 		if (runda>7) {
-			pen = (5+fatigue)*stamEff/100;
+			pen = (5+this.fatigue)*stamEff/100;
 			penBoost = 100 - pen;
-			penBoost2 = penBoost*200/(200+endurance);
+			penBoost2 = penBoost*200/(200+this.endurance);
 			penBoost = penBoost - penBoost2;
 			pen += penBoost;
 			if (pen>=100) {
@@ -1031,55 +1091,53 @@ public class Ninja implements IBasicOperations { //Problem sa koriscenjem metode
 		
 		return total;
 	}
-	
-	
-	// FUNKCIJA ZA POVLACENJE IZ BAZE!!! 
-	// Potencijalno bespotrebno :3
-	public void pullPodataka () {
-		try
-		{
-			// create our mysql database connection
-			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost/test";
-			Class.forName(myDriver);
-			Connection conn = DriverManager.getConnection(myUrl, "root", "");
-      
-			// our SQL SELECT query. 
-			// if you only need a few columns, specify them by name instead of using "*"
-			String query = "SELECT * FROM genin";
+	// Fixed it. #peaceOut
+	public void dugmeCalculate () {
 			
-			// create the java statement
-			Statement st = conn.createStatement();
-			
-			// execute the query, and get a java resultset
-			ResultSet rs = st.executeQuery(query);
-			
-			// iterate through the java resultset
-			while (rs.next())
-			{
-				int id = rs.getInt("id"); //OVO TI NI NE TREBA U SUSTINI
-				this.name = rs.getString("ImeNinje");
-				this.tip = rs.getString(""); //STEFAN NEMA U BAZI OZNAKU ILI JA NE ZNA KAKO DA POVUCEM!
-				this.taijutsu = rs.getDouble("Taijutsu");
-				this.ninjutsu = rs.getDouble("Ninjutsu");
-				this.bukijutsu = rs.getDouble("Bukijutsu");
-				this.element = rs.getDouble("Element");
-				this.genjutsu = rs.getDouble("Genjutsu");
-				this.stamina = rs.getDouble("Stamina");
-				this.taijutsuGrowth = rs.getDouble("TaijutsuGrow");
-				this.ninjutsuGrowth = rs.getDouble("NinjutsuGrow");
-				this.bukijutsuGrowth = rs.getDouble("BukijutsuGrow");
-				this.elementGrowth = rs.getDouble("ElementGrow");
-				this.genjutsuGrowth = rs.getDouble("GenjutsuGrow");
-				this.staminaGrowth = rs.getDouble("StaminaGrow");
-				
-			}
-			st.close();
-		}
-		catch (Exception e)
-		{
-			System.err.println("Got an exception! ");
-			System.err.println(e.getMessage());
-    	}
+			this.taijutsu += stats.getT();
+			this.ninjutsu += stats.getN();
+			this.bukijutsu += stats.getB();
+			this.stamina += stats.getS();
+			this.element += stats.getE();
+			this.genjutsu += stats.getG();
+			this.reroll += stats.getR();
+			this.critStrike += stats.getCs();
+			this.bukijutsuRecovery += stats.getBr();
+		
+		for (Ability abil : this.abilities) {
+			this.taijutsu += abil.getTaijutsu();	
+			this.ninjutsu += abil.getNinjutsu();
+			this.bukijutsu += abil.getBukijutsu();
+			this.element += abil.getElement();
+			this.stamina += abil.getStamina();
+			this.genjutsu += abil.getGen();
+			this.attack += abil.getAttack();
+			this.bukijutsuRecovery += abil.getBukiRec();
+			this.bukijutsuBoost += abil.getBukiBoost();
+			this.critChance += abil.getCritChance();
+			this.critStrike += abil.getCritStrike();
+			this.reroll += abil.getReroll();
+			this.endurance += abil.getEndurance();
+			this.fatigue += abil.getFatigue();
+			this.taijutsuImmunity += abil.getTaiImmunity();
+			this.ninjutsuImmunity += abil.getNinImmunity();
+			this.bukijutsuImmunity += abil.getBukiImmunity();
+			this.attackImmunity += abil.getAttackImmunity();
+			this.genjutsuImmunity += abil.getGenImmunity();
+			this.poisonImmunity += abil.getPoisonImmunity();
+			this.poison += abil.getPoison();
+			this.guard += abil.getGuard();
+			this.absorb += abil.getAbsorb();
+			this.lvl5Death += abil.getLvl5Death();
+			this.bloodlineNullify += abil.getBloodlineNullify();
+			this.genjutsuActivation += abil.getGenAct();
+			this.genjutsuMastery += abil.getGenMast();
+			this.genjutsuRecharge += abil.getGenRec();
+			this.genjutsuAbsorb += abil.getGenAbs();
+			this.genjutsuLearn += abil.getGenLearn();
+			this.genjutsuCopy += abil.getGenCopy();
+			}	
+		
 	}
+	
 }

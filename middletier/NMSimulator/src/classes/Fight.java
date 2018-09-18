@@ -38,5 +38,18 @@ public class Fight {
 		Kaguya = kaguya;
 	}
 
-
+	public int fightSimulation () {
+		int countProcentage = 0;
+		
+		for (int i = 0; i<100; i++) {
+			double DMG = Team.fightSimNinja();
+			if (DMG>Kaguya.getHealth()) {
+				countProcentage++;
+			}
+		}
+		
+		return countProcentage;
+	}
+	
+	
 }
