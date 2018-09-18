@@ -2,16 +2,19 @@ package views;
 
 import java.io.IOException;
 
+import classes.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import main.Main;
 
 public class HomePageController {
 
-	private Main main;
+	
+	Main main = new Main();
 	
 	@FXML
 	private void goToCompareNinjas() throws IOException {
@@ -21,7 +24,8 @@ public class HomePageController {
 		Scene scene = new Scene(compareNinjas);
 		Stage compareNinjasStage = new Stage();
 		//compareNinjasStage.setTitle("Compare Ninjas");
-		compareNinjasStage.setScene(scene);
+	    compareNinjasStage.setScene(scene);
+		compareNinjasStage.setResizable(false);
 		compareNinjasStage.show();
 		
 	}
@@ -35,19 +39,19 @@ public class HomePageController {
 		Stage primaryStage = new Stage();
 		primaryStage.setTitle("Kaguya Simulator");
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 	
 	@FXML
 	private void goToNinjaDatabase() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/views/NinjaDatabase.fxml"));
-		Parent ninjaDatabase = loader.load();
-		Scene scene = new Scene(ninjaDatabase);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Ninja Database");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		
+		WebView web = new WebView();
+	   	web.getEngine().load("https://www.ninjamanager.com/");
+	   	Scene scene = new Scene(web);
+	   	Stage stage = new Stage();
+	   	stage.setScene(scene);
+	   	stage.show();
 	}
 	
 	@FXML
@@ -59,6 +63,7 @@ public class HomePageController {
 		Stage primaryStage = new Stage();
 		primaryStage.setTitle("Team Builder");
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 	
