@@ -289,8 +289,8 @@ public class TeamBuilderController {
 	    	TSEndKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getEndurance())));
 	    }
 	    
-	    public void listaImena () {
-	    	NinjaDBL.pullListaImena();
+	    public void listaImenaGen1 () {
+	    	//NinjaDBL.pullListaImena();
 	    }
 	    
 }

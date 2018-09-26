@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -65,12 +66,6 @@
             <RowConstraints maxHeight="767.0" minHeight="10.0" prefHeight="767.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ChoiceBox onMouseClicked="#listaImena" prefHeight="41.0" prefWidth="350.0" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="5" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="2" />
-            <ChoiceBox layoutX="450.0" layoutY="10.0" prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="3" />
-            <ChoiceBox layoutX="660.0" layoutY="10.0" prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="4" />
-            <ChoiceBox layoutX="870.0" layoutY="10.0" prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="1" />
             <Pane layoutX="1080.0" layoutY="48.0" prefHeight="704.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <children>
                   <Button fx:id="btnSave" layoutX="-2.0" layoutY="207.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SAVE" textFill="WHITE">
@@ -2769,6 +2764,12 @@
                   <ImageView fx:id="picKage" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
+            <ComboBox fx:id="TBCBGen1" onAction="#listaImenaGen1" prefHeight="31.0" prefWidth="225.0" />
+            <ComboBox prefHeight="31.0" prefWidth="227.0" GridPane.columnIndex="1" />
+            <ComboBox prefHeight="31.0" prefWidth="224.0" GridPane.columnIndex="2" />
+            <ComboBox prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="3" />
+            <ComboBox prefHeight="31.0" prefWidth="228.0" GridPane.columnIndex="4" />
+            <ComboBox prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="5" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />
