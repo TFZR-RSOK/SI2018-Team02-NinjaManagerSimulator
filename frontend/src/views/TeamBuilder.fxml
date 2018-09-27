@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -12,6 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
@@ -246,13 +248,13 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen2A1" prefWidth="100.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen2A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -506,14 +508,33 @@
                         <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="79.0" prefWidth="100.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen2A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBGen2P" mnemonicParsing="false" onAction="#PlusGen2" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen2S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBGen2M" mnemonicParsing="false" onAction="#MinusGen2" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <Button fx:id="btnCalcGenin2" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsGen2" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
@@ -692,13 +713,13 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen1A1" prefWidth="100.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen1A1" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -952,14 +973,33 @@
                         <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="69.0" prefWidth="100.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
                         <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen1A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBGen1P" mnemonicParsing="false" onAction="#PlusGen1" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen1S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBGen1M" mnemonicParsing="false" onAction="#MinusGen1" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <Button fx:id="btnCalcGenin1" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsGen1" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
@@ -1138,13 +1178,13 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen3A1" prefWidth="100.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen3A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -1404,14 +1444,33 @@
                         <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="69.0" prefWidth="100.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen3A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBGen3P" mnemonicParsing="false" onAction="#PlusGen3" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen3S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBGen3M" mnemonicParsing="false" onAction="#MinusGen3" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <Button fx:id="btnCalcGenin3" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsGen3" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
@@ -1590,13 +1649,13 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBJounin1A1" prefWidth="100.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBJounin1A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -1850,14 +1909,33 @@
                         <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="79.0" prefWidth="100.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
                         <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBJounin1A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBJouinin1P" mnemonicParsing="false" onAction="#PlusJounin1" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblJounin1S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBJouinin1M" mnemonicParsing="false" onAction="#MinusJounin1" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <Button fx:id="btnCalcJounin1" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsJounin1" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
@@ -2036,13 +2114,13 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBJounin2A1" prefWidth="100.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBJounin2A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -2296,14 +2374,33 @@
                         <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="79.0" prefWidth="100.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
                         <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBJounin2A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBJouinin2P" mnemonicParsing="false" onAction="#PlusJounin2" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblJounin2S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBJouinin2M" mnemonicParsing="false" onAction="#MinusJounin2" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <Button fx:id="btnCalcJounin2" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsJounin2" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
@@ -2482,13 +2579,13 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBKageA1" prefWidth="100.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBKageA2" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -2742,14 +2839,33 @@
                         <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="69.0" prefWidth="100.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
                         <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBKageA2" prefWidth="100.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBKageP" mnemonicParsing="false" onAction="#PlusKage" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblKageS" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBKageM" mnemonicParsing="false" onAction="#MinusKage" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <Button fx:id="btnCalcKage" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsKage" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
@@ -2764,8 +2880,15 @@
                   <ImageView fx:id="picKage" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
-            <ComboBox fx:id="TBCBGen1" onAction="#listaImenaGen1" prefHeight="31.0" prefWidth="225.0" />
-            <ComboBox prefHeight="31.0" prefWidth="227.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="TBCBGen1" prefHeight="31.0" prefWidth="225.0" />
+            <ComboBox prefHeight="31.0" prefWidth="227.0" GridPane.columnIndex="1">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:id="reihe" fx:value="Reihenschaltung" />
+                    <String fx:id="parallel" fx:value="Parallelschaltung" />
+                </FXCollections>
+            </items>
+            </ComboBox>
             <ComboBox prefHeight="31.0" prefWidth="224.0" GridPane.columnIndex="2" />
             <ComboBox prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="3" />
             <ComboBox prefHeight="31.0" prefWidth="228.0" GridPane.columnIndex="4" />

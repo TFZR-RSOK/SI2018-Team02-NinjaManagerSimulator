@@ -1,12 +1,22 @@
 package views;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import main.*;
 
-public class TeamBuilderController {
+public class TeamBuilderController implements Initializable {
+	
+	@FXML 
+	private ComboBox TBCBGen1;
 
 	    @FXML
 	    private Label baseTaiGen1Id, baseNinGen1Id, baseBukiGen1Id, baseStaGen1Id, baseEleGen1Id, baseGenGen1Id, 
@@ -288,9 +298,20 @@ public class TeamBuilderController {
 	    	TSAttackKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getAttack())));
 	    	TSEndKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getEndurance())));
 	    }
+
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+			ObservableList<String> options = FXCollections.observableArrayList("Nikola", "Milica");
+			TBCBGen1.setItems(options);
+			
+		}
 	    
-	    public void listaImenaGen1 () {
-	    	//NinjaDBL.pullListaImena();
-	    }
+	   /* public void listaImenaGen1 () {
+	    	TBCBGen1.getItems().removeAll(TBCBGen1.getItems());
+	    	TBCBGen1.getItems().addAll("Option A", "Option B", "Option C");
+	    	TBCBGen1.getSelectionModel().select("Option B");
+	    	
+	    	//TBCBGen1.getItems().add("RSOK");
+	    }*/
 	    
 }
