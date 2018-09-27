@@ -719,7 +719,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="TBCBGen1A1" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBGen1A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -1018,7 +1018,7 @@
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968c80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -2881,18 +2881,11 @@
                </children>
             </Pane>
             <ComboBox fx:id="TBCBGen1" prefHeight="31.0" prefWidth="225.0" />
-            <ComboBox prefHeight="31.0" prefWidth="227.0" GridPane.columnIndex="1">
-              <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:id="reihe" fx:value="Reihenschaltung" />
-                    <String fx:id="parallel" fx:value="Parallelschaltung" />
-                </FXCollections>
-            </items>
-            </ComboBox>
-            <ComboBox prefHeight="31.0" prefWidth="224.0" GridPane.columnIndex="2" />
-            <ComboBox prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="3" />
-            <ComboBox prefHeight="31.0" prefWidth="228.0" GridPane.columnIndex="4" />
-            <ComboBox prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="5" />
+            <ComboBox fx:id="TBCBGen2" prefHeight="31.0" prefWidth="227.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="TBCBGen3" prefHeight="31.0" prefWidth="224.0" GridPane.columnIndex="2" />
+            <ComboBox fx:id="TBCBJounin1" prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="3" />
+            <ComboBox fx:id="TBCBJounin2" prefHeight="31.0" prefWidth="228.0" GridPane.columnIndex="4" />
+            <ComboBox fx:id="TBCBKage" prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="5" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />
