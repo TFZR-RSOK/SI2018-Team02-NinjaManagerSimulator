@@ -199,15 +199,15 @@
                         <Font size="12.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="lvlGen1" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" />
+                  <TextField fx:id="lvlGen1" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
                   <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddTaiGen1Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddTaiGen1Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddNinGen1Id">
+                        <TextField fx:id="CNAddNinGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -215,7 +215,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiGen1Id">
+                        <TextField fx:id="CNAddBukiGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -223,7 +223,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddStaGen1Id">
+                        <TextField fx:id="CNAddStaGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -231,7 +231,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddEleGen1Id">
+                        <TextField fx:id="CNAddEleGen1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -270,12 +270,12 @@
                   </VBox>
                   <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddGenGen1Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddGenGen1Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddRerollGen1Id">
+                        <TextField fx:id="CNAddRerollGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -283,7 +283,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddCritDGen1Id">
+                        <TextField fx:id="CNAddCritDGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -291,7 +291,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiRGen1Id">
+                        <TextField fx:id="CNAddBukiRGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -582,15 +582,15 @@
                         <Font size="12.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="lvlGen2" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" />
+                  <TextField fx:id="lvlGen2" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
                   <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddTaiGen2Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddTaiGen2Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddNinGen2Id">
+                        <TextField fx:id="CNAddNinGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -598,7 +598,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiGen2Id">
+                        <TextField fx:id="CNAddBukiGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -606,7 +606,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddStaGen2Id">
+                        <TextField fx:id="CNAddStaGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -614,7 +614,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddEleGen2Id">
+                        <TextField fx:id="CNAddEleGen2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -653,12 +653,12 @@
                   </VBox>
                   <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddGenGen2Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddGenGen2Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddRerollGen2Id">
+                        <TextField fx:id="CNAddRerollGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -666,7 +666,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddCritDGen2Id">
+                        <TextField fx:id="CNAddCritDGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -674,7 +674,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiRGen2Id">
+                        <TextField fx:id="CNAddBukiRGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -962,15 +962,15 @@
                         <Font size="12.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="lvlGen3" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" />
+                  <TextField fx:id="lvlGen3" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
                   <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddTaiGen3Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddTaiGen3Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddNinGen3Id">
+                        <TextField fx:id="CNAddNinGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -978,7 +978,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiGen3Id">
+                        <TextField fx:id="CNAddBukiGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -986,7 +986,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddStaGen3Id">
+                        <TextField fx:id="CNAddStaGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -994,7 +994,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddEleGen3Id">
+                        <TextField fx:id="CNAddEleGen3Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1033,12 +1033,12 @@
                   </VBox>
                   <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddGenGen3Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddGenGen3Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddRerollGen3Id">
+                        <TextField fx:id="CNAddRerollGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -1046,7 +1046,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddCritDGen3Id">
+                        <TextField fx:id="CNAddCritDGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1054,7 +1054,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiRGen3Id">
+                        <TextField fx:id="CNAddBukiRGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1342,15 +1342,15 @@
                         <Font size="12.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="lvlJounin1" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" />
+                  <TextField fx:id="lvlJounin1" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
                   <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddTaiJounin1Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddTaiJounin1Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddNinJounin1Id">
+                        <TextField fx:id="CNAddNinJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -1358,7 +1358,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiJounin1Id">
+                        <TextField fx:id="CNAddBukiJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1366,7 +1366,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddStaJounin1Id">
+                        <TextField fx:id="CNAddStaJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1374,7 +1374,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddEleJounin1Id">
+                        <TextField fx:id="CNAddEleJounin1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1413,12 +1413,12 @@
                   </VBox>
                   <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
                      <children>
-                        <TextField fx:id="CNAddGenJounin1Id" prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="CNAddGenJounin1Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddRerollJounin1Id">
+                        <TextField fx:id="CNAddRerollJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -1426,7 +1426,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddCritDJounin1Id">
+                        <TextField fx:id="CNAddCritDJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1434,7 +1434,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="CNAddBukiRJounin1Id">
+                        <TextField fx:id="CNAddBukiRJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
