@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Tables.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -61,24 +62,43 @@ public class TeamBuilderController implements Initializable {
 
 	    @FXML
 	    public void calculateStatsGen1() throws SQLException {
-	    	
+	    	//onSelectedItem(ImeNinje) {
 	    	ConnectionDBL.Connect();
-	    	NinjaDBL.pullNinjaV2(0, String.format("%s",TBCBGen1.getValue()));
+	    	NinjaDBL.pullNinjaV2(0, String.format("%s",TBCBGen1.getValue())); // Ovo buni seal, moram da namestim ovo na onSelectedItem() da radi!
+	    	ConnectionDBL.Disconnect();
+	    	
 	    	ConnectionDBL.ConnectNapadi();
 	    	NapadiDBL.insertAbilityNamesIntoArray(0);
 	    	ObservableList<String> geninsAbilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
 	    	TBCBGen1A1.setItems(geninsAbilities);
-	    	NapadiDBL.pullNapadiV2(TBCBGen1A1.getValue(), 0, 0);
-	    	System.out.println(Main.fight.getTeam().get_ninjas().get(0).getAbilities().get(0).getNinjutsu());
+	    	TBCBGen1A2.setItems(geninsAbilities);
+	    	TBCBGen1A3.setItems(geninsAbilities);
 	    	ConnectionDBL.Disconnect();
-	    	
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen1A1.getValue()), 0, 0);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen1A2.getValue()), 0, 1);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen1A3.getValue()), 0, 2);
+	    	ConnectionDBL.Disconnect();
+	    	// }
 	    	baseTaiGen1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getTaijutsu())));
 	    	baseNinGen1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getNinjutsu())));
 	    	baseBukiGen1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getBukijutsu())));
 	    	baseStaGen1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getStamina())));
 	    	baseEleGen1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getElement())));
 	    	baseGenGen1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getGenjutsu())));
-
+	    	
+	    	lblGen1S.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(0).getSeal())));
+	    
 	    	Main.fight.getTeam().get_ninjas().get(0).setLevel(Double.parseDouble(lvlGen1.getText()));
 
 	    	Main.fight.getTeam().get_ninjas().get(0).getStats().setT(Double.parseDouble(AddTaiGen1Id.getText()));
@@ -112,18 +132,43 @@ public class TeamBuilderController implements Initializable {
 
 	    @FXML
 	    public void calculateStatsGen2() throws SQLException {
-	    	
+	    	//onSelectedItem(ImeNinje) {
 	    	ConnectionDBL.Connect();
-	    	NinjaDBL.pullNinjaV2(1, String.format("%s",TBCBGen2.getValue()));
+	    	NinjaDBL.pullNinjaV2(1, String.format("%s",TBCBGen2.getValue())); // Ovo buni seal, moram da namestim ovo na onSelectedItem() da radi!
 	    	ConnectionDBL.Disconnect();
 	    	
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.insertAbilityNamesIntoArray(1);
+	    	ObservableList<String> geninsAbilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
+	    	TBCBGen2A1.setItems(geninsAbilities);
+	    	TBCBGen2A2.setItems(geninsAbilities);
+	    	TBCBGen2A3.setItems(geninsAbilities);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen2A1.getValue()), 1, 0);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen2A2.getValue()), 1, 1);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen2A3.getValue()), 1, 2);
+	    	ConnectionDBL.Disconnect();
+	    	// }
 	    	baseTaiGen2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getTaijutsu())));
 	    	baseNinGen2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getNinjutsu())));
 	    	baseBukiGen2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getBukijutsu())));
 	    	baseStaGen2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getStamina())));
 	    	baseEleGen2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getElement())));
 	    	baseGenGen2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getGenjutsu())));
-
+	    	
+	    	lblGen2S.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(1).getSeal())));
+	    
 	    	Main.fight.getTeam().get_ninjas().get(1).setLevel(Double.parseDouble(lvlGen2.getText()));
 
 	    	Main.fight.getTeam().get_ninjas().get(1).getStats().setT(Double.parseDouble(AddTaiGen2Id.getText()));
@@ -157,17 +202,42 @@ public class TeamBuilderController implements Initializable {
 
 	    @FXML
 	    public void calculateStatsGen3() throws SQLException {
-	    	
+	    	//onSelectedItem(ImeNinje) {
 	    	ConnectionDBL.Connect();
-	    	NinjaDBL.pullNinjaV2(2, String.format("%s",TBCBGen3.getValue()));
+	    	NinjaDBL.pullNinjaV2(2, String.format("%s",TBCBGen3.getValue())); // Ovo buni seal, moram da namestim ovo na onSelectedItem() da radi!
 	    	ConnectionDBL.Disconnect();
 	    	
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.insertAbilityNamesIntoArray(2);
+	    	ObservableList<String> geninsAbilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
+	    	TBCBGen3A1.setItems(geninsAbilities);
+	    	TBCBGen3A2.setItems(geninsAbilities);
+	    	TBCBGen3A3.setItems(geninsAbilities);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen3A1.getValue()), 2, 0);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen3A2.getValue()), 2, 1);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBGen3A3.getValue()), 2, 2);
+	    	ConnectionDBL.Disconnect();
+	    	// }
 	    	baseTaiGen3Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getTaijutsu())));
 	    	baseNinGen3Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getNinjutsu())));
 	    	baseBukiGen3Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getBukijutsu())));
 	    	baseStaGen3Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getStamina())));
 	    	baseEleGen3Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getElement())));
 	    	baseGenGen3Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getGenjutsu())));
+	    	
+	    	lblGen3S.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(2).getSeal())));
 
 	    	Main.fight.getTeam().get_ninjas().get(2).setLevel(Double.parseDouble(lvlGen3.getText()));
 
@@ -202,17 +272,42 @@ public class TeamBuilderController implements Initializable {
 
 	    @FXML
 	    public void calculateStatsJounin1() throws SQLException {
-	    	
+	    	//onSelectedItem(ImeNinje) {
 	    	ConnectionDBL.Connect();
-	    	NinjaDBL.pullNinjaV2(3, String.format("%s",TBCBJounin1.getValue()));
+	    	NinjaDBL.pullNinjaV2(3, String.format("%s",TBCBJounin1.getValue())); // Ovo buni seal, moram da namestim ovo na onSelectedItem() da radi!
 	    	ConnectionDBL.Disconnect();
 	    	
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.insertAbilityNamesIntoArray(3);
+	    	ObservableList<String> geninsAbilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
+	    	TBCBJounin1A1.setItems(geninsAbilities);
+	    	TBCBJounin1A2.setItems(geninsAbilities);
+	    	TBCBJounin1A3.setItems(geninsAbilities);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBJounin1A1.getValue()), 3, 0);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBJounin1A2.getValue()), 3, 1);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBJounin1A3.getValue()), 3, 2);
+	    	ConnectionDBL.Disconnect();
+	    	// }
 	    	baseTaiJounin1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getTaijutsu())));
 	    	baseNinJounin1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getNinjutsu())));
 	    	baseBukiJounin1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getBukijutsu())));
 	    	baseStaJounin1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getStamina())));
 	    	baseEleJounin1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getElement())));
 	    	baseGenJounin1Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getGenjutsu())));
+	    	
+	    	lblJounin1S.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(3).getSeal())));
 
 	    	Main.fight.getTeam().get_ninjas().get(3).setLevel(Double.parseDouble(lvlJounin1.getText()));
 
@@ -247,17 +342,42 @@ public class TeamBuilderController implements Initializable {
 
 	    @FXML
 	    public void calculateStatsJounin2() throws SQLException {
-	    	
+	    	//onSelectedItem(ImeNinje) {
 	    	ConnectionDBL.Connect();
-	    	NinjaDBL.pullNinjaV2(4, String.format("%s",TBCBJounin2.getValue()));
+	    	NinjaDBL.pullNinjaV2(4, String.format("%s",TBCBJounin2.getValue())); // Ovo buni seal, moram da namestim ovo na onSelectedItem() da radi!
 	    	ConnectionDBL.Disconnect();
 	    	
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.insertAbilityNamesIntoArray(4);
+	    	ObservableList<String> geninsAbilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
+	    	TBCBJounin2A1.setItems(geninsAbilities);
+	    	TBCBJounin2A2.setItems(geninsAbilities);
+	    	TBCBJounin2A3.setItems(geninsAbilities);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBJounin1A1.getValue()), 4, 0);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBJounin1A2.getValue()), 4, 1);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBJounin1A3.getValue()), 4, 2);
+	    	ConnectionDBL.Disconnect();
+	    	// }
 	    	baseTaiJounin2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getTaijutsu())));
 	    	baseNinJounin2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getNinjutsu())));
 	    	baseBukiJounin2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getBukijutsu())));
 	    	baseStaJounin2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getStamina())));
 	    	baseEleJounin2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getElement())));
 	    	baseGenJounin2Id.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getGenjutsu())));
+	    	
+	    	lblJounin2S.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(4).getSeal())));
 
 	    	Main.fight.getTeam().get_ninjas().get(4).setLevel(Double.parseDouble(lvlJounin2.getText()));
 
@@ -292,17 +412,42 @@ public class TeamBuilderController implements Initializable {
 
 	    @FXML
 	    public void calculateStatsKage() throws SQLException {
-	    	
+	    	//onSelectedItem(ImeNinje) {
 	    	ConnectionDBL.Connect();
-	    	NinjaDBL.pullNinjaV2(5, String.format("%s",TBCBKage.getValue()));
+	    	NinjaDBL.pullNinjaV2(5, String.format("%s",TBCBKage.getValue())); // Ovo buni seal, moram da namestim ovo na onSelectedItem() da radi!
 	    	ConnectionDBL.Disconnect();
 	    	
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.insertAbilityNamesIntoArray(5);
+	    	ObservableList<String> geninsAbilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
+	    	TBCBKageA1.setItems(geninsAbilities);
+	    	TBCBKageA2.setItems(geninsAbilities);
+	    	TBCBKageA3.setItems(geninsAbilities);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBKageA1.getValue()), 5, 0);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBKageA2.getValue()), 5, 1);
+	    	ConnectionDBL.Disconnect();
+	    	// }
+	    	//onSelectedItem(ImeNapada) {
+	    	ConnectionDBL.ConnectNapadi();
+	    	NapadiDBL.pullNapadiV2(String.format("%s",TBCBKageA3.getValue()), 5, 2);
+	    	ConnectionDBL.Disconnect();
+	    	// }
 	    	baseTaiKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getTaijutsu())));
 	    	baseNinKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getNinjutsu())));
 	    	baseBukiKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getBukijutsu())));
 	    	baseStaKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getStamina())));
 	    	baseEleKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getElement())));
 	    	baseGenKageId.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getGenjutsu())));
+	    	
+	    	lblKageS.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(5).getSeal())));
 
 	    	Main.fight.getTeam().get_ninjas().get(5).setLevel(Double.parseDouble(lvlKage.getText()));
 
@@ -337,74 +482,74 @@ public class TeamBuilderController implements Initializable {
 
 		@FXML
 		public void PlusGen1() {
-			Main.fight.getTeam().get_ninjas().get(0).setLevelPlus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
-			lblGen1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(0).setSealPlus(Main.fight.getTeam().get_ninjas().get(0).getSeal());
+			lblGen1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getSeal())));
 		}
 
 		@FXML
 		public void PlusGen2() {
-			Main.fight.getTeam().get_ninjas().get(1).setLevelPlus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
-			lblGen2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(1).setSealPlus(Main.fight.getTeam().get_ninjas().get(1).getSeal());
+			lblGen2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getSeal())));
 		}
 
 		@FXML
 		public void PlusGen3() {
-			Main.fight.getTeam().get_ninjas().get(2).setLevelPlus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
-			lblGen3S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(2).setSealPlus(Main.fight.getTeam().get_ninjas().get(2).getSeal());
+			lblGen3S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getSeal())));
 		}
 
 		@FXML
 		public void PlusJounin1() {
-			Main.fight.getTeam().get_ninjas().get(3).setLevelPlus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
-			lblJounin1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(3).setSealPlus(Main.fight.getTeam().get_ninjas().get(3).getSeal());
+			lblJounin1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getSeal())));
 		}
 
 		@FXML
 		public void PlusJounin2() {
-			Main.fight.getTeam().get_ninjas().get(4).setLevelPlus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
-			lblJounin2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(4).setSealPlus(Main.fight.getTeam().get_ninjas().get(4).getSeal());
+			lblJounin2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getSeal())));
 		}
 
 		@FXML
 		public void PlusKage() {
-			Main.fight.getTeam().get_ninjas().get(5).setLevelPlus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
-			lblKageS.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(5).setSealPlus(Main.fight.getTeam().get_ninjas().get(5).getSeal());
+			lblKageS.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getSeal())));
 		}
 
 		@FXML
 		public void MinusGen1() {
-			Main.fight.getTeam().get_ninjas().get(0).setLevelMinus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
-			lblGen1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(0).setSealMinus(Main.fight.getTeam().get_ninjas().get(0).getSeal());
+			lblGen1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getSeal())));
 		}
 
 		@FXML
 		public void MinusGen2() {
-			Main.fight.getTeam().get_ninjas().get(1).setLevelMinus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
-			lblGen2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(1).setSealMinus(Main.fight.getTeam().get_ninjas().get(1).getSeal());
+			lblGen2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getSeal())));
 		}
 
 		@FXML
 		public void MinusGen3() {
-			Main.fight.getTeam().get_ninjas().get(2).setLevelMinus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
-			lblGen3S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(2).setSealMinus(Main.fight.getTeam().get_ninjas().get(2).getSeal());
+			lblGen3S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getSeal())));
 		}
 
 		@FXML
 		public void MinusJounin1() {
-			Main.fight.getTeam().get_ninjas().get(3).setLevelMinus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
-			lblJounin1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(3).setSealMinus(Main.fight.getTeam().get_ninjas().get(3).getSeal());
+			lblJounin1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getSeal())));
 		}
 
 		@FXML
 		public void MinusJounin2() {
-			Main.fight.getTeam().get_ninjas().get(4).setLevelMinus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
-			lblJounin2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(4).setSealMinus(Main.fight.getTeam().get_ninjas().get(4).getSeal());
+			lblJounin2S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getSeal())));
 		}
 
 		@FXML
 		public void MinusKage() {
-			Main.fight.getTeam().get_ninjas().get(5).setLevelMinus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
-			lblKageS.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
+			Main.fight.getTeam().get_ninjas().get(5).setSealMinus(Main.fight.getTeam().get_ninjas().get(5).getSeal());
+			lblKageS.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getSeal())));
 		}
 		
 		@Override

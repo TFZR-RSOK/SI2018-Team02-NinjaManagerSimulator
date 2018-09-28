@@ -12,11 +12,12 @@ public class Team extends Ninja{
 	public Team () {
 		_ninjas = new ArrayList<Ninja>();
 		Ninja nin = new Ninja();
-		this._ninjas.add(nin);
-		this._ninjas.add(nin);
-		this._ninjas.add(nin);
-		this._ninjas.add(nin);
-		this._ninjas.add(nin);
+		this._ninjas.add(nin = new Ninja());
+		this._ninjas.add(nin = new Ninja());
+		this._ninjas.add(nin = new Ninja());
+		this._ninjas.add(nin = new Ninja());
+		this._ninjas.add(nin = new Ninja());
+		this._ninjas.add(nin = new Ninja());
 		this.stanje = Stanja.clearTeam;
 		// dodaj mi ovog ninju sa ovim id-om (14 svaki put odnosno 5 puta)
 	}

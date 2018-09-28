@@ -9,14 +9,15 @@ import java.util.Random;
 public class Ninja implements IBasicOperations { 
 
 	protected ArrayList <Ability> abilities;
-	protected String name, tip;
+	protected int idNinje;
+	protected String name;
 	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
 						taijutsuGrowth, ninjutsuGrowth, bukijutsuGrowth, elementGrowth, genjutsuGrowth, staminaGrowth; //Base stats growth
 	protected double attack, genjutsuActivation, genjutsuMastery, genjutsuRecharge, genjutsuAbsorb, genjutsuLearn, genjutsuCopy, //Rest of the stats
 						bukijutsuRecovery, bukijutsuBoost, critChance, critStrike, reroll, focus, focusBurst, focusRange, 
 						endurance, fatigue, offPositioning, taijutsuImmunity, ninjutsuImmunity, bukijutsuImmunity, attackImmunity,
 						genjutsuImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, morph, chakra, level, seal,
-						restBuki;
+						restBuki, tip;
 
 	protected Stanja stanje;
 
@@ -33,14 +34,15 @@ public class Ninja implements IBasicOperations {
 		
 		abilities = new ArrayList<Ability>();
 		Ability abil = new Ability();
-		this.abilities.add(abil);
-		this.abilities.add(abil);
-		this.abilities.add(abil);
+		this.abilities.add(abil = new Ability());
+		this.abilities.add(abil = new Ability());
+		this.abilities.add(abil = new Ability());
 		
 		this.stats = new Stats();
 		
+		this.idNinje = 1;
 		this.name="";
-		this.tip="";
+		this.tip=1; //Na osnovu ovog podatka prepoznaje se da li je ninja genin/jounin/kage
 		this.taijutsu=0;
 		this.ninjutsu=0;
 		this.bukijutsu=0;
@@ -92,6 +94,24 @@ public class Ninja implements IBasicOperations {
 
 	
 	
+	/**
+	 * @return the idNinje
+	 */
+	public int getIdNinje() {
+		return idNinje;
+	}
+
+
+
+	/**
+	 * @param idNinje the idNinje to set
+	 */
+	public void setIdNinje(int idNinje) {
+		this.idNinje = idNinje;
+	}
+
+
+
 	/**
 	 * @return the abilities
 	 */
@@ -145,14 +165,14 @@ public class Ninja implements IBasicOperations {
 	/**
 	 * @return the tip
 	 */
-	public String getTip() {
+	public double getTip() {
 		return tip;
 	}
 
 	/**
 	 * @param tip the tip to set
 	 */
-	public void setTip(String tip) {
+	public void setTip(double tip) {
 		this.tip = tip;
 	}
 
@@ -776,7 +796,10 @@ public class Ninja implements IBasicOperations {
 	 * @param level the level to decrement
 	 */
 	public void setLevelMinus(double level) {
-		this.level = level-1;
+		if (this.level > 1) {
+			this.level = level-1;
+		} else this.level = 1;
+		calculateLevelStats();
 	}
 	
 	/**
@@ -784,6 +807,7 @@ public class Ninja implements IBasicOperations {
 	 */
 	public void setLevelPlus(double level) {
 		this.level = level+1;
+		calculateLevelStats();
 	}
 	
 	/**
@@ -798,6 +822,24 @@ public class Ninja implements IBasicOperations {
 	 */
 	public void setSeal(double seal) {
 		this.seal = seal;
+	}
+	
+	/**
+	 * @return the seal
+	 */
+	public void setSealPlus (double seal) {
+		if (this.seal < 10) {
+			this.seal = seal+1;
+		} else this.seal = seal;
+	}
+
+	/**
+	 * @param seal the seal to set
+	 */
+	public void setSealMinus(double seal) {
+		if (this.seal > -10) {
+			this.seal = seal-1;
+		} else this.seal = seal;
 	}
 	
 	/**
@@ -831,7 +873,7 @@ public class Ninja implements IBasicOperations {
 	public void ClearNinjaStats () {
 		setStanje(Stanja.clearNinja);
 		setName("");
-		setTip("");
+		setTip(0);
 		setTaijutsu(0);
 		setNinjutsu(0);
 		setBukijutsu(0);
@@ -881,7 +923,6 @@ public class Ninja implements IBasicOperations {
 	}
 	
 	public double calculateDMG () {
-		int runda = 0;
 		double dmg;
 		dmg = taijutsuDMG() + ninjutsuDMG() + bukijutsuDMG() + this.attack;	
 		return dmg;
@@ -1094,15 +1135,15 @@ public class Ninja implements IBasicOperations {
 	// Fixed it. #peaceOut
 	public void dugmeCalculate () {
 			
-			this.taijutsu += stats.getT();
-			this.ninjutsu += stats.getN();
-			this.bukijutsu += stats.getB();
-			this.stamina += stats.getS();
-			this.element += stats.getE();
-			this.genjutsu += stats.getG();
-			this.reroll += stats.getR();
-			this.critStrike += stats.getCs();
-			this.bukijutsuRecovery += stats.getBr();
+		this.taijutsu += stats.getT();
+		this.ninjutsu += stats.getN();
+		this.bukijutsu += stats.getB();
+		this.stamina += stats.getS();
+		this.element += stats.getE();
+		this.genjutsu += stats.getG();
+		this.reroll += stats.getR();
+		this.critStrike += stats.getCs();
+		this.bukijutsuRecovery += stats.getBr();
 		
 		for (Ability abil : this.abilities) {
 			this.taijutsu += abil.getTaijutsu();	
@@ -1136,8 +1177,20 @@ public class Ninja implements IBasicOperations {
 			this.genjutsuAbsorb += abil.getGenAbs();
 			this.genjutsuLearn += abil.getGenLearn();
 			this.genjutsuCopy += abil.getGenCopy();
-			}	
+		}	
+		
+		calculateLevelStats();
 		
 	}
+	
+	public void calculateLevelStats() {
+		this.taijutsu += this.taijutsuGrowth * (this.level-1);
+		this.ninjutsu += this.ninjutsuGrowth * (this.level-1);
+		this.bukijutsu += this.bukijutsuGrowth * (this.level-1);
+		this.element += this.elementGrowth * (this.level-1);
+		this.genjutsu += this.genjutsuGrowth * (this.level-1);
+		this.stamina += this.staminaGrowth * (this.level-1);
+	}
+	
 	
 }

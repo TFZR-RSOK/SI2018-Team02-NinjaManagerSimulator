@@ -1018,7 +1018,7 @@
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968c80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
