@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 import main.Main;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class NapadiDBL {
 	
 	static int duzinaListeImenaNapada = 5; //Broj napada ne prelazi 5
@@ -72,14 +77,14 @@ public class NapadiDBL {
 	}
 
 	/**
-	 * @return the listaImenaNapada
+	 * @return listaImenaNapada
 	 */
 	public static ArrayList<String> getListaImenaNapada() {
 		return ListaImenaNapada;
 	}
 
 	/**
-	 * @param listaImenaNapada the listaImenaNapada to set
+	 * @param listaImenaNapada set
 	 */
 	public static void setListaImenaNapada(ArrayList<String> listaImenaNapada) {
 		ListaImenaNapada = listaImenaNapada;

@@ -6,12 +6,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class Ninja implements IBasicOperations, Serializable { 
 
 	protected ArrayList <Ability> abilities;
 	protected int idNinje;
-	protected String name;
-	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
+	protected String name, picPath;
+	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //variables for storing stats
+						baseTai, baseNin, baseBuki, baseEle, baseGen, baseStam, //Base stats
 						taijutsuGrowth, ninjutsuGrowth, bukijutsuGrowth, elementGrowth, genjutsuGrowth, staminaGrowth; //Base stats growth
 	protected double attack, genjutsuActivation, genjutsuMastery, genjutsuRecharge, genjutsuAbsorb, genjutsuLearn, genjutsuCopy, //Rest of the stats
 						bukijutsuRecovery, bukijutsuBoost, critChance, critStrike, reroll, focus, focusBurst, focusRange, 
@@ -42,6 +48,7 @@ public class Ninja implements IBasicOperations, Serializable {
 		
 		this.idNinje = 1;
 		this.name="";
+		this.picPath="";
 		this.tip=1; //Na osnovu ovog podatka prepoznaje se da li je ninja genin/jounin/kage
 		this.taijutsu=0;
 		this.ninjutsu=0;
@@ -49,6 +56,12 @@ public class Ninja implements IBasicOperations, Serializable {
 		this.element=0;
 		this.genjutsu=0;
 		this.stamina=0;
+		this.baseTai=0;
+		this.baseNin=0;
+		this.baseBuki=0;
+		this.baseEle=0;
+		this.baseGen=0;
+		this.baseStam=0;
 		this.taijutsuGrowth=0;
 		this.ninjutsuGrowth=0;
 		this.bukijutsuGrowth=0;
@@ -95,7 +108,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	
 	
 	/**
-	 * @return the idNinje
+	 * @return Ninja idNinje vrednost
 	 */
 	public int getIdNinje() {
 		return idNinje;
@@ -104,7 +117,7 @@ public class Ninja implements IBasicOperations, Serializable {
 
 
 	/**
-	 * @param idNinje the idNinje to set
+	 * @param set idNinje
 	 */
 	public void setIdNinje(int idNinje) {
 		this.idNinje = idNinje;
@@ -113,7 +126,7 @@ public class Ninja implements IBasicOperations, Serializable {
 
 
 	/**
-	 * @return the abilities
+	 * @return Ninja abilities
 	 */
 	public ArrayList<Ability> getAbilities() {
 		return abilities;
@@ -128,16 +141,12 @@ public class Ninja implements IBasicOperations, Serializable {
 		this.abilities = abilities;
 	}
 
-
-
 	/**
-	 * @return the stats
+	 * @return Ninja stats klasa
 	 */
 	public Stats getStats() {
 		return stats;
 	}
-
-
 
 	/**
 	 * @param stats the stats to set
@@ -146,10 +155,22 @@ public class Ninja implements IBasicOperations, Serializable {
 		this.stats = stats;
 	}
 
-
+	/**
+	 * @return Ninja PicPath string
+	 */
+	public String getPicPath() {
+		return picPath;
+	}
 
 	/**
-	 * @return the name
+	 * @param picPath the picPath to set
+	 */
+	public void setPicPath(String picPath) {
+		this.picPath = picPath;
+	}
+
+	/**
+	 * @return Ninja ime string
 	 */
 	public String getName() {
 		return name;
@@ -163,7 +184,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the tip
+	 * @return Ninja tip vrednost
 	 */
 	public double getTip() {
 		return tip;
@@ -177,7 +198,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the taijutsu
+	 * @return Ninja taijutsu vrednost
 	 */
 	public double getTaijutsu() {
 		return taijutsu;
@@ -191,7 +212,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the ninjutsu
+	 * @return Ninja ninjutsu vrednost
 	 */
 	public double getNinjutsu() {
 		return ninjutsu;
@@ -205,7 +226,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the bukijutsu
+	 * @return Ninja bukijutsu vrednost
 	 */
 	public double getBukijutsu() {
 		return bukijutsu;
@@ -219,7 +240,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the element
+	 * @return Ninja element vrednost
 	 */
 	public double getElement() {
 		return element;
@@ -233,7 +254,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsu
+	 * @return Ninja genjutsu vrednost
 	 */
 	public double getGenjutsu() {
 		return genjutsu;
@@ -247,7 +268,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the stamina
+	 * @return Ninja stamina vrednost
 	 */
 	public double getStamina() {
 		return stamina;
@@ -261,7 +282,115 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the taijutsuGrowth
+	 * @return Ninja baseTai vrednost
+	 */
+	public double getBaseTai() {
+		return baseTai;
+	}
+
+
+
+	/**
+	 * @param baseTai the baseTai to set
+	 */
+	public void setBaseTai(double baseTai) {
+		this.baseTai = baseTai;
+	}
+
+
+
+	/**
+	 * @return Ninja baseNin vrednost
+	 */
+	public double getBaseNin() {
+		return baseNin;
+	}
+
+
+
+	/**
+	 * @param baseNin the baseNin to set
+	 */
+	public void setBaseNin(double baseNin) {
+		this.baseNin = baseNin;
+	}
+
+
+
+	/**
+	 * @return Ninja baseBuki vrednost
+	 */
+	public double getBaseBuki() {
+		return baseBuki;
+	}
+
+
+
+	/**
+	 * @param baseBuki the baseBuki to set
+	 */
+	public void setBaseBuki(double baseBuki) {
+		this.baseBuki = baseBuki;
+	}
+
+
+
+	/**
+	 * @return Ninja baseEle vrednost
+	 */
+	public double getBaseEle() {
+		return baseEle;
+	}
+
+
+
+	/**
+	 * @param baseEle the baseEle to set
+	 */
+	public void setBaseEle(double baseEle) {
+		this.baseEle = baseEle;
+	}
+
+
+
+	/**
+	 * @return Ninja baseGen vrednost
+	 */
+	public double getBaseGen() {
+		return baseGen;
+	}
+
+
+
+	/**
+	 * @param baseGen the baseGen to set
+	 */
+	public void setBaseGen(double baseGen) {
+		this.baseGen = baseGen;
+	}
+
+
+
+	/**
+	 * @return Ninja baseStam vrednost
+	 */
+	public double getBaseStam() {
+		return baseStam;
+	}
+
+
+
+	/**
+	 * @param baseStam the baseStam to set
+	 */
+	public void setBaseStam(double baseStam) {
+		this.baseStam = baseStam;
+	}
+
+
+
+	/**
+	 * @return Ninja taijutsuGrowth vrednost
 	 */
 	public double getTaijutsuGrowth() {
 		return taijutsuGrowth;
@@ -275,7 +404,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the ninjutsuGrowth
+	 * @return Ninja ninjutsuGrowth vrednost
 	 */
 	public double getNinjutsuGrowth() {
 		return ninjutsuGrowth;
@@ -289,7 +418,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the bukijutsuGrowth
+	 * @return Ninja bukijutsuGrowth vrednost
 	 */
 	public double getBukijutsuGrowth() {
 		return bukijutsuGrowth;
@@ -303,7 +432,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the elementGrowth
+	 * @return Ninja elementGrowth vrednost
 	 */
 	public double getElementGrowth() {
 		return elementGrowth;
@@ -317,7 +446,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuGrowth
+	 * @return Ninja genjutsuGrowth vrednost
 	 */
 	public double getGenjutsuGrowth() {
 		return genjutsuGrowth;
@@ -331,7 +460,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the staminaGrowth
+	 * @return Ninja staminaGrowth vrednost
 	 */
 	public double getStaminaGrowth() {
 		return staminaGrowth;
@@ -345,7 +474,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the attack
+	 * @return Ninja attack vrednost
 	 */
 	public double getAttack() {
 		return attack;
@@ -359,7 +488,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuActivation
+	 * @return Ninja genjutsuActivation vrednost
 	 */
 	public double getGenjutsuActivation() {
 		return genjutsuActivation;
@@ -373,7 +502,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuMastery
+	 * @return Ninja genjutsuMastery vrednost
 	 */
 	public double getGenjutsuMastery() {
 		return genjutsuMastery;
@@ -387,7 +516,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuRecharge
+	 * @return Ninja genjutsuRecharge vrednost
 	 */
 	public double getGenjutsuRecharge() {
 		return genjutsuRecharge;
@@ -401,7 +530,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuAbsorb
+	 * @return Ninja genjutsuAbsorb vrednost
 	 */
 	public double getGenjutsuAbsorb() {
 		return genjutsuAbsorb;
@@ -415,7 +544,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuLearn
+	 * @return Ninja genjutsuLearn vrednost
 	 */
 	public double getGenjutsuLearn() {
 		return genjutsuLearn;
@@ -429,7 +558,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuCopy
+	 * @return Ninja genjutsuCopy vrednost
 	 */
 	public double getGenjutsuCopy() {
 		return genjutsuCopy;
@@ -443,7 +572,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the bukijutsuRecovery
+	 * @return Ninja bukijutsuRecovery vrednost
 	 */
 	public double getBukijutsuRecovery() {
 		return bukijutsuRecovery;
@@ -457,7 +586,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the bukijutsuBoost
+	 * @return Ninja bukijutsuBoost vrednost
 	 */
 	public double getBukijutsuBoost() {
 		return bukijutsuBoost;
@@ -471,7 +600,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the critChance
+	 * @return Ninja critChance vrednost
 	 */
 	public double getCritChance() {
 		return critChance;
@@ -485,7 +614,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the critStrike
+	 * @return Ninja critStrike vrednost
 	 */
 	public double getCritStrike() {
 		return critStrike;
@@ -499,7 +628,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the reroll
+	 * @return Ninja reroll vrednost
 	 */
 	public double getReroll() {
 		return reroll;
@@ -513,7 +642,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the focus
+	 * @return Ninja focus vrednost
 	 */
 	public double getFocus() {
 		return focus;
@@ -527,7 +656,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the focusBurst
+	 * @return Ninja focusBurst vrednost
 	 */
 	public double getFocusBurst() {
 		return focusBurst;
@@ -541,7 +670,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the focusRange
+	 * @return Ninja focusRange vrednost
 	 */
 	public double getFocusRange() {
 		return focusRange;
@@ -555,7 +684,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the endurance
+	 * @return Ninja endurance vrednost
 	 */
 	public double getEndurance() {
 		return endurance;
@@ -569,7 +698,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the fatigue
+	 * @return Ninja fatigue vrednost
 	 */
 	public double getFatigue() {
 		return fatigue;
@@ -583,7 +712,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the offPositioning
+	 * @return Ninja offPositioning vrednost
 	 */
 	public double getOffPositioning() {
 		return offPositioning;
@@ -597,7 +726,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the taijutsuImmunity
+	 * @return Ninja taijutsuImmunity vrednost
 	 */
 	public double getTaijutsuImmunity() {
 		return taijutsuImmunity;
@@ -611,7 +740,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the ninjutsuImmunity
+	 * @return Ninja ninjutsuImmunity vrednost
 	 */
 	public double getNinjutsuImmunity() {
 		return ninjutsuImmunity;
@@ -625,7 +754,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the bukijutsuImmunity
+	 * @return Ninja bukijutsuImmunity vrednost
 	 */
 	public double getBukijutsuImmunity() {
 		return bukijutsuImmunity;
@@ -639,7 +768,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the attackImmunity
+	 * @return Ninja attackImmunity vrednost
 	 */
 	public double getAttackImmunity() {
 		return attackImmunity;
@@ -653,7 +782,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the genjutsuImmunity
+	 * @return Ninja genjutsuImmunity vrednost
 	 */
 	public double getGenjutsuImmunity() {
 		return genjutsuImmunity;
@@ -667,7 +796,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the poisonImmunity
+	 * @return Ninja poisonImmunity vrednost
 	 */
 	public double getPoisonImmunity() {
 		return poisonImmunity;
@@ -681,7 +810,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the poison
+	 * @return Ninja poison vrednost
 	 */
 	public double getPoison() {
 		return poison;
@@ -695,7 +824,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the guard
+	 * @return Ninja guard vrednost
 	 */
 	public double getGuard() {
 		return guard;
@@ -709,7 +838,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the absorb
+	 * @return Ninja absorb vrednost
 	 */
 	public double getAbsorb() {
 		return absorb;
@@ -723,7 +852,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the lvl5Death
+	 * @return Ninja lvl5Death vrednost
 	 */
 	public double getLvl5Death() {
 		return lvl5Death;
@@ -737,7 +866,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the bloodlineNullify
+	 * @return Ninja bloodlineNullify vrednost
 	 */
 	public double getBloodlineNullify() {
 		return bloodlineNullify;
@@ -751,7 +880,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the morph
+	 * @return Ninja morph vrednost
 	 */
 	public double getMorph() {
 		return morph;
@@ -765,7 +894,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the chakra
+	 * @return Ninja chakra vrednost
 	 */
 	public double getChakra() {
 		return chakra;
@@ -779,7 +908,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 	
 	/**
-	 * @return the level
+	 * @return Ninja level vrednost
 	 */
 	public double getLevel() {
 		return level;
@@ -793,7 +922,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 	
 	/**
-	 * @param level the level to decrement
+	 * @param set current Ninja level -1
 	 */
 	public void setLevelMinus(double level) {
 		if (this.level > 1) {
@@ -803,7 +932,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 	
 	/**
-	 * @param level the level to increment
+	 * @param set current Ninja level +1
 	 */
 	public void setLevelPlus(double level) {
 		this.level = level+1;
@@ -811,7 +940,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 	
 	/**
-	 * @return the seal
+	 * @return Ninja seal vrednost
 	 */
 	public double getSeal() {
 		return seal;
@@ -825,7 +954,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 	
 	/**
-	 * @return the seal
+	 * @return Ninja seal vrednost +1 if (seal < topLimit)
 	 */
 	public void setSealPlus (double seal) {
 		if (this.seal < 10) {
@@ -834,7 +963,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @param seal the seal to set
+	 * @param Ninja seal vrednost -1 if (seal > bottomLimit)
 	 */
 	public void setSealMinus(double seal) {
 		if (this.seal > -10) {
@@ -843,7 +972,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 	
 	/**
-	 * @return the restBuki
+	 * @return Ninja restBuki vrednost
 	 */
 	public double getRestBuki() {
 		return restBuki;
@@ -857,7 +986,7 @@ public class Ninja implements IBasicOperations, Serializable {
 	}
 
 	/**
-	 * @return the stanje
+	 * @return Ninja stanje
 	 */
 	public Stanja getStanje() {
 		return stanje;
@@ -870,22 +999,17 @@ public class Ninja implements IBasicOperations, Serializable {
 		this.stanje = stanje;
 	}
 	
+	/**
+	 * @param Ninja brisanje svih naknadno dodatih vrednosti
+	 */
 	public void ClearNinjaStats () {
 		setStanje(Stanja.clearNinja);
-		setName("");
-		setTip(0);
 		setTaijutsu(0);
 		setNinjutsu(0);
 		setBukijutsu(0);
 		setElement(0);
 		setGenjutsu(0);
 		setStamina(0);
-		setTaijutsuGrowth(0);
-		setNinjutsuGrowth(0);
-		setBukijutsuGrowth(0);
-		setElementGrowth(0);
-		setGenjutsuGrowth(0);
-		setStaminaGrowth(0);
 		setAttack(0);
 		setGenjutsuActivation(0);
 		setGenjutsuMastery(0);
@@ -916,23 +1040,27 @@ public class Ninja implements IBasicOperations, Serializable {
 		setLvl5Death(0);
 		setBloodlineNullify(0);
 		setMorph(0);
-		setChakra(0);
-		setLevel(0);
-		setSeal(0);
-		setRestBuki(0);
 	}
-	
+	/**
+	 * @return Ninja single dmg
+	 */
 	public double calculateDMG () {
 		double dmg;
 		dmg = taijutsuDMG() + ninjutsuDMG() + bukijutsuDMG() + this.attack;	
 		return dmg;
 	}
 	
+	/**
+	 * @return Ninja taijutsu dmg
+	 */
 	public double taijutsuDMG () {
 		double taiDmg = ((this.taijutsu+ifCrit())/2);
 		return taiDmg;
 	}
 	
+	/**
+	 * @return Ninja taijutsu vrednost ukoliko se desi crit
+	 */
 	public double ifCrit () {
 		int  n = rand.nextInt(100) + 1;
 		if(n<=this.critChance) {
@@ -940,27 +1068,39 @@ public class Ninja implements IBasicOperations, Serializable {
 		} else return 0;
 	}
 	
+	/**
+	 * @return Ninja ninjutsu dmg
+	 */
 	public double ninjutsuDMG () {
 		double seal = this.seal;
-		//int upLimit = 0;
-		//int downLimit = 0;
+		int n1;
 		
-		int downLimit = (int) ((1+((10+seal)*2.5))*this.ninjutsu/100);
+		int downLimit = (int) (((10+seal)*2.5)*this.ninjutsu/100);
 		int upLimit = (int) ((100-((10+seal)*2.5))*this.ninjutsu/100);
 		
-		//int down = (int) downLimit;
-		//int up = (int) upLimit;
+		if (upLimit == downLimit) {
+			n1=0;
+		} else {
+			n1 = rand.nextInt(upLimit-downLimit) + downLimit;
+		}
 		
-		int n1 = rand.nextInt(upLimit-downLimit) + downLimit;
-		int roll = rand.nextInt(100) + 1;
+		int roll = rand.nextInt(100) + 0;
 		if(roll<=this.reroll) {
-			int n2 = rand.nextInt(upLimit) + downLimit;
+			int n2;
+			if (upLimit == downLimit) {
+				n2=0;
+			} else {
+				n2 = rand.nextInt(upLimit-downLimit) + downLimit;
+			}
 				if(n2>n1) {
 					return n2;
 				} else return n1;
 		} else return n1;
 	}
 	
+	/**
+	 * @return Ninja bukijutsu dmg
+	 */
 	public double bukijutsuDMG () {
 		double x = 0;
 		double bukiDMG = this.bukijutsu*this.bukijutsuBoost/100;
@@ -978,6 +1118,9 @@ public class Ninja implements IBasicOperations, Serializable {
 		return bukiDMG;
 	}
 	
+	/**
+	 * @return Ninja total dmg vs Kaguya
+	 */
 	public double DMGvsKaguya () {
 		this.restBuki = this.bukijutsu;
 		double KaguyaDMG = Kaguya.KaguyaAttack();
@@ -1132,8 +1275,12 @@ public class Ninja implements IBasicOperations, Serializable {
 		
 		return total;
 	}
-	// Fixed it. #peaceOut
+	/*
+	 * racunanje dodatnih vrednosti u Ninja 
+	 */
 	public void dugmeCalculate () {
+		
+		ClearNinjaStats();
 			
 		this.taijutsu += stats.getT();
 		this.ninjutsu += stats.getN();
@@ -1180,9 +1327,13 @@ public class Ninja implements IBasicOperations, Serializable {
 		}	
 		
 		calculateLevelStats();
+		calculateBaseStats();
 		
 	}
 	
+	/*
+	 * racunanje dodatnih vrednosti na osnovu lvl od Ninja
+	 */
 	public void calculateLevelStats() {
 		this.taijutsu += this.taijutsuGrowth * (this.level-1);
 		this.ninjutsu += this.ninjutsuGrowth * (this.level-1);
@@ -1191,6 +1342,16 @@ public class Ninja implements IBasicOperations, Serializable {
 		this.genjutsu += this.genjutsuGrowth * (this.level-1);
 		this.stamina += this.staminaGrowth * (this.level-1);
 	}
-	
+	/*
+	 * racunanje dodatnih vrednosti na osnovu baseStats od Ninja
+	 */
+	public void calculateBaseStats() {
+		this.taijutsu += this.baseTai;
+		this.ninjutsu += this.baseNin;
+		this.bukijutsu += this.baseBuki;
+		this.element += this.baseEle;
+		this.genjutsu += this.baseGen;
+		this.stamina += this.baseStam;
+	}
 	
 }

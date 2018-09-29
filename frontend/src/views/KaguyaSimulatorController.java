@@ -29,13 +29,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import main.*;
+
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
 
 public class KaguyaSimulatorController implements Initializable {
 	
 	// Construct Elsa Serializer
 	// Elsa uses Maker Pattern to configure extra features
 	ElsaSerializer serializer = new ElsaMaker().make();
+	
+	@FXML
+	private ImageView KSPicGen1, KSPicGen2, KSPicGen3, KSPicJounin1, KSPicJounin2, KSPicKage;
 	
 	@FXML
 	private ComboBox<String> KSCBDiff;
@@ -45,15 +56,18 @@ public class KaguyaSimulatorController implements Initializable {
 					lblNameGen1, lblNameGen2, lblNameGen3, lblNameJounin1, lblNameJounin2, lblNameKage,
 					lblChanceId;
 	
-
+	public void saveLVL(int redniBroj, Label lblLvl) {
+		Main.fight.getTeam().get_ninjas().get(redniBroj).setLevel(Double.parseDouble(lblLvl.getText()));
+	}
+	
 	@FXML
 	public void SaveButton() throws IOException {
-		Main.fight.getTeam().get_ninjas().get(0).setLevel(Double.parseDouble(lblGen1Lvl.getText()));
-		Main.fight.getTeam().get_ninjas().get(1).setLevel(Double.parseDouble(lblGen2Lvl.getText()));
-		Main.fight.getTeam().get_ninjas().get(2).setLevel(Double.parseDouble(lblGen3Lvl.getText()));
-		Main.fight.getTeam().get_ninjas().get(3).setLevel(Double.parseDouble(lblJounin1Lvl.getText()));
-		Main.fight.getTeam().get_ninjas().get(4).setLevel(Double.parseDouble(lblJounin2Lvl.getText()));
-		Main.fight.getTeam().get_ninjas().get(5).setLevel(Double.parseDouble(lblKageLvl.getText()));
+		saveLVL(0, lblGen1Lvl);
+		saveLVL(1, lblGen2Lvl);
+		saveLVL(2, lblGen3Lvl);
+		saveLVL(3, lblJounin1Lvl);
+		saveLVL(4, lblJounin2Lvl);
+		saveLVL(5, lblKageLvl);
 
 		Team data = Main.fight.getTeam();
 
@@ -70,6 +84,31 @@ public class KaguyaSimulatorController implements Initializable {
 		serializer.serialize(out2, data);
 	}
 
+	public void loadAll(ImageView picFrameGen1, ImageView picFrameGen2, ImageView picFrameGen3, ImageView picFrameJounin1,
+			ImageView picFrameJounin2, ImageView picFrameKage) throws FileNotFoundException {
+		
+		TeamBuilderController.loadSlika(picFrameGen1, 0);
+		TeamBuilderController.loadSlika(picFrameGen2, 1);
+		TeamBuilderController.loadSlika(picFrameGen3, 2);
+		TeamBuilderController.loadSlika(picFrameJounin1, 3);
+		TeamBuilderController.loadSlika(picFrameJounin2, 4);
+		TeamBuilderController.loadSlika(picFrameKage, 5);
+		
+		lblNameGen1.setText(Main.fight.getTeam().get_ninjas().get(0).getName());
+		lblNameGen2.setText(Main.fight.getTeam().get_ninjas().get(1).getName());
+		lblNameGen3.setText(Main.fight.getTeam().get_ninjas().get(2).getName());
+		lblNameJounin1.setText(Main.fight.getTeam().get_ninjas().get(3).getName());
+		lblNameJounin2.setText(Main.fight.getTeam().get_ninjas().get(4).getName());
+		lblNameKage.setText(Main.fight.getTeam().get_ninjas().get(5).getName());
+		
+		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
+		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
+		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
+		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
+		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
+		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
+	}
+	
 	@FXML
 	public void LoadButton() throws IOException {
 
@@ -87,97 +126,102 @@ public class KaguyaSimulatorController implements Initializable {
 		
 		Main.fight.setTeam(data2);
 
-		lblNameGen1.setText(Main.fight.getTeam().get_ninjas().get(0).getName());
-		lblNameGen2.setText(Main.fight.getTeam().get_ninjas().get(1).getName());
-		lblNameGen3.setText(Main.fight.getTeam().get_ninjas().get(2).getName());
-		lblNameJounin1.setText(Main.fight.getTeam().get_ninjas().get(3).getName());
-		lblNameJounin2.setText(Main.fight.getTeam().get_ninjas().get(4).getName());
-		lblNameKage.setText(Main.fight.getTeam().get_ninjas().get(5).getName());
-
-		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
-		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
-		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
-		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
-		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
-		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
+		loadAll(KSPicGen1, KSPicGen2, KSPicGen3, KSPicJounin1, KSPicJounin2, KSPicKage);
 	}
 
 	@FXML
 	public void FightButton() {
-		int sansa = 0;
+		double sansa = 0;
+		lblChanceId.setText(String.format("%.0f", sansa) + " %");		
 		sansa = Main.fight.fightSimulation();
-		lblChanceId.setText(String.valueOf(sansa) + " %");
+		if (sansa == 100) {
+			lblChanceId.setText("100 %");
+		} else {
+			lblChanceId.setText(String.format("%.2f", sansa) + " %");
+		}
 	}
 
 	@FXML
 	public void PlusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelPlus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
+		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
 		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
 	}
 
 	@FXML
 	public void PlusGen2() {
 		Main.fight.getTeam().get_ninjas().get(1).setLevelPlus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
+		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
 		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
 	}
 
 	@FXML
 	public void PlusGen3() {
 		Main.fight.getTeam().get_ninjas().get(2).setLevelPlus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
+		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
 		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
 	}
 
 	@FXML
 	public void PlusJounin1() {
 		Main.fight.getTeam().get_ninjas().get(3).setLevelPlus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
+		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
 		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
 	}
 
 	@FXML
 	public void PlusJounin2() {
 		Main.fight.getTeam().get_ninjas().get(4).setLevelPlus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
+		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
 		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
 	}
 
 	@FXML
 	public void PlusKage() {
 		Main.fight.getTeam().get_ninjas().get(5).setLevelPlus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
+		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelMinus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
+		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
 		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen2() {
 		Main.fight.getTeam().get_ninjas().get(1).setLevelMinus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
+		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
 		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen3() {
 		Main.fight.getTeam().get_ninjas().get(2).setLevelMinus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
+		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
 		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
 	}
 
 	@FXML
 	public void MinusJounin1() {
 		Main.fight.getTeam().get_ninjas().get(3).setLevelMinus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
+		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
 		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
 	}
 
 	@FXML
 	public void MinusJounin2() {
 		Main.fight.getTeam().get_ninjas().get(4).setLevelMinus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
+		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
 		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
 	}
 
 	@FXML
 	public void MinusKage() {
 		Main.fight.getTeam().get_ninjas().get(5).setLevelMinus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
+		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 	
@@ -208,9 +252,9 @@ public class KaguyaSimulatorController implements Initializable {
 				} else if (tezina.equals("Forbidden")) {
 					Main.fight.getKaguya().setForbiddenStanje();
 				} else if (tezina.isEmpty() && ! tezina.equals("")) {
-					tezina = "Begginer";
+					Main.fight.getKaguya().setBegginerStanje();
 				}
-				System.out.println("Click on "+cell.getItem());
+				//System.out.println("Click on "+cell.getItem()); Test ispis selektovanog itema
 			}
 		});
 		return cell ;
@@ -219,6 +263,7 @@ public class KaguyaSimulatorController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		KaguyaDBL.getListaTezina().clear();
 		KaguyaDBL.insertNamesIntoArray();
 		ObservableList<String> Difficulty = FXCollections.observableArrayList(KaguyaDBL.getListaTezina());
 		KSCBDiff.setItems(Difficulty);

@@ -2,6 +2,11 @@ package Tables;
 
 import java.util.ArrayList;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class KaguyaDBL {
 	
 	static int duzinaListeTezina = 7;
@@ -18,14 +23,14 @@ public class KaguyaDBL {
 	}
 
 	/**
-	 * @return the listaTezina
+	 * @return listaTezina
 	 */
 	public static ArrayList<String> getListaTezina() {
 		return ListaTezina;
 	}
 
 	/**
-	 * @param listaTezina the listaTezina to set
+	 * @param listaTezina set
 	 */
 	public static void setListaTezina(ArrayList<String> listaTezina) {
 		ListaTezina = listaTezina;

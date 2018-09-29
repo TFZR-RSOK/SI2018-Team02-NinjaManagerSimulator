@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import enums.Stanja;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class Team extends Ninja implements Serializable{
 
 	protected ArrayList <Ninja> _ninjas;
@@ -24,37 +29,42 @@ public class Team extends Ninja implements Serializable{
 	}
 
 	/**
-	 * @return the _ninjas
+	 * @return _ninjas
 	 */
 	public ArrayList<Ninja> get_ninjas() {
 		return _ninjas;
 	}
 
 	/**
-	 * @param _ninjas the _ninjas to set
+	 * @param set _ninjas
 	 */
 	public void set_ninjas(ArrayList<Ninja> _ninjas) {
 		this._ninjas = _ninjas;
 	}
 
 	/**
-	 * @return the stanje
+	 * @return stanje _ninjas
 	 */
 	public Stanja getStanje() {
 		return stanje;
 	}
 
 	/**
-	 * @param stanje the stanje to set
+	 * @param set stanje _ninjas
 	 */
 	public void setStanje(Stanja stanje) {
 		this.stanje = stanje;
 	}
-	
+	/**
+	 * 
+	 * @return Team Total DMG vs Kaguya
+	 */
 	public double fightSimNinja () {
 		double TotalNesto = 0;
 		for (Ninja nin1 : this._ninjas)
-			TotalNesto += nin1.DMGvsKaguya();
+			if (!nin1.getName().isEmpty()) {
+				TotalNesto += nin1.DMGvsKaguya();
+			}
 		
 		return TotalNesto;
 	

@@ -11,6 +11,11 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import main.Main;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class HomePageController {
 
 	

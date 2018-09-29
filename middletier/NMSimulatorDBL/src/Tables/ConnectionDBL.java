@@ -7,6 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
 
 public class ConnectionDBL {
 	
@@ -23,13 +27,17 @@ public class ConnectionDBL {
 		{
 			// create our mysql database connection
 			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost:3307/nmsimulatortest";
+			String myUrl = "jdbc:mysql://localhost:3306/nmsimulatortest";
 			Class.forName(myDriver);
 			conn = DriverManager.getConnection(myUrl, "root", "");
 	  
 			// our SQL SELECT query. 
 			// if you only need a few columns, specify them by name instead of using "*"
 			query = "SELECT * FROM nindza";
+			
+			/*
+			 * query = "CREATE PROCEDURE pullGenins () SELECT Tip FROM nindza WHERE Tip = 1";
+			 */
 			
 			// create the java statement
 			st = conn.createStatement();
@@ -49,7 +57,7 @@ public class ConnectionDBL {
 		{
 			// create our mysql database connection
 			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost:3307/nmsimulatortest";
+			String myUrl = "jdbc:mysql://localhost:3306/nmsimulatortest";
 			Class.forName(myDriver);
 			conn = DriverManager.getConnection(myUrl, "root", "");
 	  

@@ -1373,7 +1373,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="15.0" prefWidth="43.0">
+                        <Label fx:id="TSCritCGen3Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -1412,7 +1412,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="TSCritCGen3Id" text="CRITCHANCE:">
+                        <Label text="CRITCHANCE:">
                            <font>
                               <Font size="10.0" />
                            </font>

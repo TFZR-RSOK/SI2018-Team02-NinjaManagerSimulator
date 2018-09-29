@@ -2,6 +2,11 @@ package classes;
 
 import java.io.Serializable;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class Stats implements Serializable {
 	
 	protected double t, n, b, e, s, g, r, cs, br;
@@ -19,126 +24,126 @@ public class Stats implements Serializable {
 	}
 
 	/**
-	 * @return the r
+	 * @return Stats reroll vrednost
 	 */
 	public double getR() {
 		return r;
 	}
 
 	/**
-	 * @param r the r to set
+	 * @param set reroll vrednost u Stats
 	 */
 	public void setR(double r) {
 		this.r = r;
 	}
 
 	/**
-	 * @return the t
+	 * @return Stats taijutsu vrednost
 	 */
 	public double getT() {
 		return t;
 	}
 
 	/**
-	 * @param t the t to set
+	 * @param set taijutsu vrednost u Stats
 	 */
 	public void setT(double t) {
 		this.t = t;
 	}
 
 	/**
-	 * @return the n
+	 * @return Stats ninjutsu vrednost
 	 */
 	public double getN() {
 		return n;
 	}
 
 	/**
-	 * @param n the n to set
+	 * @param set ninjutsu vrednost u Stats
 	 */
 	public void setN(double n) {
 		this.n = n;
 	}
 
 	/**
-	 * @return the b
+	 * @return Stats bukijutsu vrednost
 	 */
 	public double getB() {
 		return b;
 	}
 
 	/**
-	 * @param b the b to set
+	 * @param set bukijutsu vrednost u Stats
 	 */
 	public void setB(double b) {
 		this.b = b;
 	}
 
 	/**
-	 * @return the e
+	 * @return Stats element vrednost
 	 */
 	public double getE() {
 		return e;
 	}
 
 	/**
-	 * @param e the e to set
+	 * @param set element vrednost u Stats
 	 */
 	public void setE(double e) {
 		this.e = e;
 	}
 
 	/**
-	 * @return the s
+	 * @return Stats stamina vrednost
 	 */
 	public double getS() {
 		return s;
 	}
 
 	/**
-	 * @param s the s to set
+	 * @param set stamina vrednost u Stats
 	 */
 	public void setS(double s) {
 		this.s = s;
 	}
 
 	/**
-	 * @return the g
+	 * @return Stats genjutsu vrednost
 	 */
 	public double getG() {
 		return g;
 	}
 
 	/**
-	 * @param g the g to set
+	 * @param set genjutsu vrednost u Stats
 	 */
 	public void setG(double g) {
 		this.g = g;
 	}
 
 	/**
-	 * @return the cs
+	 * @return Stats critical strike vrednost
 	 */
 	public double getCs() {
 		return cs;
 	}
 
 	/**
-	 * @param cs the cs to set
+	 * @param set critical strike vrednost u Stats
 	 */
 	public void setCs(double cs) {
 		this.cs = cs;
 	}
 
 	/**
-	 * @return the br
+	 * @return Stats bukijutsu recovery vrednost
 	 */
 	public double getBr() {
 		return br;
 	}
 
 	/**
-	 * @param br the br to set
+	 * @param set bukijutsu recovery vrednost u Stats
 	 */
 	public void setBr(double br) {
 		this.br = br;

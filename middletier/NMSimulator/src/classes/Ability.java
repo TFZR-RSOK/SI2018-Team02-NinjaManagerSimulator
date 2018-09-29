@@ -2,6 +2,11 @@ package classes;
 
 import java.io.Serializable;
 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
 public class Ability implements Serializable {
 
 	protected String name;
