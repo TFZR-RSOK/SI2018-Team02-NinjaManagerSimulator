@@ -1,6 +1,8 @@
 package classes;
 
-public class Fight {
+import java.io.Serializable;
+
+public class Fight implements Serializable {
 	
 	Team Team;
 	Kaguya Kaguya;

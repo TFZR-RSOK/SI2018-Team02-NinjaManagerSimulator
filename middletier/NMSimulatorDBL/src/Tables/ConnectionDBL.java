@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 
 public class ConnectionDBL {
 	
@@ -12,6 +14,9 @@ public class ConnectionDBL {
 	public static Statement st;
 	public static Connection conn;
 	public static ResultSet rs;
+	static int indeks = 0;
+	
+	static ArrayList<String> ListaPathsImages = new ArrayList<String>(263);
 
 	public static void Connect () {
 		try
@@ -57,6 +62,7 @@ public class ConnectionDBL {
 			
 			// execute the query, and get a java resultset
 			rs = st.executeQuery(query);
+			
 		}
 		catch (Exception e)
 		{
@@ -64,7 +70,6 @@ public class ConnectionDBL {
 			System.err.println(e.getMessage());
 		}
 	}
-	
 	
 	public static void Disconnect () throws SQLException {
 		st.close();

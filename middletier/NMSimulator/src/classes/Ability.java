@@ -1,6 +1,8 @@
 package classes;
 
-public class Ability {
+import java.io.Serializable;
+
+public class Ability implements Serializable {
 
 	protected String name;
 	protected double id, taijutsu, ninjutsu, bukijutsu, element, stamina, attack, bukiRec, bukiBoost, critChance, critStrike, reroll, endurance, fatigue,

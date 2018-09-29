@@ -1,9 +1,11 @@
 package classes;
 
+import java.io.Serializable;
+
 import enums.StanjaKaguya;
 import interfaces.IBasicOperations;
 
-public class Kaguya {
+public class Kaguya implements Serializable {
 	
 	protected double health, taijutsu, ninjutsu, bukijutsu, bukijutsuBoost;
 	protected StanjaKaguya tezina;

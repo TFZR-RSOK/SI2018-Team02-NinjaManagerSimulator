@@ -9,6 +9,7 @@ public class NapadiDBL {
 	
 	static int duzinaListeImenaNapada = 5; //Broj napada ne prelazi 5
 	static ArrayList<String> ListaImenaNapada = new ArrayList<String>(duzinaListeImenaNapada);
+	
 
 	public static void pullNapadiV2 (String izabranoImeNapada, int izabraniRedniBrojNinje, int izabraniAbility) throws SQLException {
 		

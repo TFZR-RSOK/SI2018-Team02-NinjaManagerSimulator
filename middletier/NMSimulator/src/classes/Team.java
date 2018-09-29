@@ -1,10 +1,11 @@
 package classes;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import enums.Stanja;
 
-public class Team extends Ninja{
-	
+public class Team extends Ninja implements Serializable{
+
 	protected ArrayList <Ninja> _ninjas;
 	
 	protected Stanja stanje;

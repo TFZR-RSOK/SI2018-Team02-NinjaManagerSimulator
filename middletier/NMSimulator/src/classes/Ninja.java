@@ -2,11 +2,11 @@ package classes;
 import enums.Stanja;
 import interfaces.IBasicOperations;
 
-import java.sql.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Ninja implements IBasicOperations { 
+public class Ninja implements IBasicOperations, Serializable { 
 
 	protected ArrayList <Ability> abilities;
 	protected int idNinje;
@@ -942,19 +942,19 @@ public class Ninja implements IBasicOperations {
 	
 	public double ninjutsuDMG () {
 		double seal = this.seal;
-		double upLimit = 0;
-		double downLimit = 0;
+		//int upLimit = 0;
+		//int downLimit = 0;
 		
-		downLimit = ((10+seal)*2.5)*this.ninjutsu;
-		upLimit = (100-(10+seal)*2.5)*this.ninjutsu;
+		int downLimit = (int) ((1+((10+seal)*2.5))*this.ninjutsu/100);
+		int upLimit = (int) ((100-((10+seal)*2.5))*this.ninjutsu/100);
 		
-		int down = (int) downLimit;
-		int up = (int) upLimit;
+		//int down = (int) downLimit;
+		//int up = (int) upLimit;
 		
-		int n1 = rand.nextInt(up) + down;
+		int n1 = rand.nextInt(upLimit-downLimit) + downLimit;
 		int roll = rand.nextInt(100) + 1;
 		if(roll<=this.reroll) {
-			int n2 = rand.nextInt(up) + down;
+			int n2 = rand.nextInt(upLimit) + downLimit;
 				if(n2>n1) {
 					return n2;
 				} else return n1;

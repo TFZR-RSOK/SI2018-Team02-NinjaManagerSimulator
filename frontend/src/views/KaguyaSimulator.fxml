@@ -44,7 +44,7 @@
                   <Font name="International Regular" size="34.0" />
                </font>
             </Label>
-            <Button fx:id="btnFight" layoutX="710.0" layoutY="561.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="147.0" text="FIGHT" textFill="#f5f5f5">
+            <Button fx:id="btnFight" onAction="#FightButton" layoutX="710.0" layoutY="561.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="147.0" text="FIGHT" textFill="#f5f5f5">
                <font>
                   <Font name="Rage Italic" size="25.0" />
                </font>
@@ -52,7 +52,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="btnLoadKS" layoutX="1198.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Load" textFill="WHITE">
+            <Button fx:id="btnLoadKS" onAction="#LoadButton" layoutX="1198.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Load" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
@@ -60,7 +60,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="btnSaveKS" layoutX="1269.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Save" textFill="WHITE">
+            <Button fx:id="btnSaveKS" onAction="#SaveButton" layoutX="1269.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Save" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>

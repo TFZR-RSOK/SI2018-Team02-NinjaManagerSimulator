@@ -70,11 +70,11 @@
          <children>
             <Pane layoutX="1080.0" layoutY="48.0" prefHeight="704.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="btnSave" layoutX="-2.0" layoutY="207.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SAVE" textFill="WHITE">
+                  <Button fx:id="btnSave" onAction="#Save" layoutX="-2.0" layoutY="207.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SAVE" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
-                  <Button fx:id="btnLoad" layoutX="-2.0" layoutY="265.0" mnemonicParsing="false" text="LOAD" textFill="WHITE">
+                  <Button fx:id="btnLoad" onAction="#Load" layoutX="-2.0" layoutY="265.0" mnemonicParsing="false" text="LOAD" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
@@ -2585,7 +2585,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="TBCBKageA2" prefWidth="100.0" />
+                        <ComboBox fx:id="TBCBKageA3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">

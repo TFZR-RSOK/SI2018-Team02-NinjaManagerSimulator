@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import main.Main;
 
+
 public class NinjaDBL {
 
 	static int duzinaListeImena = 263; //Ovo treba promeniti jer ako se slucajno doda ninja u bazu ovo nece raditi kako treba.
@@ -33,7 +34,6 @@ public class NinjaDBL {
 				Main.fight.getTeam().get_ninjas().get(redniBroj).setGenjutsuGrowth(ConnectionDBL.rs.getDouble(14));
 				Main.fight.getTeam().get_ninjas().get(redniBroj).setStamina(ConnectionDBL.rs.getDouble(15));
 				Main.fight.getTeam().get_ninjas().get(redniBroj).setStaminaGrowth(ConnectionDBL.rs.getDouble(16));
-				// OVDE FALI NEKAKO SLIKU DA POVUCE I NE ZNAM GDE DA JE SKLADISTI!
 				Main.fight.getTeam().get_ninjas().get(redniBroj).setTip(ConnectionDBL.rs.getDouble(18));
 			}
 		}

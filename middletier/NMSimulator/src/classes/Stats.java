@@ -1,6 +1,8 @@
 package classes;
 
-public class Stats {
+import java.io.Serializable;
+
+public class Stats implements Serializable {
 	
 	protected double t, n, b, e, s, g, r, cs, br;
 	
