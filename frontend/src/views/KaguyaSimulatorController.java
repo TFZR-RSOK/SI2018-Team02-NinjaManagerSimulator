@@ -40,26 +40,43 @@ import main.*;
  */
 
 public class KaguyaSimulatorController implements Initializable {
-	
+	/*
+	 * Elsa serijalizacija iz preuzetog repozitorijuma
+	 */
 	// Construct Elsa Serializer
 	// Elsa uses Maker Pattern to configure extra features
 	ElsaSerializer serializer = new ElsaMaker().make();
 	
+	/*
+	 * ImageView svih polja iz fxml fajlova
+	 */
 	@FXML
 	private ImageView KSPicGen1, KSPicGen2, KSPicGen3, KSPicJounin1, KSPicJounin2, KSPicKage;
 	
+	/*
+	 * ComboBox svih polja iz fxml fajlova
+	 */
 	@FXML
 	private ComboBox<String> KSCBDiff;
 	
+	/*
+	 * Label svih polja iz fxml fajlova
+	 */
 	@FXML
 	private Label lblGen1Lvl, lblGen2Lvl, lblGen3Lvl, lblJounin1Lvl, lblJounin2Lvl, lblKageLvl,
 					lblNameGen1, lblNameGen2, lblNameGen3, lblNameJounin1, lblNameJounin2, lblNameKage,
 					lblChanceId;
 	
+	/*
+	 * metoda za unos podataka iz odgovarajuceg TextField polja u odgovarajuci objekat
+	 */
 	public void saveLVL(int redniBroj, Label lblLvl) {
 		Main.fight.getTeam().get_ninjas().get(redniBroj).setLevel(Double.parseDouble(lblLvl.getText()));
 	}
 	
+	/*
+	 * metoda za serijalizaciju objekta u fajl
+	 */
 	@FXML
 	public void SaveButton() throws IOException {
 		saveLVL(0, lblGen1Lvl);
@@ -83,7 +100,10 @@ public class KaguyaSimulatorController implements Initializable {
 		// write data into OutputStream
 		serializer.serialize(out2, data);
 	}
-
+	
+	/*
+	 * metoda za povlacenje podataka iz objekta i ispis istih u odgovarajuca polja
+	 */
 	public void loadAll(ImageView picFrameGen1, ImageView picFrameGen2, ImageView picFrameGen3, ImageView picFrameJounin1,
 			ImageView picFrameJounin2, ImageView picFrameKage) throws FileNotFoundException {
 		
@@ -109,6 +129,9 @@ public class KaguyaSimulatorController implements Initializable {
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 	
+	/*
+	 * metoda za deserijalizaciju fajla i ubacivanje u objekat, i nakon toga ispis istih u odgovarajuca polja
+	 */
 	@FXML
 	public void LoadButton() throws IOException {
 
@@ -128,7 +151,10 @@ public class KaguyaSimulatorController implements Initializable {
 
 		loadAll(KSPicGen1, KSPicGen2, KSPicGen3, KSPicJounin1, KSPicJounin2, KSPicKage);
 	}
-
+	
+	/*
+	 * metoda za ispis mogucnosti prelaska u procentima
+	 */
 	@FXML
 	public void FightButton() {
 		double sansa = 0;
@@ -140,7 +166,10 @@ public class KaguyaSimulatorController implements Initializable {
 			lblChanceId.setText(String.format("%.2f", sansa) + " %");
 		}
 	}
-
+	
+	/*
+     * metode za inkrement/dekrement varijable level iz objekta Ninja i ispis iste u odgovarajuce polje
+     */
 	@FXML
 	public void PlusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelPlus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
@@ -225,6 +254,9 @@ public class KaguyaSimulatorController implements Initializable {
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 	
+	/*
+	  * metoda za selekciju, podesavanje tezine i iscitavanje odabrane tezine u ComboBox polju
+	  */
 	public void ListenerTezina() {
 		KSCBDiff.setCellFactory(lv -> {
 		ListCell<String> cell = new ListCell<String>() {
@@ -261,6 +293,9 @@ public class KaguyaSimulatorController implements Initializable {
 		});
 	}
 	
+	/*
+	 * metoda za inicijalizaciju potrebnih listi nindzi i podesavanje istih na ComboBox
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		KaguyaDBL.getListaTezina().clear();
