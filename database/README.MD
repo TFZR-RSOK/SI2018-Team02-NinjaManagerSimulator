@@ -1,2 +1,2 @@
 # Database
-This is a folder for all of the database files, scripts etc.
+Rar fajl "Slike" je potrebno exportovati u folder "C:\xampp\mysql\data\nmsimulatortest".
