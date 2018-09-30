@@ -1,4 +1,3 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 #btnCompareNinjas {
 	-fx-background-color: #392a1a; 
 }
@@ -45,6 +44,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }
 
 #btnCalcGenin2 {
@@ -53,6 +53,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }
 
 #btnCalcGenin3 {
@@ -61,6 +62,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }
 
 #btnCalcJounin1{
@@ -69,6 +71,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }
 
 #btnCalcJounin2 {
@@ -77,6 +80,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }
 
 #btnCalcKage {
@@ -85,6 +89,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }
 
 #btnSave {
@@ -101,6 +106,7 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+	
 }
 
 #btnSS {
@@ -109,4 +115,40 @@
 	-fx-border-radius: 4px;
 	-fx-font-style: italic ;
 	-fx-font-family: 'Open Sans', sans-serif;
+}
+
+#btnCalcCN1 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
+}
+
+#btnCalcCN2 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
+}
+
+#btnCalcCN3 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
+}
+
+#btnCalcCN4 {
+	-fx-background-color: #428619;
+	-fx-border-color: #140b05;
+	-fx-border-radius: 4px;
+	-fx-font-style: italic ;
+	-fx-font-family: 'Open Sans', sans-serif;
+	-fx-font-size: 13px;
 }

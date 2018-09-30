@@ -2,29 +2,33 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="compareNinjas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="compareNinjas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.CompareNinjasController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/compare-ninjas-background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" text="Back" />
-      <GridPane gridLinesVisible="true" hgap="40.0" layoutY="87.0" prefHeight="815.0" prefWidth="1500.0">
+      <GridPane hgap="40.0" layoutY="135.0" prefHeight="769.0" prefWidth="1500.0" AnchorPane.rightAnchor="0.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,106 +36,119 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="397.3333435058594" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="767.0" minHeight="10.0" prefHeight="767.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="397.3333435058594" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="767.0" minHeight="10.0" prefHeight="718.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="1" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="2" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="3" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="334.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="334.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="334.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="334.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="334.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="334.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Pane prefHeight="731.0" prefWidth="335.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="143.0" fitWidth="138.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
+                  <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../../../../Kaguya04.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="750.0" stroke="WHITE" strokeType="INSIDE" width="333.0" />
-                  <Label layoutX="168.0" layoutY="14.0" text="BASESTATS:" />
-                  <VBox layoutX="194.0" layoutY="41.0" prefHeight="112.0" prefWidth="42.0">
-                     <children>
-                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
-                        <Label text="NIN:" />
-                        <Label text="BUKI:" />
-                        <Label text="STA:" />
-                        <Label text="ELE:" />
-                        <Label text="GEN:" />
-                     </children>
-                  </VBox>
-                  <VBox layoutX="253.0" layoutY="41.0" prefHeight="112.0" prefWidth="52.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                     </children>
-                  </VBox>
-                  <TextField layoutX="14.0" layoutY="167.0" text="LVL" />
-                  <VBox layoutX="14.0" layoutY="437.0" prefHeight="131.0" prefWidth="62.0">
+                  <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
+                  <VBox layoutX="150.0" layoutY="30.0" prefHeight="123.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
                            <VBox.margin>
-                              <Insets bottom="3.0" />
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding></Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding></Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding></Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding></Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="185.0" layoutY="30.0" prefHeight="120.0" prefWidth="42.0">
+                     <children>
+                        <Label fx:id="CNbaseTaiGen1Id" prefHeight="18.0" prefWidth="42.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="CNbaseNinGen1Id" prefHeight="18.0" prefWidth="42.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="CNbaseBukiGen1Id" prefHeight="18.0" prefWidth="42.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="CNbaseStaGen1Id" prefHeight="18.0" prefWidth="42.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="CNbaseEleGen1Id" prefHeight="18.0" prefWidth="42.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="CNbaseGenGen1Id" prefHeight="18.0" prefWidth="42.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin></Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="9.0" layoutY="308.0" prefHeight="135.0" prefWidth="45.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
                            </VBox.margin></Label>
                         <Label text="NIN:">
                            <VBox.margin>
-                              <Insets bottom="3.0" top="2.0" />
+                              <Insets bottom="6.0" />
                            </VBox.margin></Label>
                         <Label text="BUKI:">
                            <VBox.margin>
-                              <Insets bottom="8.0" top="5.0" />
+                              <Insets bottom="6.0" />
                            </VBox.margin></Label>
-                        <Label text="STAHIMA:">
+                        <Label text="STAM">
                            <VBox.margin>
-                              <Insets bottom="10.0" top="3.0" />
+                              <Insets bottom="6.0" />
                            </VBox.margin></Label>
-                        <Label text="BUKI REC:" />
+                        <Label text="ELE:" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="14.0" layoutY="205.0" prefHeight="190.0" prefWidth="268.0">
+                  <VBox layoutX="16.0" layoutY="175.0" prefHeight="99.0" prefWidth="143.0">
                      <children>
                         <Label text="ABILITY 1:" />
-                        <ChoiceBox prefHeight="28.0" prefWidth="235.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:" />
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="28.0" prefWidth="235.0" />
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:" />
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="28.0" prefWidth="235.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:" />
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="0.0" prefWidth="235.0" />
+                        <ComboBox fx:id="CNCBGen1A1" prefWidth="134.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:" />
+                        <ComboBox fx:id="CNCBGen1A3" layoutX="10.0" layoutY="28.0" prefWidth="134.0" />
                      </children>
                   </VBox>
-                  <Label layoutX="14.0" layoutY="412.0" text="ADD STATS:" />
-                  <VBox layoutX="87.0" layoutY="430.0" prefHeight="86.0" prefWidth="71.0">
-                     <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0" />
-                        <TextField>
-                           <VBox.margin>
-                              <Insets bottom="2.0" top="2.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField>
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin></TextField>
-                        <TextField>
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin></TextField>
-                        <TextField />
-                     </children>
-                  </VBox>
-                  <Line endX="185.0" fill="#f5efef" layoutX="148.0" layoutY="582.0" startX="-148.00003051757812" stroke="#f8f6f6" />
-                  <Label layoutX="116.0" layoutY="591.0" text="TOTAL STATS" />
-                  <VBox layoutX="14.0" layoutY="609.0" prefHeight="112.0" prefWidth="42.0">
+                  <Label layoutX="125.0" layoutY="285.0" text="ADD STATS:" />
+                  <Label layoutX="119.0" layoutY="455.0" text="TOTAL STATS" />
+                  <VBox layoutX="14.0" layoutY="480.0" prefHeight="144.0" prefWidth="72.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
                         <Label text="NIN:" />
@@ -139,51 +156,1432 @@
                         <Label text="ELE:" />
                         <Label text="STAM:" />
                         <Label text="GEN:" />
-                        <Label text="BUKIR:" />
+                        <Label text="GENACT:" />
+                        <Label layoutX="10.0" layoutY="118.0" text="GENMAS:" />
                      </children>
                   </VBox>
-                  <VBox layoutX="64.0" layoutY="609.0" prefHeight="112.0" prefWidth="52.0">
+                  <VBox layoutX="80.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
+                        <Label fx:id="CNTSTaiGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSNinGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSEleGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSStaGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenAGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenMGen1Id" layoutX="10.0" layoutY="118.0" prefHeight="18.0" prefWidth="52.0" />
                      </children>
                   </VBox>
-                  <VBox layoutX="147.0" layoutY="612.0" prefHeight="126.0" prefWidth="92.0">
+                  <VBox layoutX="147.0" layoutY="480.0" prefHeight="126.0" prefWidth="108.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="72.0" text="BUKIB:" />
-                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIBE:" />
-                        <Label text="CRITCH:" />
-                        <Label text="CRITENG::" />
+                        <Label prefHeight="18.0" prefWidth="87.0" text="BUKIBOOST:" />
+                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIREC:" />
+                        <Label prefHeight="18.0" prefWidth="95.0" text="CRITCHANCE:" />
+                        <Label text="CRITDMG:" />
                         <Label text="REROLL:" />
                         <Label text="ATTACK:" />
-                        <Label text="ENDURANCE:" />
+                        <Label prefHeight="18.0" prefWidth="103.0" text="ENDURANCE:" />
                      </children>
                   </VBox>
-                  <VBox layoutX="253.0" layoutY="612.0" prefHeight="112.0" prefWidth="52.0">
+                  <VBox layoutX="265.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
-                        <Label text="100000" />
+                        <Label fx:id="CNTSBukiBGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiRGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSCritCGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSCritDGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSRerollGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSAttackGen1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSEndGen1Id" prefHeight="18.0" prefWidth="52.0" />
                      </children>
                   </VBox>
+                  <Text layoutX="18.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="lvlGen1" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
+                  <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddTaiGen1Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddNinGen1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiGen1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddStaGen1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddEleGen1Id" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="165.0" layoutY="308.0" prefHeight="113.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="GEN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="REROLL:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="71.0" text="CRTDMG">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKIREC:">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddGenGen1Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddRerollGen1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddCritDGen1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiRGen1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="166.0" layoutY="175.0" prefHeight="66.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 2:" />
+                        <ComboBox fx:id="CNCBGen1A2" prefWidth="134.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="CNGen1P" onAction="#Gen1P" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen1S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="CNGen1M" onAction="#Gen1M" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnCalcCN1" layoutX="224.0" layoutY="646.0" mnemonicParsing="false" onAction="#calculateStatsGen1" prefHeight="38.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <ImageView fx:id="CNPicGen1" fitHeight="104.0" fitWidth="90.0" layoutX="39.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox layoutX="235.0" layoutY="30.0">
+                     <children>
+                        <Label text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="272.0" layoutY="32.0" prefHeight="120.0" prefWidth="55.0">
+                     <children>
+                        <Label fx:id="CNgrowthTaiGen1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthNinGen1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthBukiGen1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthStaGen1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthEleGen1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthGenGen1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label layoutX="234.0" layoutY="10.0" text="GROWTH:" />
                </children>
                <GridPane.margin>
-                  <Insets top="5.0" />
+                  <Insets />
                </GridPane.margin>
             </Pane>
+            <Pane prefHeight="697.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
+                  <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../resources/img-frame.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
+                  <VBox layoutX="150.0" layoutY="30.0" prefHeight="123.0" prefWidth="42.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="185.0" layoutY="30.0" prefHeight="112.0" prefWidth="42.0">
+                     <children>
+                        <Label fx:id="CNbaseTaiGen2Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseNinGen2Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseBukiGen2Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseStaGen2Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseEleGen2Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseGenGen2Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="9.0" layoutY="308.0" prefHeight="135.0" prefWidth="45.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STAM">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="ELE:" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="16.0" layoutY="175.0" prefHeight="99.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 1:" />
+                        <ComboBox fx:id="CNCBGen2A1" prefWidth="134.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:" />
+                        <ComboBox fx:id="CNCBGen2A3" layoutX="10.0" layoutY="28.0" prefWidth="134.0" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="125.0" layoutY="285.0" text="ADD STATS:" />
+                  <Label layoutX="119.0" layoutY="455.0" text="TOTAL STATS" />
+                  <VBox layoutX="14.0" layoutY="480.0" prefHeight="144.0" prefWidth="72.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
+                        <Label text="NIN:" />
+                        <Label text="BUKI:" />
+                        <Label text="ELE:" />
+                        <Label text="STAM:" />
+                        <Label text="GEN:" />
+                        <Label text="GENACT:" />
+                        <Label layoutX="10.0" layoutY="118.0" text="GENMAS:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="80.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label fx:id="CNTSTaiGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSNinGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSEleGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSStaGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenAGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenMGen2Id" layoutX="10.0" layoutY="118.0" prefHeight="18.0" prefWidth="52.0" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="147.0" layoutY="480.0" prefHeight="126.0" prefWidth="108.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="87.0" text="BUKIBOOST:" />
+                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIREC:" />
+                        <Label prefHeight="18.0" prefWidth="95.0" text="CRITCHANCE:" />
+                        <Label text="CRITDMG:" />
+                        <Label text="REROLL:" />
+                        <Label text="ATTACK:" />
+                        <Label prefHeight="18.0" prefWidth="103.0" text="ENDURANCE:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="265.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label fx:id="CNTSBukiBGen2Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiRGen2Id" />
+                        <Label fx:id="CNTSCritCGen2Id" />
+                        <Label fx:id="CNTSCritDGen2Id" />
+                        <Label fx:id="CNTSRerollGen2Id" />
+                        <Label fx:id="CNTSAttackGen2Id" />
+                        <Label fx:id="CNTSEndGen2Id" />
+                     </children>
+                  </VBox>
+                  <Text layoutX="18.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="lvlGen2" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
+                  <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddTaiGen2Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddNinGen2Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiGen2Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddStaGen2Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddEleGen2Id" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="165.0" layoutY="308.0" prefHeight="113.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="GEN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="REROLL:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="71.0" text="CRTDMG">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKIREC:">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddGenGen2Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddRerollGen2Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddCritDGen2Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiRGen2Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="166.0" layoutY="175.0" prefHeight="66.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 2:" />
+                        <ComboBox fx:id="CNCBGen2A2" prefWidth="134.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="CNGen2P" onAction="#Gen2P" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen2S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="CNGen2M" onAction="#Gen2M" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnCalcCN2" layoutX="224.0" layoutY="646.0" mnemonicParsing="false" onAction="#calculateStatsGen2" prefHeight="38.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <ImageView fx:id="CNPicGen2" fitHeight="104.0" fitWidth="90.0" layoutX="39.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox layoutX="235.0" layoutY="30.0">
+                     <children>
+                        <Label text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="272.0" layoutY="32.0" prefWidth="55.0">
+                     <children>
+                        <Label fx:id="CNgrowthTaiGen2" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthNinGen2" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthBukiGen2" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthStaGen2" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthEleGen2" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthGenGen2" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label layoutX="234.0" layoutY="10.0" text="GROWTH:" />
+               </children>
+            </Pane>
+            <Pane prefHeight="697.0" prefWidth="335.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
+                  <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../resources/img-frame.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
+                  <VBox layoutX="150.0" layoutY="30.0" prefHeight="123.0" prefWidth="42.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="180.0" layoutY="30.0" prefHeight="112.0" prefWidth="42.0">
+                     <children>
+                        <Label fx:id="CNbaseTaiGen3Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseNinGen3Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseBukiGen3Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseStaGen3Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseEleGen3Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseGenGen3Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="9.0" layoutY="308.0" prefHeight="135.0" prefWidth="45.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STAM">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="ELE:" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="16.0" layoutY="175.0" prefHeight="99.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 1:" />
+                        <ComboBox fx:id="CNCBGen3A1" prefWidth="134.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:" />
+                        <ComboBox fx:id="CNCBGen3A3" layoutX="10.0" layoutY="28.0" prefWidth="134.0" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="125.0" layoutY="285.0" text="ADD STATS:" />
+                  <Label layoutX="119.0" layoutY="455.0" text="TOTAL STATS" />
+                  <VBox layoutX="14.0" layoutY="480.0" prefHeight="144.0" prefWidth="72.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
+                        <Label text="NIN:" />
+                        <Label text="BUKI:" />
+                        <Label text="ELE:" />
+                        <Label text="STAM:" />
+                        <Label text="GEN:" />
+                        <Label text="GENACT:" />
+                        <Label layoutX="10.0" layoutY="118.0" text="GENMAS:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="80.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label fx:id="CNTSTaiGen3Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSNinGen3Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiGen3Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSEleGen3Id" />
+                        <Label fx:id="CNTSStaGen3Id" />
+                        <Label fx:id="CNTSGenGen3Id" />
+                        <Label fx:id="CNTSGenAGen3Id" />
+                        <Label fx:id="CNTSGenMGen3Id" layoutX="10.0" layoutY="118.0" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="147.0" layoutY="480.0" prefHeight="126.0" prefWidth="108.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="87.0" text="BUKIBOOST:" />
+                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIREC:" />
+                        <Label prefHeight="18.0" prefWidth="95.0" text="CRITCHANCE:" />
+                        <Label text="CRITDMG:" />
+                        <Label text="REROLL:" />
+                        <Label text="ATTACK:" />
+                        <Label prefHeight="18.0" prefWidth="103.0" text="ENDURANCE:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="265.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label fx:id="CNTSBukiBGen3Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiRGen3Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSCritCGen3Id" />
+                        <Label fx:id="CNTSCritDGen3Id" />
+                        <Label fx:id="CNTSRerollGen3Id" />
+                        <Label fx:id="CNTSAttackGen3Id" />
+                        <Label fx:id="CNTSEndGen3Id" />
+                     </children>
+                  </VBox>
+                  <Text layoutX="18.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="lvlGen3" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
+                  <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddTaiGen3Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddNinGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddStaGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddEleGen3Id" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="165.0" layoutY="308.0" prefHeight="113.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="GEN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="REROLL:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="71.0" text="CRTDMG">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKIREC:">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddGenGen3Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddRerollGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddCritDGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiRGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="166.0" layoutY="175.0" prefHeight="66.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 2:" />
+                        <ComboBox fx:id="CNCBGen3A2" prefWidth="134.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="CNGen3P" onAction="#Gen3P" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen3S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="CNGen3M" onAction="#Gen3M" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnCalcCN3" layoutX="224.0" layoutY="646.0" mnemonicParsing="false" onAction="#calculateStatsGen3" prefHeight="38.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <ImageView fx:id="CNPicGen3" fitHeight="104.0" fitWidth="90.0" layoutX="39.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox layoutX="235.0" layoutY="30.0">
+                     <children>
+                        <Label text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="272.0" layoutY="32.0" prefWidth="55.0">
+                     <children>
+                        <Label fx:id="CNgrowthTaiGen3" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthNinGen3" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthBukiGen3" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthStaGen3" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthEleGen3" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthGenGen3" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label layoutX="234.0" layoutY="10.0" text="GROWTH:" />
+               </children>
+            </Pane>
+            <Pane prefHeight="697.0" prefWidth="335.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
+                  <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../resources/img-frame.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
+                  <VBox layoutX="150.0" layoutY="30.0" prefHeight="123.0" prefWidth="42.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="180.0" layoutY="30.0" prefHeight="112.0" prefWidth="42.0">
+                     <children>
+                        <Label fx:id="CNbaseTaiJounin1Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseNinJounin1Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseBukiJounin1Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseStaJounin1Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseEleJounin1Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNbaseGenJounin1Id" prefHeight="18.0" prefWidth="52.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="9.0" layoutY="308.0" prefHeight="135.0" prefWidth="45.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STAM">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="ELE:" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="16.0" layoutY="175.0" prefHeight="99.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 1:" />
+                        <ComboBox fx:id="CNCBJounin1A1" prefWidth="134.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:" />
+                        <ComboBox fx:id="CNCBJounin1A3" layoutX="10.0" layoutY="28.0" prefWidth="134.0" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="125.0" layoutY="285.0" text="ADD STATS:" />
+                  <Label layoutX="119.0" layoutY="455.0" text="TOTAL STATS" />
+                  <VBox layoutX="14.0" layoutY="480.0" prefHeight="144.0" prefWidth="72.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:" />
+                        <Label text="NIN:" />
+                        <Label text="BUKI:" />
+                        <Label text="ELE:" />
+                        <Label text="STAM:" />
+                        <Label text="GEN:" />
+                        <Label text="GENACT:" />
+                        <Label layoutX="10.0" layoutY="118.0" text="GENMAS:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="80.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label fx:id="CNTSTaiJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSNinJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSEleJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSStaJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenAJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSGenMJounin1Id" layoutX="10.0" layoutY="118.0" prefHeight="18.0" prefWidth="52.0" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="147.0" layoutY="480.0" prefHeight="126.0" prefWidth="108.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="87.0" text="BUKIBOOST:" />
+                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIREC:" />
+                        <Label prefHeight="18.0" prefWidth="95.0" text="CRITCHANCE:" />
+                        <Label text="CRITDMG:" />
+                        <Label text="REROLL:" />
+                        <Label text="ATTACK:" />
+                        <Label prefHeight="18.0" prefWidth="103.0" text="ENDURANCE:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="265.0" layoutY="480.0" prefHeight="112.0" prefWidth="52.0">
+                     <children>
+                        <Label fx:id="CNTSBukiBJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSBukiRJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSCritCJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSCritDJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSRerollJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSAttackJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                        <Label fx:id="CNTSEndJounin1Id" prefHeight="18.0" prefWidth="52.0" />
+                     </children>
+                  </VBox>
+                  <Text layoutX="18.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="lvlJounin1" layoutX="56.0" layoutY="135.0" prefHeight="24.0" prefWidth="83.0" text="1" />
+                  <VBox layoutX="61.0" layoutY="306.0" prefHeight="148.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddTaiJounin1Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddNinJounin1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiJounin1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddStaJounin1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddEleJounin1Id" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="165.0" layoutY="308.0" prefHeight="113.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="9.0" prefWidth="33.0" text="GEN:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="REROLL:">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="71.0" text="CRTDMG">
+                           <VBox.margin>
+                              <Insets bottom="6.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="BUKIREC:">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="237.0" layoutY="306.0" prefHeight="131.0" prefWidth="91.0">
+                     <children>
+                        <TextField fx:id="CNAddGenJounin1Id" prefHeight="4.0" prefWidth="71.0" text="0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddRerollJounin1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddCritDJounin1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CNAddBukiRJounin1Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="166.0" layoutY="175.0" prefHeight="66.0" prefWidth="143.0">
+                     <children>
+                        <Label text="ABILITY 2:" />
+                        <ComboBox fx:id="CNCBJounin1A2" prefWidth="134.0" />
+                        <Label text="SEAL:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="CNJounin1P" onAction="#Jounin1P" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblJounin1S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="CNJounin1M" onAction="#Jounin1M" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnCalcCN4" layoutX="224.0" layoutY="646.0" mnemonicParsing="false" onAction="#calculateStatsJounin1" prefHeight="38.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <ImageView fx:id="CNPicJounin1" fitHeight="104.0" fitWidth="90.0" layoutX="39.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox layoutX="235.0" layoutY="30.0">
+                     <children>
+                        <Label text="TAI:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="NIN:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="BUKI:">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="STA:">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="ELE:">
+                           <padding>
+                              <Insets bottom="2.0" />
+                           </padding>
+                        </Label>
+                        <Label text="GEN:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="272.0" layoutY="32.0" prefWidth="55.0">
+                     <children>
+                        <Label fx:id="CNgrowthTaiJounin1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthNinJounin1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthBukiJounin1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthStaJounin1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthEleJounin1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="CNgrowthGenJounin1" prefWidth="55.0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label layoutX="234.0" layoutY="10.0" text="GROWTH:" />
+               </children>
+            </Pane>
+            <ComboBox fx:id="CNCBGen1" prefWidth="350.0" />
+            <ComboBox fx:id="CNCBGen2" layoutX="30.0" layoutY="19.0" prefWidth="350.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="CNCBGen3" layoutX="405.0" layoutY="19.0" prefWidth="350.0" GridPane.columnIndex="2" />
+            <ComboBox fx:id="CNCBJounin1" layoutX="30.0" layoutY="19.0" prefWidth="350.0" GridPane.columnIndex="3" />
          </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" />
          </padding>
       </GridPane>
+      <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#38291ab2" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
+         <effect>
+            <DropShadow color="#0a0704" height="40.42" radius="9.605" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Text layoutX="428.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compare NINJAS">
+         <font>
+            <Font name="International Regular" size="65.0" />
+         </font>
+         <effect>
+            <DropShadow height="6.22" radius="1.055" width="0.0" />
+         </effect>
+         <fill>
+            <LinearGradient endX="0.9902912621359223" endY="0.45145631067961167" startY="1.0">
+               <stops>
+                  <Stop color="#ffb74e" />
+                  <Stop color="#ffb74e" offset="0.007246376811594203" />
+                  <Stop color="#ffe351" offset="0.47485080988917305" />
+                  <Stop color="#ffa644" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
    </children>
 </AnchorPane>

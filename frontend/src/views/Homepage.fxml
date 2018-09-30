@@ -27,6 +27,29 @@
             <DropShadow color="#0a0704" height="40.42" radius="9.605" width="0.0" />
          </effect>
       </Rectangle>
+      <Rectangle fx:id="homepageHeader1" arcHeight="5.0" arcWidth="5.0" fill="#392a1a" height="47.0" layoutY="853.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
+         <effect>
+            <DropShadow color="#0a0704" height="40.42" radius="9.605" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Text layoutX="490.0" layoutY="885.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by Milica Knezevic, Nikola Corkovic &amp; Stefan Tomic">
+         <font>
+            <Font name="International Regular" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow height="6.22" radius="1.055" width="0.0" />
+         </effect>
+         <fill>
+            <LinearGradient endX="0.9902912621359223" endY="0.45145631067961167" startY="1.0">
+               <stops>
+                  <Stop color="#ffb74e" />
+                  <Stop color="#ffb74e" offset="0.007246376811594203" />
+                  <Stop color="#ffe351" offset="0.47485080988917305" />
+                  <Stop color="#ffa644" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
       <Text layoutX="260.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NINJA MANAGER SIMULATOR">
          <font>
             <Font name="International Regular" size="65.0" />
@@ -98,7 +121,7 @@
                <graphic>
                   <ImageView fitHeight="245.0" fitWidth="368.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ninja-database.png" />
+                        <Image url="@../../resources/ninja-database.jpg" />
                      </image>
                   </ImageView>
                </graphic>

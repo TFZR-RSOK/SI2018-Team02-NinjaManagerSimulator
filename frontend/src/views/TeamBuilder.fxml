@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -11,6 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
@@ -20,14 +23,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="teamBuilder" prefHeight="900.0" prefWidth="1500.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="teamBuilder" prefHeight="900.0" prefWidth="1500.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.TeamBuilderController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/team-builder-background.jpg" />
          </image>
       </ImageView>
-      <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#392a1a" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
+      <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#38291ab2" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
          <effect>
             <DropShadow color="#0a0704" height="40.42" radius="9.605" width="0.0" />
          </effect>
@@ -52,299 +55,40 @@
       </Text>
       <GridPane hgap="10.0" layoutY="166.0" prefHeight="734.0" prefWidth="1500.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="268.666748046875" minWidth="10.0" prefWidth="11.3333740234375" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="397.3333435058594" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="767.0" minHeight="10.0" prefHeight="767.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="5" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="2" />
-            <ChoiceBox prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="6" />
-            <ChoiceBox layoutX="450.0" layoutY="10.0" prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="3" />
-            <ChoiceBox layoutX="660.0" layoutY="10.0" prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="4" />
-            <ChoiceBox layoutX="870.0" layoutY="10.0" prefHeight="41.0" prefWidth="350.0" GridPane.columnIndex="1" />
-            <Pane layoutX="1080.0" layoutY="48.0" prefHeight="715.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+            <Pane layoutX="1080.0" layoutY="48.0" prefHeight="704.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="153.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Button fx:id="btnSave" layoutX="64.0" layoutY="265.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SAVE" textFill="WHITE">
+                  <Button fx:id="btnSave" onAction="#Save" layoutX="-2.0" layoutY="207.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SAVE" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
-                  <Button fx:id="btnLoad" layoutX="64.0" layoutY="322.0" mnemonicParsing="false" text="LOAD" textFill="WHITE">
+                  <Button fx:id="btnLoad" onAction="#Load" layoutX="-2.0" layoutY="265.0" mnemonicParsing="false" text="LOAD" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
-                  <Button fx:id="btnSS" layoutX="64.0" layoutY="379.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SS" textFill="WHITE">
+                  <Button fx:id="btnSS" layoutX="-2.0" layoutY="323.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="SS" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
-                  <Label layoutX="5.0" layoutY="20.0" text="BASESTATS:" />
-                  <VBox layoutX="13.0" layoutY="46.0" prefHeight="106.0" prefWidth="42.0">
-                     <children>
-                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="NIN:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="BUKI:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="STA:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="ELE:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="GEN:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <TextField layoutX="100.0" layoutY="128.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </TextField>
-                  <VBox layoutX="42.0" layoutY="43.0" prefHeight="112.0" prefWidth="52.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="100.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
-                     </image>
-                  </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
-                  <VBox layoutX="157.0" layoutY="559.0" prefHeight="112.0" prefWidth="42.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <Label layoutX="61.0" layoutY="536.0" prefHeight="19.0" prefWidth="83.0" text="TOTAL STATS">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <VBox layoutX="7.0" layoutY="555.0" prefHeight="120.0" prefWidth="53.0">
-                     <children>
-                        <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="NIN:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="BUKI:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="FAT:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="STAM:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="GEN:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="GENACT:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="GENMAS:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="50.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="100000">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="95.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
-                     <children>
-                        <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="18.0" prefWidth="61.0" text="BUKIREC:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="CRITCHANCE:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="CRIT DMG::">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="REROLL:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="ATTACK:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <Label text="ENDURANCE:">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
                </children>
             </Pane>
             <Pane layoutX="240.0" layoutY="48.0" prefHeight="715.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -379,39 +123,39 @@
                         </Label>
                      </children>
                   </VBox>
-                  <TextField layoutX="104.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
+                  <TextField fx:id="lvlGen2" layoutX="127.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="1">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </TextField>
                   <VBox layoutX="41.0" layoutY="48.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="baseTaiGen2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseNinGen2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseBukiGen2Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseStaGen2Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseEleGen2Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseGenGen2Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -452,14 +196,6 @@
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
                         <Label text="ELE:">
                            <font>
                               <Font size="12.0" />
@@ -488,26 +224,37 @@
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label text="ABILITY 1:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:">
+                        <ComboBox fx:id="TBCBGen2A1" prefWidth="100.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="83.0" />
+                        <ComboBox fx:id="TBCBGen2A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -517,12 +264,12 @@
                   </Label>
                   <VBox layoutX="93.0" layoutY="277.0" prefHeight="241.0" prefWidth="91.0">
                      <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="AddTaiGen2Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddNinGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -530,7 +277,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -538,7 +285,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddStaGen2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -546,7 +293,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddEleGen2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -554,7 +301,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddGenGen2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -562,7 +309,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddRerollGen2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -570,56 +317,59 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddCritDGen2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiRGen2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox layoutX="46.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
+                  <VBox layoutX="55.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSTaiGen2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSNinGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSFatGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSStaGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenAGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenMGen2Id">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -675,46 +425,46 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="155.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
+                  <VBox layoutX="175.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSBukiBGen2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiRGen2Id" prefHeight="15.0" prefWidth="42.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritCGen2Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritDGen2Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSRerollGen2Id" prefHeight="15.0" prefWidth="40.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSAttackGen2Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSEndGen2Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="90.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
+                  <VBox layoutX="110.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
                            <font>
@@ -753,38 +503,57 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="104.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="104.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:">
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:">
+                        <ComboBox fx:id="TBCBGen2A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="19.0" prefWidth="83.0" />
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBGen2P" mnemonicParsing="false" onAction="#PlusGen2" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen2S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBGen2M" mnemonicParsing="false" onAction="#MinusGen2" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnCalcGenin2" layoutX="102.0" layoutY="675.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                  <Button fx:id="btnCalcGenin2" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsGen2" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
+                  <Text layoutX="103.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="picGen2" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <Pane layoutX="30.0" layoutY="20.0" prefHeight="715.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -819,39 +588,39 @@
                         </Label>
                      </children>
                   </VBox>
-                  <TextField layoutX="104.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
+                  <TextField fx:id="lvlGen1" layoutX="127.0" layoutY="131.0" prefHeight="24.0" prefWidth="83.0" text="1">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </TextField>
                   <VBox layoutX="41.0" layoutY="48.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="baseTaiGen1Id" prefHeight="18.0" prefWidth="52.0" text="">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseNinGen1Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseBukiGen1Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseStaGen1Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseEleGen1Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseGenGen1Id" prefHeight="17.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -892,14 +661,6 @@
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
                         <Label text="ELE:">
                            <font>
                               <Font size="12.0" />
@@ -928,26 +689,37 @@
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="107.0">
                      <children>
                         <Label text="ABILITY 1:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:">
+                        <ComboBox fx:id="TBCBGen1A1" prefWidth="100.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="83.0" />
+                        <ComboBox fx:id="TBCBGen1A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -957,12 +729,12 @@
                   </Label>
                   <VBox layoutX="93.0" layoutY="277.0" prefHeight="241.0" prefWidth="91.0">
                      <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="AddTaiGen1Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddNinGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -970,7 +742,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -978,7 +750,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddStaGen1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -986,7 +758,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddEleGen1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -994,7 +766,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddGenGen1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1002,7 +774,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddRerollGen1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1010,56 +782,59 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddCritDGen1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiRGen1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox layoutX="46.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
+                  <VBox layoutX="55.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSTaiGen1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSNinGen1Id" prefHeight="15.0" prefWidth="45.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSFatGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSStaGen1Id" prefHeight="15.0" prefWidth="45.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenGen1Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenAGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenMGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -1115,46 +890,46 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="155.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
+                  <VBox layoutX="175.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSBukiBGen1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiRGen1Id" prefHeight="15.0" prefWidth="40.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritCGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritDGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSRerollGen1Id" prefHeight="15.0" prefWidth="42.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSAttackGen1Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSEndGen1Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="90.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
+                  <VBox layoutX="110.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
                            <font>
@@ -1193,38 +968,57 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="104.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="104.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:">
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:">
+                        <ComboBox fx:id="TBCBGen1A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="19.0" prefWidth="83.0" />
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBGen1P" mnemonicParsing="false" onAction="#PlusGen1" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen1S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBGen1M" mnemonicParsing="false" onAction="#MinusGen1" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnCalcGenin1" layoutX="102.0" layoutY="675.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                  <Button fx:id="btnCalcGenin1" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsGen1" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
+                  <Text layoutX="103.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="picGen1" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <Pane layoutX="30.0" layoutY="20.0" prefHeight="715.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -1259,39 +1053,39 @@
                         </Label>
                      </children>
                   </VBox>
-                  <TextField layoutX="104.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
+                  <TextField fx:id="lvlGen3" layoutX="127.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="1">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </TextField>
                   <VBox layoutX="41.0" layoutY="48.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="baseTaiGen3Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseNinGen3Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseBukiGen3Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseStaGen3Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseEleGen3Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseGenGen3Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1332,14 +1126,6 @@
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
                         <Label text="ELE:">
                            <font>
                               <Font size="12.0" />
@@ -1368,26 +1154,37 @@
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label text="ABILITY 1:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:">
+                        <ComboBox fx:id="TBCBGen3A1" prefWidth="100.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="83.0" />
+                        <ComboBox fx:id="TBCBGen3A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -1397,20 +1194,18 @@
                   </Label>
                   <VBox layoutX="93.0" layoutY="277.0" prefHeight="241.0" prefWidth="91.0">
                      <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="AddTaiGen3Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
-                        </TextField>
-                        <TextField>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                            <VBox.margin>
-                              <Insets bottom="2.0" top="2.0" />
+                              <Insets bottom="2.0" />
                            </VBox.margin>
-                           <font>
-                              <Font size="12.0" />
-                           </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddNinGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1418,7 +1213,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiGen3Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1426,7 +1221,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddStaGen3Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1434,7 +1229,15 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddEleGen3Id" text="0">
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="AddGenGen3Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1442,7 +1245,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddRerollGen3Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1450,56 +1253,59 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddCritDGen3Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiRGen3Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox layoutX="46.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
+                  <VBox layoutX="55.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSTaiGen3Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSNinGen3Id" prefHeight="15.0" prefWidth="40.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiGen3Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSFatGen3Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSStaGen3Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenGen3Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenAGen3Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenMGen3Id" prefHeight="15.0" prefWidth="41.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -1555,46 +1361,46 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="155.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
+                  <VBox layoutX="175.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSBukiBGen3Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiRGen3Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritCGen3Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritDGen3Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSRerollGen3Id" prefHeight="15.0" prefWidth="40.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSAttackGen3Id" prefHeight="15.0" prefWidth="42.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSEndGen3Id" prefHeight="15.0" prefWidth="43.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="90.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
+                  <VBox layoutX="110.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
                            <font>
@@ -1633,38 +1439,57 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="104.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="104.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:">
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:">
+                        <ComboBox fx:id="TBCBGen3A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="19.0" prefWidth="83.0" />
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBGen3P" mnemonicParsing="false" onAction="#PlusGen3" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblGen3S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBGen3M" mnemonicParsing="false" onAction="#MinusGen3" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnCalcGenin3" layoutX="102.0" layoutY="675.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                  <Button fx:id="btnCalcGenin3" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsGen3" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
+                  <Text layoutX="103.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="picGen3" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <Pane layoutX="450.0" layoutY="20.0" prefHeight="715.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -1699,39 +1524,39 @@
                         </Label>
                      </children>
                   </VBox>
-                  <TextField layoutX="104.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
+                  <TextField fx:id="lvlJounin1" layoutX="127.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="1">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </TextField>
                   <VBox layoutX="41.0" layoutY="48.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="baseTaiJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseNinJounin1Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseBukiJounin1Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseStaJounin1Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseEleJounin1Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseGenJounin1Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1772,14 +1597,6 @@
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
                         <Label text="ELE:">
                            <font>
                               <Font size="12.0" />
@@ -1808,26 +1625,37 @@
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label text="ABILITY 1:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:">
+                        <ComboBox fx:id="TBCBJounin1A1" prefWidth="100.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="83.0" />
+                        <ComboBox fx:id="TBCBJounin1A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -1837,12 +1665,12 @@
                   </Label>
                   <VBox layoutX="93.0" layoutY="277.0" prefHeight="241.0" prefWidth="91.0">
                      <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="AddTaiJounin1Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddNinJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -1850,7 +1678,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1858,7 +1686,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddStaJounin1Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -1866,7 +1694,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddEleJounin1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1874,7 +1702,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddGenJounin1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1882,7 +1710,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddRerollJounin1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -1890,56 +1718,59 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddCritDJounin1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiRJounin1Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox layoutX="46.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
+                  <VBox layoutX="55.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSTaiJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSNinJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSFatJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSStaJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenAJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenMJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -1995,46 +1826,46 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="155.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
+                  <VBox layoutX="175.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSBukiBJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiRJounin1Id">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritCJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritDJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSRerollJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSAttackJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSEndJounin1Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="90.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
+                  <VBox layoutX="110.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
                            <font>
@@ -2073,38 +1904,57 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="104.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="104.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:">
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:">
+                        <ComboBox fx:id="TBCBJounin1A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="19.0" prefWidth="83.0" />
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBJouinin1P" mnemonicParsing="false" onAction="#PlusJounin1" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblJounin1S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBJouinin1M" mnemonicParsing="false" onAction="#MinusJounin1" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnCalcJounin1" layoutX="102.0" layoutY="675.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                  <Button fx:id="btnCalcJounin1" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsJounin1" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
+                  <Text layoutX="103.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="picJounin1" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <Pane layoutX="660.0" layoutY="20.0" prefHeight="715.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -2139,39 +1989,39 @@
                         </Label>
                      </children>
                   </VBox>
-                  <TextField layoutX="104.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
+                  <TextField fx:id="lvlJounin2" layoutX="127.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="1">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </TextField>
                   <VBox layoutX="41.0" layoutY="48.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="baseTaiJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseNinJounin2Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseBukiJounin2Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseStaJounin2Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseEleJounin2Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseGenJounin2Id" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2212,14 +2062,6 @@
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
                         <Label text="ELE:">
                            <font>
                               <Font size="12.0" />
@@ -2248,26 +2090,37 @@
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label text="ABILITY 1:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:">
+                        <ComboBox fx:id="TBCBJounin2A1" prefWidth="100.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="83.0" />
+                        <ComboBox fx:id="TBCBJounin2A3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -2277,12 +2130,12 @@
                   </Label>
                   <VBox layoutX="93.0" layoutY="277.0" prefHeight="241.0" prefWidth="91.0">
                      <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="AddTaiJounin2Id" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddNinJounin2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -2290,7 +2143,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiJounin2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -2298,7 +2151,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddStaJounin2Id" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -2306,7 +2159,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddEleJounin2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2314,7 +2167,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddGenJounin2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2322,7 +2175,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddRerollJounin2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2330,56 +2183,59 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddCritDJounin2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiRJounin2Id" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
                      </children>
                   </VBox>
-                  <VBox layoutX="46.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
+                  <VBox layoutX="55.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSTaiJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSNinJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSFatJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSStaJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenAJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenMJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -2435,46 +2291,46 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="155.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
+                  <VBox layoutX="175.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSBukiBJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiRJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritCJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritDJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSRerollJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSAttackJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSEndJounin2Id" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="90.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
+                  <VBox layoutX="110.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
                            <font>
@@ -2513,38 +2369,57 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="104.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="104.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:">
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:">
+                        <ComboBox fx:id="TBCBJounin2A2" prefWidth="100.0" />
+                        <Label text="SEAL:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="19.0" prefWidth="83.0" />
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBJouinin2P" mnemonicParsing="false" onAction="#PlusJounin2" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblJounin2S" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBJouinin2M" mnemonicParsing="false" onAction="#MinusJounin2" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnCalcJounin2" layoutX="102.0" layoutY="675.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                  <Button fx:id="btnCalcJounin2" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsJounin2" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
+                  <Text layoutX="103.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="picJounin2" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <Pane layoutX="870.0" layoutY="20.0" prefHeight="715.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <Label layoutX="10.0" layoutY="20.0" text="BASESTATS:" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="510.0" layoutY="14.0" stroke="#f80101" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a38c5b80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="202.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9e988e80" height="182.0" layoutX="-1.0" layoutY="530.0" stroke="#01fc1e" strokeType="INSIDE" strokeWidth="0.0" width="224.0" />
                   <VBox layoutX="13.0" layoutY="48.0" prefHeight="106.0" prefWidth="42.0">
                      <children>
                         <Label prefHeight="9.0" prefWidth="33.0" text="TAI:">
@@ -2579,39 +2454,39 @@
                         </Label>
                      </children>
                   </VBox>
-                  <TextField layoutX="104.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="LVL">
+                  <TextField fx:id="lvlKage" layoutX="127.0" layoutY="130.0" prefHeight="24.0" prefWidth="83.0" text="1">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </TextField>
                   <VBox layoutX="41.0" layoutY="48.0" prefHeight="112.0" prefWidth="52.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="baseTaiKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseNinKageId" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseBukiKageId" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseStaKageId" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseEleKageId" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="baseGenKageId" prefWidth="52.0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2652,14 +2527,6 @@
                               <Font size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
                         <Label text="ELE:">
                            <font>
                               <Font size="12.0" />
@@ -2688,26 +2555,37 @@
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="BUKI REC:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
                   </VBox>
-                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="11.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
                      <children>
                         <Label text="ABILITY 1:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 2:">
+                        <ComboBox fx:id="TBCBKageA1" prefWidth="100.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="ABILITY 3:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="28.0" prefHeight="31.0" prefWidth="83.0" />
+                        <ComboBox fx:id="TBCBKageA3" prefWidth="100.0" />
                      </children>
                   </VBox>
                   <Label layoutX="10.0" layoutY="268.0" text="ADD STATS:">
@@ -2717,12 +2595,12 @@
                   </Label>
                   <VBox layoutX="93.0" layoutY="277.0" prefHeight="241.0" prefWidth="91.0">
                      <children>
-                        <TextField prefHeight="4.0" prefWidth="71.0">
+                        <TextField fx:id="AddTaiKageId" prefHeight="4.0" prefWidth="71.0" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddNinKageId" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" top="2.0" />
                            </VBox.margin>
@@ -2730,7 +2608,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiKageId" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -2738,7 +2616,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddStaKageId" text="0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -2746,7 +2624,7 @@
                               <Font size="12.0" />
                            </font>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddEleKageId" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2754,7 +2632,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddGenKageId" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2762,7 +2640,7 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddRerollKageId" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2770,12 +2648,15 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddCritDKageId" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </TextField>
-                        <TextField>
+                        <TextField fx:id="AddBukiRKageId" text="0">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -2784,42 +2665,42 @@
                   </VBox>
                   <VBox layoutX="46.0" layoutY="555.0" prefHeight="120.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSTaiKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSNinKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSFatKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSStaKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenAKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSGenMKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -2875,46 +2756,46 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="155.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
+                  <VBox layoutX="175.0" layoutY="555.0" prefHeight="112.0" prefWidth="42.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="52.0" text="100000">
+                        <Label fx:id="TSBukiBKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSBukiRKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritCKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSCritDKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSRerollKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSAttackKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label text="100000">
+                        <Label fx:id="TSEndKageId" prefHeight="18.0" prefWidth="52.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="90.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
+                  <VBox layoutX="110.0" layoutY="556.0" prefHeight="131.0" prefWidth="64.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="72.0" text="BUKIBOOST:">
                            <font>
@@ -2953,69 +2834,89 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="93.0" fitWidth="83.0" layoutX="104.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../obito-cracked-jounin.png" />
+                        <Image url="@../../resources/img-frame.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="104.0" layoutY="160.0" prefHeight="106.0" prefWidth="91.0">
+                  <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 3:">
+                        <Label layoutX="10.0" layoutY="56.0" text="ABILITY 2:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="74.0" prefHeight="31.0" prefWidth="83.0" />
-                        <Label layoutX="10.0" layoutY="102.0" text="BLOODLINE:">
+                        <ComboBox fx:id="TBCBKageA2" prefWidth="100.0" />
+                        <Label text="SEAL:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox layoutX="10.0" layoutY="120.0" prefHeight="19.0" prefWidth="83.0" />
+                        <HBox prefHeight="31.0" prefWidth="93.0">
+                           <children>
+                              <Button fx:id="TBKageP" mnemonicParsing="false" onAction="#PlusKage" prefHeight="31.0" prefWidth="33.0" text="+" />
+                              <Label fx:id="lblKageS" prefWidth="41.0" text="+10" textFill="#1b0e0e">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Button fx:id="TBKageM" mnemonicParsing="false" onAction="#MinusKage" prefHeight="31.0" prefWidth="33.0" text="-" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnCalcKage" layoutX="102.0" layoutY="675.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
+                  <Button fx:id="btnCalcKage" layoutX="135.0" layoutY="675.0" mnemonicParsing="false" onAction="#calculateStatsKage" prefHeight="21.0" prefWidth="83.0" text="Calculate" textFill="WHITE">
                      <effect>
                         <DropShadow />
                      </effect></Button>
+                  <Text layoutX="103.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LVL">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="picKage" fitHeight="95.0" fitWidth="86.0" layoutX="124.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
+            <ComboBox fx:id="TBCBGen1" prefHeight="31.0" prefWidth="225.0" />
+            <ComboBox fx:id="TBCBGen2" prefHeight="31.0" prefWidth="227.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="TBCBGen3" prefHeight="31.0" prefWidth="224.0" GridPane.columnIndex="2" />
+            <ComboBox fx:id="TBCBJounin1" prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="3" />
+            <ComboBox fx:id="TBCBJounin2" prefHeight="31.0" prefWidth="228.0" GridPane.columnIndex="4" />
+            <ComboBox fx:id="TBCBKage" prefHeight="31.0" prefWidth="226.0" GridPane.columnIndex="5" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />
          </padding>
       </GridPane>
-      <Text layoutX="93.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN" wrappingWidth="58.562010526657104">
+      <Text layoutX="106.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN" wrappingWidth="58.562010526657104">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text layoutX="297.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN" wrappingWidth="58.562010526657104">
+      <Text layoutX="347.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN" wrappingWidth="58.562010526657104">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text layoutX="515.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN" wrappingWidth="58.562010526657104">
+      <Text layoutX="588.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN" wrappingWidth="58.562010526657104">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text layoutX="711.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN" wrappingWidth="70.99999487400055">
+      <Text layoutX="816.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN" wrappingWidth="70.99999487400055">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text layoutX="918.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN" wrappingWidth="70.99999487400055">
+      <Text layoutX="1050.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN" wrappingWidth="70.99999487400055">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text layoutX="1150.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAGE" wrappingWidth="70.99999487400055">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Text>
-      <Text layoutX="1337.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUMMON" wrappingWidth="90.99999487400055">
+      <Text layoutX="1287.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAGE" wrappingWidth="70.99999487400055">
          <font>
             <Font size="19.0" />
          </font>

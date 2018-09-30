@@ -1,6 +1,13 @@
 package classes;
 
-public class Fight {
+import java.io.Serializable;
+
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
+public class Fight implements Serializable {
 	
 	Team Team;
 	Kaguya Kaguya;
@@ -38,17 +45,17 @@ public class Fight {
 		Kaguya = kaguya;
 	}
 
-	public int fightSimulation () {
-		int countProcentage = 0;
+	public double fightSimulation () {
+		double countProcentage = 0;
 		
-		for (int i = 0; i<100; i++) {
+		for (int i = 0; i<1000000; i++) {
 			double DMG = Team.fightSimNinja();
 			if (DMG>Kaguya.getHealth()) {
 				countProcentage++;
 			}
 		}
 		
-		return countProcentage;
+		return countProcentage/10000;
 	}
 	
 	

@@ -1,9 +1,16 @@
 package classes;
 
+import java.io.Serializable;
+
 import enums.StanjaKaguya;
 import interfaces.IBasicOperations;
 
-public class Kaguya {
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
+
+public class Kaguya implements Serializable {
 	
 	protected double health, taijutsu, ninjutsu, bukijutsu, bukijutsuBoost;
 	protected StanjaKaguya tezina;
@@ -18,91 +25,92 @@ public class Kaguya {
 	}
 
 	/**
-	 * @return the health
+	 * @return Kaguya health
 	 */
 	public double getHealth() {
 		return health;
 	}
 
 	/**
-	 * @param health the health to set
+	 * @param set health Kaguya
 	 */
 	public void setHealth(double health) {
 		this.health = health;
 	}
 
 	/**
-	 * @return the taijutsu
+	 * @return Kaguya taijutsu
 	 */
 	public double getTaijutsu() {
 		return taijutsu;
 	}
 
 	/**
-	 * @param taijutsu the taijutsu to set
+	 * @param set taijutsu Kaguya
 	 */
 	public void setTaijutsu(double taijutsu) {
 		this.taijutsu = taijutsu;
 	}
 
 	/**
-	 * @return the ninjutsu
+	 * @return Kaguya ninjutsu
 	 */
 	public double getNinjutsu() {
 		return ninjutsu;
 	}
 
 	/**
-	 * @param ninjutsu the ninjutsu to set
+	 * @param set Kaguya ninjutsu
 	 */
 	public void setNinjutsu(double ninjutsu) {
 		this.ninjutsu = ninjutsu;
 	}
 
 	/**
-	 * @return the bukijutsu
+	 * @return Kaguya bukijutsu
 	 */
 	public double getBukijutsu() {
 		return bukijutsu;
 	}
 
 	/**
-	 * @param bukijutsu the bukijutsu to set
+	 * @param set Kaguya bukijutsu
 	 */
 	public void setBukijutsu(double bukijutsu) {
 		this.bukijutsu = bukijutsu;
 	}
 
 	/**
-	 * @return the bukijutsuBoost
+	 * @return Kaguya bukijutsuBoost
 	 */
 	public double getBukijutsuBoost() {
 		return bukijutsuBoost;
 	}
 
 	/**
-	 * @param bukijutsuBoost the bukijutsuBoost to set
+	 * @param set Kaguya bukijutsuBoost
 	 */
 	public void setBukijutsuBoost(double bukijutsuBoost) {
 		this.bukijutsuBoost = bukijutsuBoost;
 	}
 	
 	/**
-	 * @return the tezina
+	 * @return Kaguya tezina
 	 */
 	public StanjaKaguya getTezina() {
 		return tezina;
 	}
 
 	/**
-	 * @param tezina the tezina to set
+	 * @param set Kaguya tezina
 	 */
 	public void setTezina(StanjaKaguya tezina) {
 		this.tezina = tezina;
 	}
 	
-	//jedan metoda sa swithc koja postavlja sve atribute na osnovu vrednosti enumeracije!
-	
+	/**
+	 * @param set Kaguya tezina to begginer 
+	 */
 	public void setBegginerStanje () {
 		this.health = 4200;
 		this.taijutsu = 80;
@@ -112,6 +120,9 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.begginer;
 	}
 	
+	/**
+	 * @param set Kaguya tezina to easy 
+	 */
 	public void setEasyStanje () {
 		this.health = 6300;
 		this.taijutsu = 90;
@@ -121,6 +132,9 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.easy;
 	}
 	
+	/**
+	 * @param set Kaguya tezina to medium 
+	 */
 	public void setMediumStanje () {
 		this.health = 8400;
 		this.taijutsu = 100;
@@ -130,6 +144,9 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.medium;
 	}
 	
+	/**
+	 * @param set Kaguya tezina to hard 
+	 */
 	public void setHardStanje () {
 		this.health = 10500;
 		this.taijutsu = 115;
@@ -139,6 +156,9 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.hard;
 	}
 	
+	/**
+	 * @param set Kaguya tezina to extreme 
+	 */
 	public void setExtremeStanje () {
 		this.health = 12600;
 		this.taijutsu = 130;
@@ -148,6 +168,9 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.extreme;
 	}
 	
+	/**
+	 * @param set Kaguya tezina to impossible 
+	 */
 	public void setImpossibleStanje () {
 		this.health = 14700;
 		this.taijutsu = 150;
@@ -157,6 +180,9 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.impossible;
 	}
 	
+	/**
+	 * @param set Kaguya tezina to forbidden 
+	 */
 	public void setForbiddenStanje () {
 		this.health = 17800;
 		this.taijutsu = 180;
@@ -166,9 +192,12 @@ public class Kaguya {
 		this.tezina = StanjaKaguya.forbidden;
 	}
 
+	/**
+	 * @return Kaguya singe attack vrednost
+	 */
 	public double KaguyaAttack () {
 		double attack = this.taijutsu/2+this.ninjutsu+this.bukijutsu*this.bukijutsuBoost/100;
 		return attack;
 	} 
-
+	
 }

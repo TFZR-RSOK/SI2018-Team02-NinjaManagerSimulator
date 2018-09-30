@@ -3,5 +3,11 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/Projekat/Files for Project/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/Projekat/Files for Project/elsa-3.0.0-M7-javadoc.jar"/>
+	<classpathentry kind="lib" path="E:/Downloads/Pecev/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="E:/Downloads/Pecev/elsa-3.0.0-M7.jar"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/ProjekatLogikaJARFile/NMSimulatorLogika.jar"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/ProjekatLogikaJARFile/NMSimulatorBaza.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

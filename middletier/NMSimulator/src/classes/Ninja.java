@@ -2,24 +2,34 @@ package classes;
 import enums.Stanja;
 import interfaces.IBasicOperations;
 
-import java.sql.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
-public class Ninja implements IBasicOperations { 
+/*
+ * @author Nikola Corkovic - cnik996@gmail.com
+ * @version beta 1.0 
+ */
 
-	protected String name, tip;
-	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //Base stats
+public class Ninja implements IBasicOperations, Serializable { 
+
+	protected ArrayList <Ability> abilities;
+	protected int idNinje;
+	protected String name, picPath;
+	protected double taijutsu, ninjutsu, bukijutsu, element, genjutsu, stamina, //variables for storing stats
+						baseTai, baseNin, baseBuki, baseEle, baseGen, baseStam, //Base stats
 						taijutsuGrowth, ninjutsuGrowth, bukijutsuGrowth, elementGrowth, genjutsuGrowth, staminaGrowth; //Base stats growth
 	protected double attack, genjutsuActivation, genjutsuMastery, genjutsuRecharge, genjutsuAbsorb, genjutsuLearn, genjutsuCopy, //Rest of the stats
 						bukijutsuRecovery, bukijutsuBoost, critChance, critStrike, reroll, focus, focusBurst, focusRange, 
 						endurance, fatigue, offPositioning, taijutsuImmunity, ninjutsuImmunity, bukijutsuImmunity, attackImmunity,
 						genjutsuImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, morph, chakra, level, seal,
-						restBuki;
+						restBuki, tip;
 
 	protected Stanja stanje;
 
-	Random rand;
+	Random rand; 
 	Kaguya Kaguya;
+	Stats stats;
 	
 	/**
 	 * Constructor for Ninja class
@@ -27,14 +37,31 @@ public class Ninja implements IBasicOperations {
 	public Ninja () {
 		this.rand = new Random();
 		this.Kaguya = new Kaguya();
+		
+		abilities = new ArrayList<Ability>();
+		Ability abil = new Ability();
+		this.abilities.add(abil = new Ability());
+		this.abilities.add(abil = new Ability());
+		this.abilities.add(abil = new Ability());
+		
+		this.stats = new Stats();
+		
+		this.idNinje = 1;
 		this.name="";
-		this.tip="";
+		this.picPath="";
+		this.tip=1; //Na osnovu ovog podatka prepoznaje se da li je ninja genin/jounin/kage
 		this.taijutsu=0;
 		this.ninjutsu=0;
 		this.bukijutsu=0;
 		this.element=0;
 		this.genjutsu=0;
 		this.stamina=0;
+		this.baseTai=0;
+		this.baseNin=0;
+		this.baseBuki=0;
+		this.baseEle=0;
+		this.baseGen=0;
+		this.baseStam=0;
 		this.taijutsuGrowth=0;
 		this.ninjutsuGrowth=0;
 		this.bukijutsuGrowth=0;
@@ -78,8 +105,72 @@ public class Ninja implements IBasicOperations {
 		this.stanje=Stanja.clearNinja;
 	}
 
+	
+	
 	/**
-	 * @return the name
+	 * @return Ninja idNinje vrednost
+	 */
+	public int getIdNinje() {
+		return idNinje;
+	}
+
+
+
+	/**
+	 * @param set idNinje
+	 */
+	public void setIdNinje(int idNinje) {
+		this.idNinje = idNinje;
+	}
+
+
+
+	/**
+	 * @return Ninja abilities
+	 */
+	public ArrayList<Ability> getAbilities() {
+		return abilities;
+	}
+
+
+
+	/**
+	 * @param abilities the abilities to set
+	 */
+	public void setAbilities(ArrayList<Ability> abilities) {
+		this.abilities = abilities;
+	}
+
+	/**
+	 * @return Ninja stats klasa
+	 */
+	public Stats getStats() {
+		return stats;
+	}
+
+	/**
+	 * @param stats the stats to set
+	 */
+	public void setStats(Stats stats) {
+		this.stats = stats;
+	}
+
+	/**
+	 * @return Ninja PicPath string
+	 */
+	public String getPicPath() {
+		return picPath;
+	}
+
+	/**
+	 * @param picPath the picPath to set
+	 */
+	public void setPicPath(String picPath) {
+		this.picPath = picPath;
+	}
+
+	/**
+	 * @return Ninja ime string
 	 */
 	public String getName() {
 		return name;
@@ -93,21 +184,21 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the tip
+	 * @return Ninja tip vrednost
 	 */
-	public String getTip() {
+	public double getTip() {
 		return tip;
 	}
 
 	/**
 	 * @param tip the tip to set
 	 */
-	public void setTip(String tip) {
+	public void setTip(double tip) {
 		this.tip = tip;
 	}
 
 	/**
-	 * @return the taijutsu
+	 * @return Ninja taijutsu vrednost
 	 */
 	public double getTaijutsu() {
 		return taijutsu;
@@ -121,7 +212,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the ninjutsu
+	 * @return Ninja ninjutsu vrednost
 	 */
 	public double getNinjutsu() {
 		return ninjutsu;
@@ -135,7 +226,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the bukijutsu
+	 * @return Ninja bukijutsu vrednost
 	 */
 	public double getBukijutsu() {
 		return bukijutsu;
@@ -149,7 +240,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the element
+	 * @return Ninja element vrednost
 	 */
 	public double getElement() {
 		return element;
@@ -163,7 +254,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsu
+	 * @return Ninja genjutsu vrednost
 	 */
 	public double getGenjutsu() {
 		return genjutsu;
@@ -177,7 +268,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the stamina
+	 * @return Ninja stamina vrednost
 	 */
 	public double getStamina() {
 		return stamina;
@@ -191,7 +282,115 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the taijutsuGrowth
+	 * @return Ninja baseTai vrednost
+	 */
+	public double getBaseTai() {
+		return baseTai;
+	}
+
+
+
+	/**
+	 * @param baseTai the baseTai to set
+	 */
+	public void setBaseTai(double baseTai) {
+		this.baseTai = baseTai;
+	}
+
+
+
+	/**
+	 * @return Ninja baseNin vrednost
+	 */
+	public double getBaseNin() {
+		return baseNin;
+	}
+
+
+
+	/**
+	 * @param baseNin the baseNin to set
+	 */
+	public void setBaseNin(double baseNin) {
+		this.baseNin = baseNin;
+	}
+
+
+
+	/**
+	 * @return Ninja baseBuki vrednost
+	 */
+	public double getBaseBuki() {
+		return baseBuki;
+	}
+
+
+
+	/**
+	 * @param baseBuki the baseBuki to set
+	 */
+	public void setBaseBuki(double baseBuki) {
+		this.baseBuki = baseBuki;
+	}
+
+
+
+	/**
+	 * @return Ninja baseEle vrednost
+	 */
+	public double getBaseEle() {
+		return baseEle;
+	}
+
+
+
+	/**
+	 * @param baseEle the baseEle to set
+	 */
+	public void setBaseEle(double baseEle) {
+		this.baseEle = baseEle;
+	}
+
+
+
+	/**
+	 * @return Ninja baseGen vrednost
+	 */
+	public double getBaseGen() {
+		return baseGen;
+	}
+
+
+
+	/**
+	 * @param baseGen the baseGen to set
+	 */
+	public void setBaseGen(double baseGen) {
+		this.baseGen = baseGen;
+	}
+
+
+
+	/**
+	 * @return Ninja baseStam vrednost
+	 */
+	public double getBaseStam() {
+		return baseStam;
+	}
+
+
+
+	/**
+	 * @param baseStam the baseStam to set
+	 */
+	public void setBaseStam(double baseStam) {
+		this.baseStam = baseStam;
+	}
+
+
+
+	/**
+	 * @return Ninja taijutsuGrowth vrednost
 	 */
 	public double getTaijutsuGrowth() {
 		return taijutsuGrowth;
@@ -205,7 +404,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the ninjutsuGrowth
+	 * @return Ninja ninjutsuGrowth vrednost
 	 */
 	public double getNinjutsuGrowth() {
 		return ninjutsuGrowth;
@@ -219,7 +418,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the bukijutsuGrowth
+	 * @return Ninja bukijutsuGrowth vrednost
 	 */
 	public double getBukijutsuGrowth() {
 		return bukijutsuGrowth;
@@ -233,7 +432,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the elementGrowth
+	 * @return Ninja elementGrowth vrednost
 	 */
 	public double getElementGrowth() {
 		return elementGrowth;
@@ -247,7 +446,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuGrowth
+	 * @return Ninja genjutsuGrowth vrednost
 	 */
 	public double getGenjutsuGrowth() {
 		return genjutsuGrowth;
@@ -261,7 +460,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the staminaGrowth
+	 * @return Ninja staminaGrowth vrednost
 	 */
 	public double getStaminaGrowth() {
 		return staminaGrowth;
@@ -275,7 +474,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the attack
+	 * @return Ninja attack vrednost
 	 */
 	public double getAttack() {
 		return attack;
@@ -289,7 +488,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuActivation
+	 * @return Ninja genjutsuActivation vrednost
 	 */
 	public double getGenjutsuActivation() {
 		return genjutsuActivation;
@@ -303,7 +502,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuMastery
+	 * @return Ninja genjutsuMastery vrednost
 	 */
 	public double getGenjutsuMastery() {
 		return genjutsuMastery;
@@ -317,7 +516,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuRecharge
+	 * @return Ninja genjutsuRecharge vrednost
 	 */
 	public double getGenjutsuRecharge() {
 		return genjutsuRecharge;
@@ -331,7 +530,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuAbsorb
+	 * @return Ninja genjutsuAbsorb vrednost
 	 */
 	public double getGenjutsuAbsorb() {
 		return genjutsuAbsorb;
@@ -345,7 +544,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuLearn
+	 * @return Ninja genjutsuLearn vrednost
 	 */
 	public double getGenjutsuLearn() {
 		return genjutsuLearn;
@@ -359,7 +558,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuCopy
+	 * @return Ninja genjutsuCopy vrednost
 	 */
 	public double getGenjutsuCopy() {
 		return genjutsuCopy;
@@ -373,7 +572,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the bukijutsuRecovery
+	 * @return Ninja bukijutsuRecovery vrednost
 	 */
 	public double getBukijutsuRecovery() {
 		return bukijutsuRecovery;
@@ -387,7 +586,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the bukijutsuBoost
+	 * @return Ninja bukijutsuBoost vrednost
 	 */
 	public double getBukijutsuBoost() {
 		return bukijutsuBoost;
@@ -401,7 +600,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the critChance
+	 * @return Ninja critChance vrednost
 	 */
 	public double getCritChance() {
 		return critChance;
@@ -415,7 +614,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the critStrike
+	 * @return Ninja critStrike vrednost
 	 */
 	public double getCritStrike() {
 		return critStrike;
@@ -429,7 +628,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the reroll
+	 * @return Ninja reroll vrednost
 	 */
 	public double getReroll() {
 		return reroll;
@@ -443,7 +642,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the focus
+	 * @return Ninja focus vrednost
 	 */
 	public double getFocus() {
 		return focus;
@@ -457,7 +656,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the focusBurst
+	 * @return Ninja focusBurst vrednost
 	 */
 	public double getFocusBurst() {
 		return focusBurst;
@@ -471,7 +670,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the focusRange
+	 * @return Ninja focusRange vrednost
 	 */
 	public double getFocusRange() {
 		return focusRange;
@@ -485,7 +684,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the endurance
+	 * @return Ninja endurance vrednost
 	 */
 	public double getEndurance() {
 		return endurance;
@@ -499,7 +698,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the fatigue
+	 * @return Ninja fatigue vrednost
 	 */
 	public double getFatigue() {
 		return fatigue;
@@ -513,7 +712,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the offPositioning
+	 * @return Ninja offPositioning vrednost
 	 */
 	public double getOffPositioning() {
 		return offPositioning;
@@ -527,7 +726,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the taijutsuImmunity
+	 * @return Ninja taijutsuImmunity vrednost
 	 */
 	public double getTaijutsuImmunity() {
 		return taijutsuImmunity;
@@ -541,7 +740,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the ninjutsuImmunity
+	 * @return Ninja ninjutsuImmunity vrednost
 	 */
 	public double getNinjutsuImmunity() {
 		return ninjutsuImmunity;
@@ -555,7 +754,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the bukijutsuImmunity
+	 * @return Ninja bukijutsuImmunity vrednost
 	 */
 	public double getBukijutsuImmunity() {
 		return bukijutsuImmunity;
@@ -569,7 +768,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the attackImmunity
+	 * @return Ninja attackImmunity vrednost
 	 */
 	public double getAttackImmunity() {
 		return attackImmunity;
@@ -583,7 +782,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the genjutsuImmunity
+	 * @return Ninja genjutsuImmunity vrednost
 	 */
 	public double getGenjutsuImmunity() {
 		return genjutsuImmunity;
@@ -597,7 +796,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the poisonImmunity
+	 * @return Ninja poisonImmunity vrednost
 	 */
 	public double getPoisonImmunity() {
 		return poisonImmunity;
@@ -611,7 +810,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the poison
+	 * @return Ninja poison vrednost
 	 */
 	public double getPoison() {
 		return poison;
@@ -625,7 +824,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the guard
+	 * @return Ninja guard vrednost
 	 */
 	public double getGuard() {
 		return guard;
@@ -639,7 +838,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the absorb
+	 * @return Ninja absorb vrednost
 	 */
 	public double getAbsorb() {
 		return absorb;
@@ -653,7 +852,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the lvl5Death
+	 * @return Ninja lvl5Death vrednost
 	 */
 	public double getLvl5Death() {
 		return lvl5Death;
@@ -667,7 +866,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the bloodlineNullify
+	 * @return Ninja bloodlineNullify vrednost
 	 */
 	public double getBloodlineNullify() {
 		return bloodlineNullify;
@@ -681,7 +880,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the morph
+	 * @return Ninja morph vrednost
 	 */
 	public double getMorph() {
 		return morph;
@@ -695,7 +894,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the chakra
+	 * @return Ninja chakra vrednost
 	 */
 	public double getChakra() {
 		return chakra;
@@ -709,7 +908,7 @@ public class Ninja implements IBasicOperations {
 	}
 	
 	/**
-	 * @return the level
+	 * @return Ninja level vrednost
 	 */
 	public double getLevel() {
 		return level;
@@ -723,21 +922,25 @@ public class Ninja implements IBasicOperations {
 	}
 	
 	/**
-	 * @param level the level to decrement
+	 * @param set current Ninja level -1
 	 */
 	public void setLevelMinus(double level) {
-		this.level = level-1;
+		if (this.level > 1) {
+			this.level = level-1;
+		} else this.level = 1;
+		calculateLevelStats();
 	}
 	
 	/**
-	 * @param level the level to increment
+	 * @param set current Ninja level +1
 	 */
 	public void setLevelPlus(double level) {
 		this.level = level+1;
+		calculateLevelStats();
 	}
 	
 	/**
-	 * @return the seal
+	 * @return Ninja seal vrednost
 	 */
 	public double getSeal() {
 		return seal;
@@ -751,7 +954,25 @@ public class Ninja implements IBasicOperations {
 	}
 	
 	/**
-	 * @return the restBuki
+	 * @return Ninja seal vrednost +1 if (seal < topLimit)
+	 */
+	public void setSealPlus (double seal) {
+		if (this.seal < 10) {
+			this.seal = seal+1;
+		} else this.seal = seal;
+	}
+
+	/**
+	 * @param Ninja seal vrednost -1 if (seal > bottomLimit)
+	 */
+	public void setSealMinus(double seal) {
+		if (this.seal > -10) {
+			this.seal = seal-1;
+		} else this.seal = seal;
+	}
+	
+	/**
+	 * @return Ninja restBuki vrednost
 	 */
 	public double getRestBuki() {
 		return restBuki;
@@ -765,7 +986,7 @@ public class Ninja implements IBasicOperations {
 	}
 
 	/**
-	 * @return the stanje
+	 * @return Ninja stanje
 	 */
 	public Stanja getStanje() {
 		return stanje;
@@ -778,22 +999,17 @@ public class Ninja implements IBasicOperations {
 		this.stanje = stanje;
 	}
 	
+	/**
+	 * @param Ninja brisanje svih naknadno dodatih vrednosti
+	 */
 	public void ClearNinjaStats () {
 		setStanje(Stanja.clearNinja);
-		setName("");
-		setTip("");
 		setTaijutsu(0);
 		setNinjutsu(0);
 		setBukijutsu(0);
 		setElement(0);
 		setGenjutsu(0);
 		setStamina(0);
-		setTaijutsuGrowth(0);
-		setNinjutsuGrowth(0);
-		setBukijutsuGrowth(0);
-		setElementGrowth(0);
-		setGenjutsuGrowth(0);
-		setStaminaGrowth(0);
 		setAttack(0);
 		setGenjutsuActivation(0);
 		setGenjutsuMastery(0);
@@ -824,24 +1040,27 @@ public class Ninja implements IBasicOperations {
 		setLvl5Death(0);
 		setBloodlineNullify(0);
 		setMorph(0);
-		setChakra(0);
-		setLevel(0);
-		setSeal(0);
-		setRestBuki(0);
 	}
-	
+	/**
+	 * @return Ninja single dmg
+	 */
 	public double calculateDMG () {
-		int runda = 0;
 		double dmg;
 		dmg = taijutsuDMG() + ninjutsuDMG() + bukijutsuDMG() + this.attack;	
 		return dmg;
 	}
 	
+	/**
+	 * @return Ninja taijutsu dmg
+	 */
 	public double taijutsuDMG () {
 		double taiDmg = ((this.taijutsu+ifCrit())/2);
 		return taiDmg;
 	}
 	
+	/**
+	 * @return Ninja taijutsu vrednost ukoliko se desi crit
+	 */
 	public double ifCrit () {
 		int  n = rand.nextInt(100) + 1;
 		if(n<=this.critChance) {
@@ -849,28 +1068,40 @@ public class Ninja implements IBasicOperations {
 		} else return 0;
 	}
 	
+	/**
+	 * @return Ninja ninjutsu dmg
+	 */
 	public double ninjutsuDMG () {
 		double seal = this.seal;
-		double upLimit = 0;
-		double downLimit = 0;
+		int n1;
 		
-		downLimit = ((10+seal)*2.5)*this.ninjutsu;
-		upLimit = (100-(10+seal)*2.5)*this.ninjutsu;
+		int downLimit = (int) (((10+seal)*2.5)*this.ninjutsu/100);
+		int upLimit = (int) ((100-((10+seal)*2.5))*this.ninjutsu/100);
 		
-		int down = (int) downLimit;
-		int up = (int) upLimit;
+		if (upLimit == downLimit) {
+			n1=0;
+		} else {
+			n1 = rand.nextInt(upLimit-downLimit) + downLimit;
+		}
 		
-		int n1 = rand.nextInt(up) + down;
-		int roll = rand.nextInt(100) + 1;
+		int roll = rand.nextInt(100) + 0;
 		if(roll<=this.reroll) {
-			int n2 = rand.nextInt(up) + down;
+			int n2;
+			if (upLimit == downLimit) {
+				n2=0;
+			} else {
+				n2 = rand.nextInt(upLimit-downLimit) + downLimit;
+			}
 				if(n2>n1) {
 					return n2;
 				} else return n1;
 		} else return n1;
 	}
 	
-	public double bukijutsuDMG () { //Potrebno je testirati ovo ponovo ! Cisto da budem siguran :D
+	/**
+	 * @return Ninja bukijutsu dmg
+	 */
+	public double bukijutsuDMG () {
 		double x = 0;
 		double bukiDMG = this.bukijutsu*this.bukijutsuBoost/100;
 		if (this.restBuki>bukiDMG) {
@@ -879,7 +1110,7 @@ public class Ninja implements IBasicOperations {
 			bukiDMG = this.restBuki;
 			x = bukiDMG - this.restBuki;
 		} 
-		double r = this.bukijutsuRecovery*this.bukijutsu/100;
+		double r = this.bukijutsuRecovery*bukiDMG/100;
 		this.restBuki = x + r;
 		if (this.restBuki>this.bukijutsu) {
 			this.restBuki = this.bukijutsu;
@@ -887,9 +1118,12 @@ public class Ninja implements IBasicOperations {
 		return bukiDMG;
 	}
 	
+	/**
+	 * @return Ninja total dmg vs Kaguya
+	 */
 	public double DMGvsKaguya () {
 		this.restBuki = this.bukijutsu;
-		double KaguyaDMG = Kaguya.KaguyaAttack();;
+		double KaguyaDMG = Kaguya.KaguyaAttack();
 		
 		double pen; // promenljiva za racunanje vrednosti penalty-a napada
 		double total = 0; // promenljiva za total dmg iz borbe
@@ -1041,92 +1275,83 @@ public class Ninja implements IBasicOperations {
 		
 		return total;
 	}
-	
-	
-	// FUNKCIJA ZA POVLACENJE IZ BAZE!!! 
-	// Potencijalno bespotrebno :3
-	public void pullPodataka () {
-		try
-		{
-			// create our mysql database connection
-			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost/test";
-			Class.forName(myDriver);
-			Connection conn = DriverManager.getConnection(myUrl, "root", "");
-      
-			// our SQL SELECT query. 
-			// if you only need a few columns, specify them by name instead of using "*"
-			String query = "SELECT * FROM genin";
+	/*
+	 * racunanje dodatnih vrednosti u Ninja 
+	 */
+	public void dugmeCalculate () {
+		
+		ClearNinjaStats();
 			
-			// create the java statement
-			Statement st = conn.createStatement();
-			
-			// execute the query, and get a java resultset
-			ResultSet rs = st.executeQuery(query);
-			
-			// iterate through the java resultset
-			while (rs.next())
-			{
-				int id = rs.getInt("id"); //OVO TI NI NE TREBA U SUSTINI
-				this.name = rs.getString("ImeNinje");
-				this.tip = rs.getString(""); //STEFAN NEMA U BAZI OZNAKU ILI JA NE ZNA KAKO DA POVUCEM!
-				this.taijutsu = rs.getDouble("Taijutsu");
-				this.ninjutsu = rs.getDouble("Ninjutsu");
-				this.bukijutsu = rs.getDouble("Bukijutsu");
-				this.element = rs.getDouble("Element");
-				this.genjutsu = rs.getDouble("Genjutsu");
-				this.stamina = rs.getDouble("Stamina");
-				this.taijutsuGrowth = rs.getDouble("TaijutsuGrow");
-				this.ninjutsuGrowth = rs.getDouble("NinjutsuGrow");
-				this.bukijutsuGrowth = rs.getDouble("BukijutsuGrow");
-				this.elementGrowth = rs.getDouble("ElementGrow");
-				this.genjutsuGrowth = rs.getDouble("GenjutsuGrow");
-				this.staminaGrowth = rs.getDouble("StaminaGrow");
-				
-			}
-			st.close();
-		}
-		catch (Exception e)
-		{
-			System.err.println("Got an exception! ");
-			System.err.println(e.getMessage());
-    	}
+		this.taijutsu += stats.getT();
+		this.ninjutsu += stats.getN();
+		this.bukijutsu += stats.getB();
+		this.stamina += stats.getS();
+		this.element += stats.getE();
+		this.genjutsu += stats.getG();
+		this.reroll += stats.getR();
+		this.critStrike += stats.getCs();
+		this.bukijutsuRecovery += stats.getBr();
+		
+		for (Ability abil : this.abilities) {
+			this.taijutsu += abil.getTaijutsu();	
+			this.ninjutsu += abil.getNinjutsu();
+			this.bukijutsu += abil.getBukijutsu();
+			this.element += abil.getElement();
+			this.stamina += abil.getStamina();
+			this.genjutsu += abil.getGen();
+			this.attack += abil.getAttack();
+			this.bukijutsuRecovery += abil.getBukiRec();
+			this.bukijutsuBoost += abil.getBukiBoost();
+			this.critChance += abil.getCritChance();
+			this.critStrike += abil.getCritStrike();
+			this.reroll += abil.getReroll();
+			this.endurance += abil.getEndurance();
+			this.fatigue += abil.getFatigue();
+			this.taijutsuImmunity += abil.getTaiImmunity();
+			this.ninjutsuImmunity += abil.getNinImmunity();
+			this.bukijutsuImmunity += abil.getBukiImmunity();
+			this.attackImmunity += abil.getAttackImmunity();
+			this.genjutsuImmunity += abil.getGenImmunity();
+			this.poisonImmunity += abil.getPoisonImmunity();
+			this.poison += abil.getPoison();
+			this.guard += abil.getGuard();
+			this.absorb += abil.getAbsorb();
+			this.lvl5Death += abil.getLvl5Death();
+			this.bloodlineNullify += abil.getBloodlineNullify();
+			this.genjutsuActivation += abil.getGenAct();
+			this.genjutsuMastery += abil.getGenMast();
+			this.genjutsuRecharge += abil.getGenRec();
+			this.genjutsuAbsorb += abil.getGenAbs();
+			this.genjutsuLearn += abil.getGenLearn();
+			this.genjutsuCopy += abil.getGenCopy();
+		}	
+		
+		calculateLevelStats();
+		calculateBaseStats();
+		
 	}
 	
+	/*
+	 * racunanje dodatnih vrednosti na osnovu lvl od Ninja
+	 */
+	public void calculateLevelStats() {
+		this.taijutsu += this.taijutsuGrowth * (this.level-1);
+		this.ninjutsu += this.ninjutsuGrowth * (this.level-1);
+		this.bukijutsu += this.bukijutsuGrowth * (this.level-1);
+		this.element += this.elementGrowth * (this.level-1);
+		this.genjutsu += this.genjutsuGrowth * (this.level-1);
+		this.stamina += this.staminaGrowth * (this.level-1);
+	}
+	/*
+	 * racunanje dodatnih vrednosti na osnovu baseStats od Ninja
+	 */
+	public void calculateBaseStats() {
+		this.taijutsu += this.baseTai;
+		this.ninjutsu += this.baseNin;
+		this.bukijutsu += this.baseBuki;
+		this.element += this.baseEle;
+		this.genjutsu += this.baseGen;
+		this.stamina += this.baseStam;
+	}
 	
-	// OVO RADI! O.o
-	public void ispisImena () {
-			try
-				{
-					// create our mysql database connection
-					String myDriver = "org.gjt.mm.mysql.Driver";
-					String myUrl = "jdbc:mysql://localhost:3307/nmsimulatorproba2";
-					Class.forName(myDriver);
-					Connection conn = DriverManager.getConnection(myUrl, "root", "");
-		      
-					// our SQL SELECT query. 
-					// if you only need a few columns, specify them by name instead of using "*"
-					String query = "SELECT * FROM genin";
-					
-					// create the java statement
-					Statement st = conn.createStatement();
-					
-					// execute the query, and get a java resultset
-					ResultSet rs = st.executeQuery(query);
-					
-					// iterate through the java resultset
-					while (rs.next())
-					{
-						this.name = rs.getString("ImeNinje");
-						System.out.println(this.name+"\n");
-						
-					}
-					st.close();
-				}
-				catch (Exception e)
-				{
-					System.err.println("Got an exception! ");
-					System.err.println(e.getMessage());
-		    	}
-		}
 }
