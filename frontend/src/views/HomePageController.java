@@ -7,12 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import main.Main;
 
 /*
- * @author Nikola Corkovic - cnik996@gmail.com
+ * @author Milica Knezevic - milicaknezevic13@gmail.com
  * @version beta 1.0 
  */
 
@@ -28,7 +29,8 @@ public class HomePageController {
 		Parent compareNinjas = loader.load();
 		Scene scene = new Scene(compareNinjas);
 		Stage compareNinjasStage = new Stage();
-		//compareNinjasStage.setTitle("Compare Ninjas");
+		compareNinjasStage.getIcons().add(new Image("file:favicon.jpg"));
+		compareNinjasStage.setTitle("Compare Ninjas");
 	    compareNinjasStage.setScene(scene);
 		compareNinjasStage.setResizable(false);
 		compareNinjasStage.show();
@@ -42,6 +44,7 @@ public class HomePageController {
 		Parent kaguyaSimulator = loader.load();
 		Scene scene = new Scene(kaguyaSimulator);
 		Stage primaryStage = new Stage();
+		primaryStage.getIcons().add(new Image("file:favicon.jpg"));
 		primaryStage.setTitle("Kaguya Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
@@ -55,6 +58,7 @@ public class HomePageController {
 	   	web.getEngine().load("https://www.ninjamanager.com/");
 	   	Scene scene = new Scene(web);
 	   	Stage stage = new Stage();
+	   	stage.getIcons().add(new Image("file:favicon.jpg"));
 	   	stage.setScene(scene);
 	   	stage.show();
 	}
@@ -66,6 +70,7 @@ public class HomePageController {
 		Parent teamBuilder = loader.load();
 		Scene scene = new Scene(teamBuilder);
 		Stage primaryStage = new Stage();
+		primaryStage.getIcons().add(new Image("file:favicon.jpg"));
 		primaryStage.setTitle("Team Builder");
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);

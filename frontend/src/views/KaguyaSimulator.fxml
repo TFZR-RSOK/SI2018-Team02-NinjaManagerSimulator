@@ -34,17 +34,30 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Text fill="#ff0909" layoutX="1136.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chances of sealing:">
+            <Text layoutX="1138.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chances of sealing:">
                <font>
                   <Font size="30.0" />
                </font>
+               <fill>
+                  <LinearGradient endX="0.9902912621359223" endY="0.45145631067961167" startY="1.0">
+                     <stops>
+                        <Stop color="#ffb74e" />
+                        <Stop color="#8e132d" offset="0.007246376811594203" />
+                        <Stop color="#c9425f" offset="0.47485080988917305" />
+                        <Stop color="#76041c" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+               </effect>
             </Text>
             <Label fx:id="lblChanceId" layoutX="1230.0" layoutY="600.0" text="95%">
                <font>
                   <Font name="International Regular" size="34.0" />
                </font>
             </Label>
-            <Button fx:id="btnFight" onAction="#FightButton" layoutX="710.0" layoutY="561.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="147.0" text="FIGHT" textFill="#f5f5f5">
+            <Button fx:id="btnFight" layoutX="710.0" layoutY="561.0" mnemonicParsing="false" onAction="#FightButton" prefHeight="62.0" prefWidth="174.0" text="FIGHT" textFill="#f5f5f5">
                <font>
                   <Font name="Rage Italic" size="25.0" />
                </font>
@@ -52,7 +65,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="btnLoadKS" onAction="#LoadButton" layoutX="1198.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Load" textFill="WHITE">
+            <Button fx:id="btnLoadKS" layoutX="1198.0" layoutY="665.0" mnemonicParsing="false" onAction="#LoadButton" prefHeight="31.0" prefWidth="64.0" text="Load" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
@@ -60,7 +73,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="btnSaveKS" onAction="#SaveButton" layoutX="1269.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Save" textFill="WHITE">
+            <Button fx:id="btnSaveKS" layoutX="1269.0" layoutY="665.0" mnemonicParsing="false" onAction="#SaveButton" prefHeight="31.0" prefWidth="64.0" text="Save" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
@@ -70,83 +83,173 @@
             </Button>
             <VBox layoutX="175.0" layoutY="24.0" prefHeight="706.0" prefWidth="203.0">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN">
+                  <Text fill="#ffae00" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="International Regular" size="25.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.055" width="6.22" />
+                     </effect>
                   </Text>
-                  <Label fx:id="lblNameGen1" prefHeight="45.0" prefWidth="180.0" text="Summaray" textFill="#3d2919" underline="true">
+                  <Label fx:id="lblNameGen1" prefHeight="45.0" prefWidth="180.0" text="Summaray">
                      <font>
-                        <Font name="International Regular" size="27.0" />
+                        <Font name="International Regular" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="35.0" />
+                        <Insets bottom="48.0" />
                      </VBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ffa644" />
+                              <Stop color="#ffe351" offset="0.5130718954248367" />
+                              <Stop color="#f5a856" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.8325" width="9.33" />
+                     </effect>
                   </Label>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN">
+                  <Text fill="#ffae00" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="International Regular" size="25.0" />
                      </font>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.055" width="6.22" />
+                     </effect>
                   </Text>
-                  <Label fx:id="lblNameGen2" prefHeight="45.0" prefWidth="174.0" text="Summaray" textFill="#3d2919" underline="true">
+                  <Label fx:id="lblNameGen2" prefHeight="45.0" prefWidth="174.0" text="Summaray">
                      <font>
-                        <Font name="International Regular" size="27.0" />
+                        <Font name="International Regular" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="35.0" />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ffa644" />
+                              <Stop color="#ffe351" offset="0.5130718954248367" />
+                              <Stop color="#f5a856" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.8325" width="9.33" />
+                     </effect>
                   </Label>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN">
+                  <Text fill="#ffae00" strokeType="OUTSIDE" strokeWidth="0.0" text="GENIN">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="International Regular" size="25.0" />
                      </font>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.055" width="6.22" />
+                     </effect>
                   </Text>
-                  <Label fx:id="lblNameGen3" prefHeight="45.0" prefWidth="189.0" text="Summaray" textFill="#3d2919" underline="true">
+                  <Label fx:id="lblNameGen3" prefHeight="45.0" prefWidth="189.0" text="Summaray">
                      <font>
-                        <Font name="International Regular" size="27.0" />
+                        <Font name="International Regular" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="40.0" />
+                        <Insets bottom="50.0" />
                      </VBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ffa644" />
+                              <Stop color="#ffe351" offset="0.5130718954248367" />
+                              <Stop color="#f5a856" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.8325" width="9.33" />
+                     </effect>
                   </Label>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN">
+                  <Text fill="#ffae00" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="International Regular" size="25.0" />
                      </font>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.055" width="6.22" />
+                     </effect>
                   </Text>
-                  <Label fx:id="lblNameJounin1" prefHeight="45.0" prefWidth="191.0" text="Summaray" textFill="#3d2919" underline="true">
+                  <Label fx:id="lblNameJounin1" prefHeight="45.0" prefWidth="191.0" text="Summaray">
                      <font>
-                        <Font name="International Regular" size="27.0" />
+                        <Font name="International Regular" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="40.0" />
+                        <Insets bottom="55.0" />
                      </VBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ffa644" />
+                              <Stop color="#ffe351" offset="0.5130718954248367" />
+                              <Stop color="#f5a856" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.8325" width="9.33" />
+                     </effect>
                   </Label>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN">
+                  <Text fill="#ffae00" strokeType="OUTSIDE" strokeWidth="0.0" text="JOUNIN">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="International Regular" size="25.0" />
                      </font>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.055" width="6.22" />
+                     </effect>
                   </Text>
-                  <Label fx:id="lblNameJounin2" prefHeight="45.0" prefWidth="181.0" text="Summaray" textFill="#3d2919" underline="true">
+                  <Label fx:id="lblNameJounin2" prefHeight="45.0" prefWidth="181.0" text="Summaray">
                      <font>
-                        <Font name="International Regular" size="27.0" />
+                        <Font name="International Regular" size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="40.0" />
+                        <Insets bottom="45.0" />
                      </VBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ffa644" />
+                              <Stop color="#ffe351" offset="0.5130718954248367" />
+                              <Stop color="#f5a856" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.8325" width="9.33" />
+                     </effect>
                   </Label>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="KAGE">
+                  <Text fill="#ffae00" strokeType="OUTSIDE" strokeWidth="0.0" text="KAGE">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="International Regular" size="25.0" />
                      </font>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.055" width="6.22" />
+                     </effect>
                   </Text>
-                  <Label fx:id="lblNameKage" prefHeight="45.0" prefWidth="185.0" text="Summaray" textFill="#3d2919" underline="true">
+                  <Label fx:id="lblNameKage" prefHeight="45.0" prefWidth="185.0" text="Summaray">
                      <font>
-                        <Font name="International Regular" size="27.0" />
+                        <Font name="International Regular" size="24.0" />
                      </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ffa644" />
+                              <Stop color="#ffe351" offset="0.5130718954248367" />
+                              <Stop color="#f5a856" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="1.8325" width="9.33" />
+                     </effect>
                   </Label>
                </children>
             </VBox>
@@ -154,21 +257,27 @@
                <children>
                   <HBox prefHeight="31.0" prefWidth="150.0">
                      <children>
-                        <Label text="LVL" textFill="WHITE">
+                        <Label prefHeight="33.0" prefWidth="35.0" text="LVL" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="19.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
-                        <Label fx:id="lblGen1Lvl" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#1b0e0e">
+                        <Label fx:id="lblGen1Lvl" alignment="CENTER" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="21.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
                         <Button fx:id="Gen1Plus" mnemonicParsing="false" onAction="#PlusGen1" prefHeight="31.0" prefWidth="33.0" text="+" />
                         <Button fx:id="Gen1Minus" mnemonicParsing="false" onAction="#MinusGen1" prefHeight="31.0" prefWidth="33.0" text="-" />
@@ -179,21 +288,27 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="150.0">
                      <children>
-                        <Label text="LVL" textFill="WHITE">
+                        <Label prefHeight="33.0" text="LVL" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="19.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
-                        <Label fx:id="lblGen2Lvl" prefWidth="41.0" text="1" textFill="#1b0e0e">
+                        <Label fx:id="lblGen2Lvl" alignment="CENTER" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="21.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
                         <Button fx:id="Gen2Plus" mnemonicParsing="false" onAction="#PlusGen2" prefHeight="31.0" prefWidth="33.0" text="+" />
                         <Button fx:id="Gen2Minus" mnemonicParsing="false" onAction="#MinusGen2" prefHeight="31.0" prefWidth="33.0" text="-" />
@@ -204,21 +319,27 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="150.0">
                      <children>
-                        <Label text="LVL" textFill="WHITE">
+                        <Label prefHeight="33.0" text="LVL" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="19.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
-                        <Label fx:id="lblGen3Lvl" prefWidth="41.0" text="1" textFill="#1b0e0e">
+                        <Label fx:id="lblGen3Lvl" alignment="CENTER" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="21.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
                         <Button fx:id="Gen3Plus" mnemonicParsing="false" onAction="#PlusGen3" prefHeight="31.0" prefWidth="33.0" text="+" />
                         <Button fx:id="Gen3Minus" mnemonicParsing="false" onAction="#MinusGen3" prefHeight="31.0" prefWidth="33.0" text="-" />
@@ -229,21 +350,27 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="150.0">
                      <children>
-                        <Label text="LVL" textFill="WHITE">
+                        <Label prefHeight="33.0" text="LVL" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="19.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
-                        <Label fx:id="lblJounin1Lvl" prefWidth="41.0" text="1" textFill="#1b0e0e">
+                        <Label fx:id="lblJounin1Lvl" alignment="CENTER" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="21.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
                         <Button fx:id="Jounin1Plus" mnemonicParsing="false" onAction="#PlusJounin1" prefHeight="31.0" prefWidth="33.0" text="+" />
                         <Button fx:id="Jounin1Minus" mnemonicParsing="false" onAction="#MinusJounin1" prefHeight="31.0" prefWidth="33.0" text="-" />
@@ -254,21 +381,27 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="103.0" prefHeight="31.0" prefWidth="150.0">
                      <children>
-                        <Label text="LVL" textFill="WHITE">
+                        <Label prefHeight="33.0" text="LVL" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="19.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
-                        <Label fx:id="lblJounin2Lvl" prefWidth="41.0" text="1" textFill="#1b0e0e">
+                        <Label fx:id="lblJounin2Lvl" alignment="CENTER" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="21.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
                         <Button fx:id="Jounin2Plus" mnemonicParsing="false" onAction="#PlusJounin2" prefHeight="31.0" prefWidth="33.0" text="+" />
                         <Button fx:id="Jounin2Minus" mnemonicParsing="false" onAction="#MinusJounin2" prefHeight="31.0" prefWidth="33.0" text="-" />
@@ -279,21 +412,27 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="134.0" prefHeight="31.0" prefWidth="150.0">
                      <children>
-                        <Label text="LVL" textFill="WHITE">
+                        <Label prefHeight="33.0" text="LVL" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="19.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
-                        <Label fx:id="lblKageLvl" prefWidth="41.0" text="1" textFill="#1b0e0e">
+                        <Label fx:id="lblKageLvl" alignment="CENTER" prefHeight="31.0" prefWidth="41.0" text="1" textFill="#171001">
                            <font>
-                              <Font size="21.0" />
+                              <Font name="International Regular" size="21.0" />
                            </font>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="0.0" radius="0.0" width="0.5" />
+                           </effect>
                         </Label>
                         <Button fx:id="KagePlus" mnemonicParsing="false" onAction="#PlusKage" prefHeight="31.0" prefWidth="33.0" text="+" />
                         <Button fx:id="KageMinus" mnemonicParsing="false" onAction="#MinusKage" prefHeight="31.0" prefWidth="33.0" text="-" />
@@ -319,7 +458,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <ImageView fitHeight="50.0" fitWidth="107.0" layoutX="1209.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="107.0" layoutX="1216.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/num-frame.png" />
                </image>
@@ -364,7 +503,7 @@
                   <ImageView fx:id="KSPicKage" fitHeight="107.0" fitWidth="95.0" layoutX="4.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
-            <ComboBox fx:id="KSCBDiff" layoutX="709.0" layoutY="650.0" prefWidth="150.0" />
+            <ComboBox fx:id="KSCBDiff" layoutX="709.0" layoutY="650.0" prefHeight="31.0" prefWidth="174.0" promptText="Choose Difficulty" />
          </children>
       </Pane>
       <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#38291ab3" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
