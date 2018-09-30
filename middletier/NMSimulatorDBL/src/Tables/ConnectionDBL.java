@@ -25,24 +25,12 @@ public class ConnectionDBL {
 	public static void Connect () {
 		try
 		{
-			// create our mysql database connection
 			String myDriver = "org.gjt.mm.mysql.Driver";
 			String myUrl = "jdbc:mysql://localhost:3306/nmsimulatortest";
 			Class.forName(myDriver);
 			conn = DriverManager.getConnection(myUrl, "root", "");
-	  
-			// our SQL SELECT query. 
-			// if you only need a few columns, specify them by name instead of using "*"
 			query = "SELECT * FROM nindza";
-			
-			/*
-			 * query = "CREATE PROCEDURE pullGenins () SELECT Tip FROM nindza WHERE Tip = 1";
-			 */
-			
-			// create the java statement
 			st = conn.createStatement();
-			
-			// execute the query, and get a java resultset
 			rs = st.executeQuery(query);
 		}
 		catch (Exception e)
@@ -55,22 +43,13 @@ public class ConnectionDBL {
 	public static void ConnectNapadi () {
 		try
 		{
-			// create our mysql database connection
 			String myDriver = "org.gjt.mm.mysql.Driver";
 			String myUrl = "jdbc:mysql://localhost:3306/nmsimulatortest";
 			Class.forName(myDriver);
 			conn = DriverManager.getConnection(myUrl, "root", "");
-	  
-			// our SQL SELECT query. 
-			// if you only need a few columns, specify them by name instead of using "*"
 			query = "SELECT * FROM napadi";
-			
-			// create the java statement
 			st = conn.createStatement();
-			
-			// execute the query, and get a java resultset
 			rs = st.executeQuery(query);
-			
 		}
 		catch (Exception e)
 		{
