@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="C:/Users/milic/Desktop/jarFiles/JarFiles-20180930T084724Z-001/JarFiles/mysql-connector-java-5.1.47-bin.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/milic/Desktop/jarFiles/JarFiles-20180930T084724Z-001/JarFiles/NMSimulatorBaza.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/milic/Desktop/jarFiles/JarFiles-20180930T084724Z-001/JarFiles/NMSimulatorLogika.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/milic/Desktop/jarFiles/JarFiles-20180930T084724Z-001/JarFiles/NMSimulatorUI.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/Projekat/Files for Project/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/ProjekatLogikaJARFile/NMSimulatorLogika.jar"/>
+	<classpathentry kind="lib" path="E:/Faks/6. Semestar/Razvoj Softvera Otvorenog Koda/ProjekatLogikaJARFile/NMSimulatorUI.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
