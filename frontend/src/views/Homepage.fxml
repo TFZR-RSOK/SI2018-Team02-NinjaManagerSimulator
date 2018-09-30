@@ -19,7 +19,7 @@
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" layoutX="-13.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../resources/homepage-background.jpg" />
+            <Image url="@/C:/xampp/mysql/data/nmsimulatortest/Slike/homepage-background.jpg" />
          </image>
       </ImageView>
       <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#392a1a" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
@@ -86,7 +86,7 @@
                <graphic>
                   <ImageView fitHeight="229.0" fitWidth="392.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/compare-ninjas.jpg" />
+                        <Image url="@/C:/xampp/mysql/data/nmsimulatortest/Slike/compare-ninjas.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -98,7 +98,7 @@
                <graphic>
                   <ImageView fitHeight="230.0" fitWidth="366.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/kaguya-simulator.jpg" />
+                        <Image url="@/C:/xampp/mysql/data/nmsimulatortest/Slike/kaguya-simulator.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -109,7 +109,7 @@
                <graphic>
                   <ImageView fitHeight="228.0" fitWidth="366.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/team-builder.jpg" />
+                        <Image url="@/C:/xampp/mysql/data/nmsimulatortest/Slike/team-builder.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -121,7 +121,7 @@
                <graphic>
                   <ImageView fitHeight="245.0" fitWidth="368.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ninja-database.jpg" />
+                        <Image url="@/C:/xampp/mysql/data/nmsimulatortest/Slike/ninja-database.jpg" />
                      </image>
                   </ImageView>
                </graphic>
