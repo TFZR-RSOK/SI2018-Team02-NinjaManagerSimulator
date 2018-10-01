@@ -23,11 +23,11 @@
 
 <!--Created by Milica Knezevic-->
 
-<AnchorPane fx:id="teamBuilder" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/nmsimulatortest/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.TeamBuilderController">
+<AnchorPane fx:id="teamBuilder" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/NinjaManagerSimulator/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.TeamBuilderController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/team-builder-background.jpg" />
+            <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/team-builder-background.jpg" />
          </image>
       </ImageView>
       <Rectangle fx:id="homepageHeader" arcHeight="5.0" arcWidth="5.0" fill="#38291ab2" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1500.0">
@@ -505,7 +505,7 @@
                   </VBox>
                   <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <VBox layoutX="118.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
@@ -970,7 +970,7 @@
                   </VBox>
                   <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
@@ -1441,7 +1441,7 @@
                   </VBox>
                   <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <VBox layoutX="118.0" layoutY="160.0" prefHeight="106.0" prefWidth="100.0">
@@ -1906,7 +1906,7 @@
                   </VBox>
                   <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
@@ -2371,7 +2371,7 @@
                   </VBox>
                   <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">
@@ -2836,7 +2836,7 @@
                   </VBox>
                   <ImageView fitHeight="103.0" fitWidth="93.0" layoutX="120.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <VBox layoutX="118.0" layoutY="160.0" prefHeight="103.0" prefWidth="100.0">

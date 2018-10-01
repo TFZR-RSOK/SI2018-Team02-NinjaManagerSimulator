@@ -24,7 +24,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException, SQLException {
 		
 		this.primaryStage = primaryStage;
-		this.primaryStage.getIcons().add(new Image("file:C:/xampp/mysql/data/nmsimulatortest/Slike/favicon.jpg"));
+		this.primaryStage.getIcons().add(new Image("file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/favicon.jpg"));
 		this.primaryStage.setTitle("Ninja Manager Simulator");
 		showMainView();
 	}

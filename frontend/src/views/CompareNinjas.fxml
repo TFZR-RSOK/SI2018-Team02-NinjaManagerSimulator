@@ -23,11 +23,11 @@
 
 <!--Created by Milica Knezevic-->
 
-<AnchorPane fx:id="compareNinjas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/nmsimulatortest/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.CompareNinjasController">
+<AnchorPane fx:id="compareNinjas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/NinjaManagerSimulator/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.CompareNinjasController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/compare-ninjas-background.jpg" />
+            <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/compare-ninjas-background.jpg" />
          </image>
       </ImageView>
       <GridPane hgap="40.0" layoutY="135.0" prefHeight="769.0" prefWidth="1500.0" AnchorPane.rightAnchor="0.0">
@@ -50,7 +50,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
@@ -418,7 +418,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
@@ -798,7 +798,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />
@@ -1178,7 +1178,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c968e33" height="702.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="146.0" layoutY="10.0" text="BASESTATS:" />

@@ -19,18 +19,18 @@
 
 <!--Created by Milica Knezevic-->
 
-<AnchorPane fx:id="kaguyaSimulator" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/nmsimulatortest/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.KaguyaSimulatorController">
+<AnchorPane fx:id="kaguyaSimulator" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/NinjaManagerSimulator/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.KaguyaSimulatorController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/kaguya-simulator-background.jpg" />
+            <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/kaguya-simulator-background.jpg" />
          </image>
       </ImageView>
       <Pane layoutX="-11.0" layoutY="156.0" prefHeight="729.0" prefWidth="1500.0" AnchorPane.leftAnchor="0.0">
          <children>
             <ImageView fitHeight="300.0" fitWidth="270.0" layoutX="1134.0" layoutY="215.0" pickOnBounds="true">
                <image>
-                  <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/kaguya.jpg" />
+                  <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/kaguya.jpg" />
                </image>
                <effect>
                   <DropShadow />
@@ -462,39 +462,39 @@
             </Text>
             <ImageView fitHeight="50.0" fitWidth="107.0" layoutX="1216.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/num-frame.png" />
+                  <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/num-frame.png" />
                </image>
             </ImageView>
             <Pane layoutX="43.0" layoutY="24.0" prefHeight="706.0" prefWidth="103.0">
                <children>
                   <ImageView fitHeight="113.0" fitWidth="103.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutY="118.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutY="236.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutY="354.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutY="472.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="113.0" fitWidth="103.0" layoutY="590.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:/xampp/mysql/data/nmsimulatortest/Slike/img-frame.png" />
+                        <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/img-frame.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="KSPicGen1" fitHeight="107.0" fitWidth="95.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />

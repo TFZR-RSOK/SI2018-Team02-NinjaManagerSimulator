@@ -437,7 +437,7 @@ public class TeamBuilderController implements Initializable {
 		 public static void loadSlika(ImageView okvirSlike, int rednibroj) throws FileNotFoundException {
 			String pathSufix = Main.fight.getTeam().get_ninjas().get(rednibroj).getPicPath();
 			if (!pathSufix.isEmpty()) {
-				String path = "C:\\xampp\\mysql\\data\\nmsimulatortest"+pathSufix;
+				String path = "C:\\xampp\\mysql\\data\\NinjaManagerSimulator"+pathSufix;
 				FileInputStream input = new FileInputStream(path);
 				Image image = new Image(input);
 				okvirSlike.setImage(image);
