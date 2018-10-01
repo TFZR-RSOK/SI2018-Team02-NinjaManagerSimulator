@@ -20,7 +20,7 @@ SELECT ImeNinje  FROM nindza
 where ime=ImeNinje
 
 START TRANSACTION;
-DELETE FROM nindza  WHERE  idSummon=2;
+DELETE FROM nindza  WHERE  idNindza=2;
 COMMIT;
 
 delimiter //
