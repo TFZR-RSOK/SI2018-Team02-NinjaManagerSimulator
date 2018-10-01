@@ -460,11 +460,6 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <ImageView fitHeight="50.0" fitWidth="107.0" layoutX="1216.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:C:/xampp/mysql/data/NinjaManagerSimulator/Slike/num-frame.png" />
-               </image>
-            </ImageView>
             <Pane layoutX="43.0" layoutY="24.0" prefHeight="706.0" prefWidth="103.0">
                <children>
                   <ImageView fitHeight="113.0" fitWidth="103.0" pickOnBounds="true">
