@@ -510,8 +510,7 @@ public class TeamBuilderController implements Initializable {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
-        	    		
-        	    		System.out.println("Click on "+cell.getItem());
+        	    		//System.out.println("Click on "+cell.getItem()); Test ispis selektovanog itema
                 	}
             		});
             	return cell ;
