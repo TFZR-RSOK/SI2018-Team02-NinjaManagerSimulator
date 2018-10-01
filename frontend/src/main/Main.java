@@ -14,11 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-/*
- * @author Milica Knezevic - milicaknezevic13@gmail.com
- * @version beta 1.0 
- */
-
 public class Main extends Application {
 
 	private Stage primaryStage;
@@ -29,7 +24,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException, SQLException {
 		
 		this.primaryStage = primaryStage;
-		this.primaryStage.getIcons().add(new Image("file:favicon.jpg"));
+		this.primaryStage.getIcons().add(new Image("file:C:/xampp/mysql/data/nmsimulatortest/Slike/favicon.jpg"));
 		this.primaryStage.setTitle("Ninja Manager Simulator");
 		showMainView();
 	}

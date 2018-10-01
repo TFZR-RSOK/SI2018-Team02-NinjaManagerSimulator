@@ -17,7 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="kaguyaSimulator" prefHeight="900.0" prefWidth="1500.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.KaguyaSimulatorController">
+<!--Created by Milica Knezevic-->
+
+<AnchorPane fx:id="kaguyaSimulator" prefHeight="900.0" prefWidth="1500.0" stylesheets="file:C:/xampp/mysql/data/nmsimulatortest/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.KaguyaSimulatorController">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
          <image>

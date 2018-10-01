@@ -29,7 +29,7 @@ public class HomePageController {
 		Parent compareNinjas = loader.load();
 		Scene scene = new Scene(compareNinjas);
 		Stage compareNinjasStage = new Stage();
-		compareNinjasStage.getIcons().add(new Image("file:favicon.jpg"));
+		compareNinjasStage.getIcons().add(new Image("file:C:/xampp/mysql/data/nmsimulatortest/Slike/favicon.jpg"));
 		compareNinjasStage.setTitle("Compare Ninjas");
 	    compareNinjasStage.setScene(scene);
 		compareNinjasStage.setResizable(false);
@@ -44,7 +44,7 @@ public class HomePageController {
 		Parent kaguyaSimulator = loader.load();
 		Scene scene = new Scene(kaguyaSimulator);
 		Stage primaryStage = new Stage();
-		primaryStage.getIcons().add(new Image("file:favicon.jpg"));
+		primaryStage.getIcons().add(new Image("file:C:/xampp/mysql/data/nmsimulatortest/Slike/favicon.jpg"));
 		primaryStage.setTitle("Kaguya Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
@@ -58,7 +58,7 @@ public class HomePageController {
 	   	web.getEngine().load("https://www.ninjamanager.com/");
 	   	Scene scene = new Scene(web);
 	   	Stage stage = new Stage();
-	   	stage.getIcons().add(new Image("file:favicon.jpg"));
+	   	stage.getIcons().add(new Image("file:C:/xampp/mysql/data/nmsimulatortest/Slike/favicon.jpg"));
 	   	stage.setScene(scene);
 	   	stage.show();
 	}
@@ -70,7 +70,7 @@ public class HomePageController {
 		Parent teamBuilder = loader.load();
 		Scene scene = new Scene(teamBuilder);
 		Stage primaryStage = new Stage();
-		primaryStage.getIcons().add(new Image("file:favicon.jpg"));
+		primaryStage.getIcons().add(new Image("file:C:/xampp/mysql/data/nmsimulatortest/Slike/favicon.jpg"));
 		primaryStage.setTitle("Team Builder");
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
