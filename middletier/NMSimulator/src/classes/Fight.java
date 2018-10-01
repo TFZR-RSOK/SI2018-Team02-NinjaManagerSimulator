@@ -48,14 +48,14 @@ public class Fight implements Serializable {
 	public double fightSimulation () {
 		double countProcentage = 0;
 		
-		for (int i = 0; i<1000000; i++) {
+		for (int i = 0; i<100000; i++) {
 			double DMG = Team.fightSimNinja();
 			if (DMG>Kaguya.getHealth()) {
 				countProcentage++;
 			}
 		}
 		
-		return countProcentage/10000;
+		return countProcentage/1000;
 	}
 	
 	

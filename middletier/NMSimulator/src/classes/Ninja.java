@@ -1078,20 +1078,14 @@ public class Ninja implements IBasicOperations, Serializable {
 		int downLimit = (int) (((10+seal)*2.5)*this.ninjutsu/100);
 		int upLimit = (int) ((100-((10+seal)*2.5))*this.ninjutsu/100);
 		
-		if (upLimit == downLimit) {
-			n1=0;
-		} else {
-			n1 = rand.nextInt(upLimit-downLimit) + downLimit;
+		if (upLimit <= downLimit) {
+			upLimit++;
 		}
-		
+			
+		n1 = rand.nextInt(upLimit-downLimit) + downLimit;
 		int roll = rand.nextInt(100) + 0;
 		if(roll<=this.reroll) {
-			int n2;
-			if (upLimit == downLimit) {
-				n2=0;
-			} else {
-				n2 = rand.nextInt(upLimit-downLimit) + downLimit;
-			}
+			int n2 = rand.nextInt(upLimit-downLimit) + downLimit;
 				if(n2>n1) {
 					return n2;
 				} else return n1;

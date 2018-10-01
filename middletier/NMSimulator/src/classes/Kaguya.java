@@ -16,7 +16,7 @@ public class Kaguya implements Serializable {
 	protected StanjaKaguya tezina;
 	
 	public Kaguya () {
-		this.health = 4200;
+		this.health = 2200;
 		this.taijutsu = 80;
 		this.ninjutsu = 60;
 		this.bukijutsu = 36;
@@ -112,7 +112,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to begginer 
 	 */
 	public void setBegginerStanje () {
-		this.health = 4200;
+		this.health = 2200;
 		this.taijutsu = 80;
 		this.ninjutsu = 60;
 		this.bukijutsu = 36;
@@ -124,7 +124,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to easy 
 	 */
 	public void setEasyStanje () {
-		this.health = 6300;
+		this.health = 4300;
 		this.taijutsu = 90;
 		this.ninjutsu = 70;
 		this.bukijutsu = 42;
@@ -136,7 +136,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to medium 
 	 */
 	public void setMediumStanje () {
-		this.health = 8400;
+		this.health = 6400;
 		this.taijutsu = 100;
 		this.ninjutsu = 70;
 		this.bukijutsu = 50;
@@ -148,7 +148,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to hard 
 	 */
 	public void setHardStanje () {
-		this.health = 10500;
+		this.health = 8500;
 		this.taijutsu = 115;
 		this.ninjutsu = 75;
 		this.bukijutsu = 55;
@@ -160,7 +160,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to extreme 
 	 */
 	public void setExtremeStanje () {
-		this.health = 12600;
+		this.health = 10600;
 		this.taijutsu = 130;
 		this.ninjutsu = 85;
 		this.bukijutsu = 60;
@@ -172,7 +172,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to impossible 
 	 */
 	public void setImpossibleStanje () {
-		this.health = 14700;
+		this.health = 12700;
 		this.taijutsu = 150;
 		this.ninjutsu = 100;
 		this.bukijutsu = 75;
@@ -184,7 +184,7 @@ public class Kaguya implements Serializable {
 	 * @param set Kaguya tezina to forbidden 
 	 */
 	public void setForbiddenStanje () {
-		this.health = 17800;
+		this.health = 15800;
 		this.taijutsu = 180;
 		this.ninjutsu = 120;
 		this.bukijutsu = 100;

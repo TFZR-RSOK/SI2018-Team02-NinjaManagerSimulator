@@ -157,9 +157,16 @@ public class KaguyaSimulatorController implements Initializable {
 	 */
 	@FXML
 	public void FightButton() {
+		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
+		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
+		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
+		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
+		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
+		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		double sansa = 0;
 		lblChanceId.setText(String.format("%.0f", sansa) + " %");		
 		sansa = Main.fight.fightSimulation();
+		System.out.println(sansa);
 		if (sansa == 100) {
 			lblChanceId.setText("100 %");
 		} else {
@@ -173,84 +180,72 @@ public class KaguyaSimulatorController implements Initializable {
 	@FXML
 	public void PlusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelPlus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
-		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
 		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
 	}
 
 	@FXML
 	public void PlusGen2() {
 		Main.fight.getTeam().get_ninjas().get(1).setLevelPlus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
-		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
 		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
 	}
 
 	@FXML
 	public void PlusGen3() {
 		Main.fight.getTeam().get_ninjas().get(2).setLevelPlus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
-		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
 		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
 	}
 
 	@FXML
 	public void PlusJounin1() {
 		Main.fight.getTeam().get_ninjas().get(3).setLevelPlus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
-		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
 		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
 	}
 
 	@FXML
 	public void PlusJounin2() {
 		Main.fight.getTeam().get_ninjas().get(4).setLevelPlus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
-		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
 		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
 	}
 
 	@FXML
 	public void PlusKage() {
 		Main.fight.getTeam().get_ninjas().get(5).setLevelPlus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
-		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelMinus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
-		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
 		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen2() {
 		Main.fight.getTeam().get_ninjas().get(1).setLevelMinus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
-		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
 		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen3() {
 		Main.fight.getTeam().get_ninjas().get(2).setLevelMinus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
-		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
 		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
 	}
 
 	@FXML
 	public void MinusJounin1() {
 		Main.fight.getTeam().get_ninjas().get(3).setLevelMinus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
-		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
 		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
 	}
 
 	@FXML
 	public void MinusJounin2() {
 		Main.fight.getTeam().get_ninjas().get(4).setLevelMinus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
-		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
 		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
 	}
 
 	@FXML
 	public void MinusKage() {
 		Main.fight.getTeam().get_ninjas().get(5).setLevelMinus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
-		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 	
