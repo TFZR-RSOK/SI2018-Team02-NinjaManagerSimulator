@@ -303,7 +303,7 @@ public class TeamBuilderController implements Initializable {
 			// Elsa Serializer takes DataOutput and DataInput.
 			// Use streams to create it.
 			
-			FileOutputStream fos = new FileOutputStream("Team.ser");
+			FileOutputStream fos = new FileOutputStream("C:/xampp/mysql/data/nmsimulatortest/Team.ser");
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			DataOutputStream out2 = new DataOutputStream(fos);
 
@@ -341,7 +341,7 @@ public class TeamBuilderController implements Initializable {
 		public void Load() throws IOException {
 			// deserijalizacija
 			
-			InputStream is = new FileInputStream("Team.ser");
+			InputStream is = new FileInputStream("C:/xampp/mysql/data/nmsimulatortest/Team.ser");
 			byte[] bytes = IOUtils.toByteArray(is);
 
 			// Construct DataInput
@@ -437,7 +437,7 @@ public class TeamBuilderController implements Initializable {
 		 public static void loadSlika(ImageView okvirSlike, int rednibroj) throws FileNotFoundException {
 			String pathSufix = Main.fight.getTeam().get_ninjas().get(rednibroj).getPicPath();
 			if (!pathSufix.isEmpty()) {
-				String path = "C:\\xampp\\mysql\\data\\NinjaManagerSimulator"+pathSufix;
+				String path = "C:\\xampp\\mysql\\data\\nmsimulatortest"+pathSufix;
 				FileInputStream input = new FileInputStream(path);
 				Image image = new Image(input);
 				okvirSlike.setImage(image);
@@ -521,9 +521,36 @@ public class TeamBuilderController implements Initializable {
 		 */
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
-			ObservableList<String> genins = FXCollections.observableArrayList(NinjaDBL.getListaImena());
-			ObservableList<String> jounins = FXCollections.observableArrayList(NinjaDBL.getListaImena()); //Ovde napraviti ono sa procedurama
-			ObservableList<String> kages = FXCollections.observableArrayList(NinjaDBL.getListaImena());
+			ConnectionDBL.Connect();
+			ObservableList<String> genins = FXCollections.observableArrayList(NinjaDBL.getListaImena());;
+			try {
+				NinjaDBL.insertGeninNamesIntoArray();
+				genins = FXCollections.observableArrayList(NinjaDBL.getListaImenaGenina());
+				ConnectionDBL.Disconnect();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ConnectionDBL.Connect();
+			ObservableList<String> jounins = FXCollections.observableArrayList(NinjaDBL.getListaImena());;
+			try {
+				NinjaDBL.insertJouninNamesIntoArray();
+				jounins = FXCollections.observableArrayList(NinjaDBL.getListaImenaJounina());
+				ConnectionDBL.Disconnect();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ConnectionDBL.Connect();
+			ObservableList<String> kages = FXCollections.observableArrayList(NinjaDBL.getListaImena());;
+			try {
+				NinjaDBL.insertKageNamesIntoArray();
+				kages = FXCollections.observableArrayList(NinjaDBL.getListaImenaKagea());
+				ConnectionDBL.Disconnect();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			TBCBGen1.setItems(genins);
 			TBCBGen2.setItems(genins);
 			TBCBGen3.setItems(genins);

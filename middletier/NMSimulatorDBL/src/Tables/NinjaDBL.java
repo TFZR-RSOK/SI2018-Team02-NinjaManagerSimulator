@@ -14,6 +14,9 @@ public class NinjaDBL {
 
 	static int duzinaListeImena = 263; 
 	static ArrayList<String> ListaImena = new ArrayList<String>(duzinaListeImena);
+	static ArrayList<String> ListaImenaGenina = new ArrayList<String>(duzinaListeImena);
+	static ArrayList<String> ListaImenaJounina = new ArrayList<String>(duzinaListeImena);
+	static ArrayList<String> ListaImenaKagea = new ArrayList<String>(duzinaListeImena);
 	
 	public static void pullNinjaV2 (int izabraniRedniBrojNinje, String izabranoImeNinje) throws SQLException {
 			
@@ -58,6 +61,87 @@ public class NinjaDBL {
 		{
 			ListaImena.add(indeks,ConnectionDBL.rs.getString(2));
 			indeks++;
+		}
+	}
+	
+	public static void insertGeninNamesIntoArray () throws SQLException {
+		int indeks = 0;
+		while (ConnectionDBL.rs.next())
+		{
+			if (ConnectionDBL.rs.getInt(18) == 1) {
+				ListaImenaGenina.add(indeks,ConnectionDBL.rs.getString(2));
+				indeks++;
+			}
+		}
+	}
+	
+	public static void insertJouninNamesIntoArray () throws SQLException {
+		int indeks = 0;
+		while (ConnectionDBL.rs.next())
+		{
+			if (ConnectionDBL.rs.getInt(18) == 2) {
+				ListaImenaJounina.add(indeks,ConnectionDBL.rs.getString(2));
+				indeks++;
+			}
+		}
+	}
+	
+	/**
+	 * @return the listaImenaGenina
+	 */
+	public static ArrayList<String> getListaImenaGenina() {
+		return ListaImenaGenina;
+	}
+
+
+	/**
+	 * @param listaImenaGenina the listaImenaGenina to set
+	 */
+	public static void setListaImenaGenina(ArrayList<String> listaImenaGenina) {
+		ListaImenaGenina = listaImenaGenina;
+	}
+
+
+	/**
+	 * @return the listaImenaJounina
+	 */
+	public static ArrayList<String> getListaImenaJounina() {
+		return ListaImenaJounina;
+	}
+
+
+	/**
+	 * @param listaImenaJounina the listaImenaJounina to set
+	 */
+	public static void setListaImenaJounina(ArrayList<String> listaImenaJounina) {
+		ListaImenaJounina = listaImenaJounina;
+	}
+
+
+	/**
+	 * @return the listaImenaKagea
+	 */
+	public static ArrayList<String> getListaImenaKagea() {
+		return ListaImenaKagea;
+	}
+
+
+	/**
+	 * @param listaImenaKagea the listaImenaKagea to set
+	 */
+	public static void setListaImenaKagea(ArrayList<String> listaImenaKagea) {
+		ListaImenaKagea = listaImenaKagea;
+	}
+
+
+	public static void insertKageNamesIntoArray () throws SQLException {
+		int indeks = 0;
+		while (ConnectionDBL.rs.next())
+		{
+			if (ConnectionDBL.rs.getInt(18) == 3) {
+				ListaImenaKagea.add(indeks,ConnectionDBL.rs.getString(2));
+				indeks++;
+			}
 		}
 	}
 

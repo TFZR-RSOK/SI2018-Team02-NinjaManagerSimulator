@@ -93,7 +93,7 @@ public class KaguyaSimulatorController implements Initializable {
 		// Elsa Serializer takes DataOutput and DataInput.
 		// Use streams to create it.
 		
-		FileOutputStream fos = new FileOutputStream("Team.ser");
+		FileOutputStream fos = new FileOutputStream("C:/xampp/mysql/data/nmsimulatortest/Team.ser");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		DataOutputStream out2 = new DataOutputStream(fos);
 
@@ -137,7 +137,7 @@ public class KaguyaSimulatorController implements Initializable {
 
 		// deserijalizacija
 		
-		InputStream is = new FileInputStream("Team.ser");
+		InputStream is = new FileInputStream("C:/xampp/mysql/data/nmsimulatortest/Team.ser");
 		byte[] bytes = IOUtils.toByteArray(is);
 
 		// Construct DataInput

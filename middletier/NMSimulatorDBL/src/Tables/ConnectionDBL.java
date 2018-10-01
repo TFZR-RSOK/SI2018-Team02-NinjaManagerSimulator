@@ -26,7 +26,7 @@ public class ConnectionDBL {
 		try
 		{
 			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost:3306/nmsimulatortest";
+			String myUrl = "jdbc:mysql://localhost:3306/NinjaManagerSimulator";
 			Class.forName(myDriver);
 			conn = DriverManager.getConnection(myUrl, "root", "");
 			query = "SELECT * FROM nindza";
@@ -44,7 +44,7 @@ public class ConnectionDBL {
 		try
 		{
 			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://localhost:3306/nmsimulatortest";
+			String myUrl = "jdbc:mysql://localhost:3306/NinjaManagerSimulator";
 			Class.forName(myDriver);
 			conn = DriverManager.getConnection(myUrl, "root", "");
 			query = "SELECT * FROM napadi";
