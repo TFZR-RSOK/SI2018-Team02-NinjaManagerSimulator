@@ -1,6 +1,6 @@
 # SI2018 - Team02 - Ninja Manager Simulator
 Projekat iz predmeta “Razvoj softvera otvorenog koda”, naziv rada jeste “Ninja Manager Simulator”  i tema rada jeste kreiranje desktop aplikacije za simulaciju krajnje misije u istoimenoj igrici. Funkcionalnost i sama upotreba aplikacije jeste pomoć korisniku, ili igračima koji igraju igricu u formiranju tima i kreiranju što bolje taktike za prelazak misije. Na projektu rade: **Nikola Ćorković – SI 2/15**, **Milica Knežević – SI 30/15** i **Stefan Tomić – SI 1/15**. Izrada aplikacije je podeljena na 3 sloja: frontend (korisnički interfejs), middletier (logika programa) i baza podataka. Sama izrada je podeljena kako sledi: 
-1. **Nikola Ćorković – SI 2/15** - [@AlphaAquilae02](https://github.com/AlphaAquilae02 "@AlphaAquilae") – Kreiranje logike aplikacije i povezivanje sa bazom podataka, ujedno i kreiranje REST servisa - JAVA Spring MVC, JSON
+1. **Nikola Ćorković – SI 2/15** - [@AlphaAquilae02](https://github.com/AlphaAquilae02 "@AlphaAquilae") – Kreiranje logike aplikacije i povezivanje sa bazom podataka
 2. **Milica Knežević – SI 30/15** - [@milikne](https://github.com/milikne "@milikne") – Kreiranje korisničkog interfejsa koristeći JAVA FX tehnologiju
 3. **Stefan Tomić – SI 1/15** - [@black96](https://github.com/black96 "@black96") – Kreiranje baze podataka (MySQL) – Stored Procedure, Views, Triggers, Transactions
 
