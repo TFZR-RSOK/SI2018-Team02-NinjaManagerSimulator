@@ -5,3 +5,14 @@ Projekat iz predmeta “Razvoj softvera otvorenog koda”, naziv rada jeste “N
 3. **Stefan Tomić – SI 1/15** - [@black96](https://github.com/black96 "@black96") – Kreiranje baze podataka (MySQL) – Stored Procedure, Views, Triggers, Transactions
 
 Project started for learning purpose, based on “Ninja Manager” game – online browser based game. ( www.ninjamanager.com ). All characters and logic of simulator is based on ninja manager game.
+
+<hr/>
+
+# PROJEKAT JE USPEŠNO REALIZOVAN I ODBRANJEN
+
+Studentima koji su radili na navedenom projektu je onemogućen dalji rad na ovom repozitorijumu koji sada služi kao arhiva uspešno realizovanog projekta. **Projekat je evaluiran sa 28 od maksimalnih 40 bodova**. Detaljna evaluacija projekta i članova tima može nalazi se na wiki stranici projekta [9. Evaluacija projekta i članova tima](https://github.com/TFZR-RSOK/SI2018-Team02-NinjaManagerSimulator/wiki/9.-Evaluacija-projekta-i-%C4%8Dlanova-tima "9. Evaluacija projekta i članova tima")
+
+doc. dr Predrag Pecev <br/>
+pecev@tfzr.uns.ac.rs
+
+**12.10.2018.**
