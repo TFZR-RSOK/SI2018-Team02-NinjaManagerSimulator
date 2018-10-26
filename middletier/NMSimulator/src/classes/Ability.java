@@ -9,6 +9,10 @@ import java.io.Serializable;
 
 public class Ability implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name;
 	protected double id, taijutsu, ninjutsu, bukijutsu, element, stamina, attack, bukiRec, bukiBoost, critChance, critStrike, reroll, endurance, fatigue,
 		taiImmunity, ninImmunity, bukiImmunity, attackImmunity, genImmunity, poisonImmunity, poison, guard, absorb, lvl5Death, bloodlineNullify, 

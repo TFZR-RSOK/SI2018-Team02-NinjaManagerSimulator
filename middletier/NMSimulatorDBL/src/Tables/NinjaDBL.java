@@ -3,7 +3,7 @@ package Tables;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import main.Main;
+import classes.Ninja;
 
 /*
  * @author Nikola Corkovic - cnik996@gmail.com
@@ -12,47 +12,44 @@ import main.Main;
 
 public class NinjaDBL {
 
-	static int duzinaListeImena = 263; 
+	static int duzinaListeImena = 500; 
 	static ArrayList<String> ListaImena = new ArrayList<String>(duzinaListeImena);
 	static ArrayList<String> ListaImenaGenina = new ArrayList<String>(duzinaListeImena);
 	static ArrayList<String> ListaImenaJounina = new ArrayList<String>(duzinaListeImena);
 	static ArrayList<String> ListaImenaKagea = new ArrayList<String>(duzinaListeImena);
 	
-	public static void pullNinjaV2 (int izabraniRedniBrojNinje, String izabranoImeNinje) throws SQLException {
+	public static Ninja pullNinjaV2 (String izabranoImeNinje) throws SQLException {
 			
-		int redniBroj = izabraniRedniBrojNinje;
-		String imeNinje = izabranoImeNinje;
+	
+		Ninja nin = new Ninja();
 			
 		while (ConnectionDBL.rs.next()) {
-			if (ConnectionDBL.rs.getString(2).equals(imeNinje)) {
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setIdNinje(ConnectionDBL.rs.getInt(1));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setName(ConnectionDBL.rs.getString(2));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setChakra(ConnectionDBL.rs.getDouble(3));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setSeal(ConnectionDBL.rs.getDouble(4));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseTai(ConnectionDBL.rs.getDouble(5));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setTaijutsuGrowth(ConnectionDBL.rs.getDouble(6));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseNin(ConnectionDBL.rs.getDouble(7));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setNinjutsuGrowth(ConnectionDBL.rs.getDouble(8));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseBuki(ConnectionDBL.rs.getDouble(9));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBukijutsuGrowth(ConnectionDBL.rs.getDouble(10));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseEle(ConnectionDBL.rs.getDouble(11));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setElementGrowth(ConnectionDBL.rs.getDouble(12));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseGen(ConnectionDBL.rs.getDouble(13));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setGenjutsuGrowth(ConnectionDBL.rs.getDouble(14));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseStam(ConnectionDBL.rs.getDouble(15));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setStaminaGrowth(ConnectionDBL.rs.getDouble(16));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setPicPath(ConnectionDBL.rs.getString(17));
-				Main.fight.getTeam().get_ninjas().get(redniBroj).setTip(ConnectionDBL.rs.getDouble(18));
+			if (ConnectionDBL.rs.getString(2).equals(izabranoImeNinje)) {
+				
+				System.out.println(ConnectionDBL.rs.getString(2));
+								
+				nin.setIdNinje(ConnectionDBL.rs.getInt(1));
+				nin.setName(ConnectionDBL.rs.getString(2));
+				nin.setChakra(ConnectionDBL.rs.getDouble(3));
+				nin.setSeal(ConnectionDBL.rs.getDouble(4));
+				nin.setBaseTai(ConnectionDBL.rs.getDouble(5));
+				nin.setTaijutsuGrowth(ConnectionDBL.rs.getDouble(6));
+				nin.setBaseNin(ConnectionDBL.rs.getDouble(7));
+				nin.setNinjutsuGrowth(ConnectionDBL.rs.getDouble(8));
+				nin.setBaseBuki(ConnectionDBL.rs.getDouble(9));
+				nin.setBukijutsuGrowth(ConnectionDBL.rs.getDouble(10));
+				nin.setBaseEle(ConnectionDBL.rs.getDouble(11));
+				nin.setElementGrowth(ConnectionDBL.rs.getDouble(12));
+				nin.setBaseGen(ConnectionDBL.rs.getDouble(13));
+				nin.setGenjutsuGrowth(ConnectionDBL.rs.getDouble(14));
+				nin.setBaseStam(ConnectionDBL.rs.getDouble(15));
+				nin.setStaminaGrowth(ConnectionDBL.rs.getDouble(16));
+				nin.setPicPath(ConnectionDBL.rs.getString(17));
+				nin.setTip(ConnectionDBL.rs.getDouble(18));
 			}
 		}
-	}
-	
-	
-	public static void pullDuzinaListeImena () throws SQLException {
-		while (ConnectionDBL.rs.next())
-				{
-					duzinaListeImena ++;
-				}
+		
+		return nin;
 	}
 	
 	public static void insertNamesIntoArray () throws SQLException {

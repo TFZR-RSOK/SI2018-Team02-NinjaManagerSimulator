@@ -40,43 +40,26 @@ import main.*;
  */
 
 public class KaguyaSimulatorController implements Initializable {
-	/*
-	 * Elsa serijalizacija iz preuzetog repozitorijuma
-	 */
+	
 	// Construct Elsa Serializer
 	// Elsa uses Maker Pattern to configure extra features
 	ElsaSerializer serializer = new ElsaMaker().make();
 	
-	/*
-	 * ImageView svih polja iz fxml fajlova
-	 */
 	@FXML
 	private ImageView KSPicGen1, KSPicGen2, KSPicGen3, KSPicJounin1, KSPicJounin2, KSPicKage;
 	
-	/*
-	 * ComboBox svih polja iz fxml fajlova
-	 */
 	@FXML
 	private ComboBox<String> KSCBDiff;
 	
-	/*
-	 * Label svih polja iz fxml fajlova
-	 */
 	@FXML
 	private Label lblGen1Lvl, lblGen2Lvl, lblGen3Lvl, lblJounin1Lvl, lblJounin2Lvl, lblKageLvl,
 					lblNameGen1, lblNameGen2, lblNameGen3, lblNameJounin1, lblNameJounin2, lblNameKage,
 					lblChanceId;
 	
-	/*
-	 * metoda za unos podataka iz odgovarajuceg TextField polja u odgovarajuci objekat
-	 */
 	public void saveLVL(int redniBroj, Label lblLvl) {
 		Main.fight.getTeam().get_ninjas().get(redniBroj).setLevel(Double.parseDouble(lblLvl.getText()));
 	}
 	
-	/*
-	 * metoda za serijalizaciju objekta u fajl
-	 */
 	@FXML
 	public void SaveButton() throws IOException {
 		saveLVL(0, lblGen1Lvl);
@@ -93,17 +76,14 @@ public class KaguyaSimulatorController implements Initializable {
 		// Elsa Serializer takes DataOutput and DataInput.
 		// Use streams to create it.
 		
-		FileOutputStream fos = new FileOutputStream("C:/xampp/mysql/data/nmsimulatortest/Team.ser");
+		FileOutputStream fos = new FileOutputStream("C:/xampp/mysql/data/ninjamanagersimulator/Team.ser");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		DataOutputStream out2 = new DataOutputStream(fos);
 
 		// write data into OutputStream
 		serializer.serialize(out2, data);
 	}
-	
-	/*
-	 * metoda za povlacenje podataka iz objekta i ispis istih u odgovarajuca polja
-	 */
+
 	public void loadAll(ImageView picFrameGen1, ImageView picFrameGen2, ImageView picFrameGen3, ImageView picFrameJounin1,
 			ImageView picFrameJounin2, ImageView picFrameKage) throws FileNotFoundException {
 		
@@ -129,15 +109,12 @@ public class KaguyaSimulatorController implements Initializable {
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 	
-	/*
-	 * metoda za deserijalizaciju fajla i ubacivanje u objekat, i nakon toga ispis istih u odgovarajuca polja
-	 */
 	@FXML
 	public void LoadButton() throws IOException {
 
 		// deserijalizacija
 		
-		InputStream is = new FileInputStream("C:/xampp/mysql/data/nmsimulatortest/Team.ser");
+		InputStream is = new FileInputStream("C:/xampp/mysql/data/ninjamanagersimulator/Team.ser");
 		byte[] bytes = IOUtils.toByteArray(is);
 
 		// Construct DataInput
@@ -151,107 +128,103 @@ public class KaguyaSimulatorController implements Initializable {
 
 		loadAll(KSPicGen1, KSPicGen2, KSPicGen3, KSPicJounin1, KSPicJounin2, KSPicKage);
 	}
-	
-	/*
-	 * metoda za ispis mogucnosti prelaska u procentima
-	 */
+
 	@FXML
 	public void FightButton() {
-		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
-		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
-		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
-		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
-		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
-		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		double sansa = 0;
 		lblChanceId.setText(String.format("%.0f", sansa) + " %");		
 		sansa = Main.fight.fightSimulation();
-		System.out.println(sansa);
 		if (sansa == 100) {
 			lblChanceId.setText("100 %");
 		} else {
 			lblChanceId.setText(String.format("%.2f", sansa) + " %");
 		}
 	}
-	
-	/*
-     * metode za inkrement/dekrement varijable level iz objekta Ninja i ispis iste u odgovarajuce polje
-     */
+
 	@FXML
 	public void PlusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelPlus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
+		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
 		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
 	}
 
 	@FXML
 	public void PlusGen2() {
 		Main.fight.getTeam().get_ninjas().get(1).setLevelPlus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
+		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
 		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
 	}
 
 	@FXML
 	public void PlusGen3() {
 		Main.fight.getTeam().get_ninjas().get(2).setLevelPlus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
+		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
 		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
 	}
 
 	@FXML
 	public void PlusJounin1() {
 		Main.fight.getTeam().get_ninjas().get(3).setLevelPlus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
+		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
 		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
 	}
 
 	@FXML
 	public void PlusJounin2() {
 		Main.fight.getTeam().get_ninjas().get(4).setLevelPlus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
+		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
 		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
 	}
 
 	@FXML
 	public void PlusKage() {
 		Main.fight.getTeam().get_ninjas().get(5).setLevelPlus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
+		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen1() {
 		Main.fight.getTeam().get_ninjas().get(0).setLevelMinus(Main.fight.getTeam().get_ninjas().get(0).getLevel());
+		Main.fight.getTeam().get_ninjas().get(0).dugmeCalculate();
 		lblGen1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(0).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen2() {
 		Main.fight.getTeam().get_ninjas().get(1).setLevelMinus(Main.fight.getTeam().get_ninjas().get(1).getLevel());
+		Main.fight.getTeam().get_ninjas().get(1).dugmeCalculate();
 		lblGen2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(1).getLevel())));
 	}
 
 	@FXML
 	public void MinusGen3() {
 		Main.fight.getTeam().get_ninjas().get(2).setLevelMinus(Main.fight.getTeam().get_ninjas().get(2).getLevel());
+		Main.fight.getTeam().get_ninjas().get(2).dugmeCalculate();
 		lblGen3Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(2).getLevel())));
 	}
 
 	@FXML
 	public void MinusJounin1() {
 		Main.fight.getTeam().get_ninjas().get(3).setLevelMinus(Main.fight.getTeam().get_ninjas().get(3).getLevel());
+		Main.fight.getTeam().get_ninjas().get(3).dugmeCalculate();
 		lblJounin1Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getLevel())));
 	}
 
 	@FXML
 	public void MinusJounin2() {
 		Main.fight.getTeam().get_ninjas().get(4).setLevelMinus(Main.fight.getTeam().get_ninjas().get(4).getLevel());
+		Main.fight.getTeam().get_ninjas().get(4).dugmeCalculate();
 		lblJounin2Lvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(4).getLevel())));
 	}
 
 	@FXML
 	public void MinusKage() {
 		Main.fight.getTeam().get_ninjas().get(5).setLevelMinus(Main.fight.getTeam().get_ninjas().get(5).getLevel());
+		Main.fight.getTeam().get_ninjas().get(5).dugmeCalculate();
 		lblKageLvl.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(5).getLevel())));
 	}
 	
-	/*
-	  * metoda za selekciju, podesavanje tezine i iscitavanje odabrane tezine u ComboBox polju
-	  */
 	public void ListenerTezina() {
 		KSCBDiff.setCellFactory(lv -> {
 		ListCell<String> cell = new ListCell<String>() {
@@ -288,9 +261,6 @@ public class KaguyaSimulatorController implements Initializable {
 		});
 	}
 	
-	/*
-	 * metoda za inicijalizaciju potrebnih listi nindzi i podesavanje istih na ComboBox
-	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		KaguyaDBL.getListaTezina().clear();

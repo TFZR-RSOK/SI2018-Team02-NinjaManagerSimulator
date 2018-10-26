@@ -12,6 +12,8 @@ import org.mapdb.elsa.ElsaSerializer;
 import Tables.ConnectionDBL;
 import Tables.NapadiDBL;
 import Tables.NinjaDBL;
+import classes.Ability;
+import classes.Ninja;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,30 +31,19 @@ import main.*;
  */
 
 public class CompareNinjasController implements Initializable {
-	/*
-	 * Elsa serijalizacija iz preuzetog repozitorijuma
-	 */
+	
 	// Construct Elsa Serializer
 	// Elsa uses Maker Pattern to configure extra features
 	ElsaSerializer serializer = new ElsaMaker().make();
 	
-	/*
-	 * ImageView svih polja iz fxml fajlova
-	 */
 	@FXML
 	private ImageView CNPicGen1, CNPicGen2, CNPicGen3, CNPicJounin1;
 	
-	/*
-	 * ComboBox svih polja iz fxml fajlova
-	 */
 	@FXML
 	private ComboBox<String> CNCBGen1, CNCBGen2, CNCBGen3, CNCBJounin1,
 								CNCBGen1A1, CNCBGen1A2, CNCBGen1A3, CNCBGen2A1, CNCBGen2A2, CNCBGen2A3,
 								CNCBGen3A1, CNCBGen3A2, CNCBGen3A3, CNCBJounin1A1, CNCBJounin1A2, CNCBJounin1A3;
 	
-	/*
-	 * Label svih polja iz fxml fajlova
-	 */
 	@FXML
 	private Label CNbaseTaiGen1Id, CNbaseNinGen1Id, CNbaseBukiGen1Id, CNbaseStaGen1Id, CNbaseEleGen1Id, CNbaseGenGen1Id,
 		CNgrowthTaiGen1, CNgrowthNinGen1, CNgrowthBukiGen1, CNgrowthStaGen1, CNgrowthEleGen1, CNgrowthGenGen1,
@@ -71,10 +62,7 @@ public class CompareNinjasController implements Initializable {
 		CNTSTaiJounin1Id, CNTSNinJounin1Id, CNTSBukiJounin1Id, CNTSEleJounin1Id, CNTSStaJounin1Id, CNTSGenJounin1Id, CNTSGenAJounin1Id, CNTSGenMJounin1Id, 
 		CNTSBukiBJounin1Id, CNTSBukiRJounin1Id, CNTSCritCJounin1Id, CNTSCritDJounin1Id, CNTSRerollJounin1Id, CNTSAttackJounin1Id, CNTSEndJounin1Id,
 		lblGen1S, lblGen2S, lblGen3S, lblJounin1S;
-	
-	/*
-     * TextField svih polja iz fxml fajlova
-     */
+
 	@FXML
 	private TextField CNAddTaiGen1Id, CNAddNinGen1Id, CNAddBukiGen1Id, CNAddStaGen1Id, CNAddEleGen1Id, CNAddGenGen1Id, 
 		CNAddRerollGen1Id, CNAddCritDGen1Id, CNAddBukiRGen1Id,
@@ -86,9 +74,6 @@ public class CompareNinjasController implements Initializable {
 		CNAddRerollJounin1Id, CNAddCritDJounin1Id, CNAddBukiRJounin1Id,
 		lvlGen1, lvlGen2, lvlGen3, lvlJounin1, lvlJounin2, lvlKage;
 
-	/*
-     * metoda za izracunavanje stats vrednosti izabranog ninje 
-     */
 	@FXML
     public void calculateStatsGen1() throws SQLException {
     
@@ -102,10 +87,7 @@ public class CompareNinjasController implements Initializable {
     	TeamBuilderController.setTotalStats(0, CNTSTaiGen1Id, CNTSNinGen1Id, CNTSBukiGen1Id, CNTSEleGen1Id, CNTSStaGen1Id, CNTSGenGen1Id, CNTSGenAGen1Id, CNTSGenMGen1Id, 
     			CNTSBukiBGen1Id, CNTSBukiRGen1Id, CNTSCritCGen1Id, CNTSCritDGen1Id, CNTSRerollGen1Id, CNTSAttackGen1Id, CNTSEndGen1Id);
     }
-	
-	/*
-     * metoda za izracunavanje stats vrednosti izabranog ninje 
-     */
+
 	@FXML
     public void calculateStatsGen2() throws SQLException {
     
@@ -119,10 +101,7 @@ public class CompareNinjasController implements Initializable {
     	TeamBuilderController.setTotalStats(1, CNTSTaiGen2Id, CNTSNinGen2Id, CNTSBukiGen2Id, CNTSEleGen2Id, CNTSStaGen2Id, CNTSGenGen2Id, CNTSGenAGen2Id, CNTSGenMGen2Id, 
     			CNTSBukiBGen2Id, CNTSBukiRGen2Id, CNTSCritCGen2Id, CNTSCritDGen2Id, CNTSRerollGen2Id, CNTSAttackGen2Id, CNTSEndGen2Id);
     }
-	
-	/*
-     * metoda za izracunavanje stats vrednosti izabranog ninje 
-     */
+
 	@FXML
     public void calculateStatsGen3() throws SQLException {
     
@@ -137,9 +116,6 @@ public class CompareNinjasController implements Initializable {
     			CNTSBukiBGen3Id, CNTSBukiRGen3Id, CNTSCritCGen3Id, CNTSCritDGen3Id, CNTSRerollGen3Id, CNTSAttackGen3Id, CNTSEndGen3Id);
     }
 	
-	/*
-     * metoda za izracunavanje stats vrednosti izabranog ninje 
-     */
 	@FXML
     public void calculateStatsJounin1() throws SQLException {
 		
@@ -154,9 +130,6 @@ public class CompareNinjasController implements Initializable {
     			CNTSBukiBJounin1Id, CNTSBukiRJounin1Id, CNTSCritCJounin1Id, CNTSCritDJounin1Id, CNTSRerollJounin1Id, CNTSAttackJounin1Id, CNTSEndJounin1Id);		
     }
 	
-	/*
-     * metode za inkrement/dekrement varijable seal iz objekta Ninja
-     */
 	@FXML
 	public void Gen1P() {
 		Main.fight.getTeam().get_ninjas().get(0).setSealPlus(Main.fight.getTeam().get_ninjas().get(0).getSeal());
@@ -205,10 +178,7 @@ public class CompareNinjasController implements Initializable {
 		lblJounin1S.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(3).getSeal())));
 	}
 	
-	/*
-	 * metoda za povlacenje i ispis podataka iz objekta u prosledjenim labelama
-	 */
-	public void setBaseStats(int redniBroj, Label Tai, Label Nin, Label Buki, Label Sta, Label Ele, Label Gen, Label Seal,
+	 public void setBaseStats(int redniBroj, Label Tai, Label Nin, Label Buki, Label Sta, Label Ele, Label Gen, Label Seal,
 			 Label TaiG, Label NinG, Label BukiG, Label StaG, Label EleG, Label GenG) {
 		 Tai.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(redniBroj).getBaseTai())));
 		 Nin.setText(String.format("%.0f",(Main.fight.getTeam().get_ninjas().get(redniBroj).getBaseNin())));
@@ -227,10 +197,6 @@ public class CompareNinjasController implements Initializable {
 		 Seal.setText(String.format("%.0f", (Main.fight.getTeam().get_ninjas().get(redniBroj).getSeal())));
 	    }
 	
-	 /*
-	  * metoda za selekciju, povlacenje izabranog iz baze i iscitavanje odabranog nindze
-	  * takodje iscitavanje abilities koje taj nindza ima
-	  */
 	public void ListenerName(ComboBox<String> combobox, ComboBox<String> comboboxA1, ComboBox<String> comboboxA2, ComboBox<String> comboboxA3,
 								int redniBroj, Label Tai, Label Nin, Label Buki, Label Sta, Label Ele, Label Gen, Label Seal,
 								Label TaiG, Label NinG, Label BukiG, Label StaG, Label EleG, Label GenG, ImageView okvirSlike) {
@@ -246,17 +212,36 @@ public class CompareNinjasController implements Initializable {
             	if (! cell.isEmpty()) {
             		ConnectionDBL.Connect();
     	    		try {
-						NinjaDBL.pullNinjaV2(redniBroj, String.format("%s",combobox.getValue()));
+    	    			
+    	    			Ninja nin = NinjaDBL.pullNinjaV2(String.format("%s",combobox.getValue()));
+    	    			
+    	    			
+    	    			Main.fight.getTeam().get_ninjas().get(redniBroj).setIdNinje(nin.getIdNinje());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setName(nin.getName());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setChakra(nin.getChakra());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setSeal(nin.getSeal());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseTai(nin.getBaseTai());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setTaijutsuGrowth(nin.getTaijutsuGrowth());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseNin(nin.getBaseNin());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setNinjutsuGrowth(nin.getNinjutsuGrowth());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseBuki(nin.getBaseBuki());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBukijutsuGrowth(nin.getBukijutsuGrowth());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseEle(nin.getBaseEle());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setElementGrowth(nin.getElementGrowth());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseGen(nin.getBaseGen());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setGenjutsuGrowth(nin.getGenjutsuGrowth());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setBaseStam(nin.getBaseStam());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setStaminaGrowth(nin.getStaminaGrowth());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setPicPath(nin.getPicPath());
+    					Main.fight.getTeam().get_ninjas().get(redniBroj).setTip(nin.getTip());
+    	    			
+    	    			
+						//NinjaDBL.pullNinjaV2(redniBroj, String.format("%s",combobox.getValue()));
 						TeamBuilderController.loadSlika(okvirSlike, redniBroj);
 						setBaseStats(redniBroj, Tai, Nin, Buki, Sta, Ele, Gen, Seal, TaiG, NinG, BukiG, StaG, EleG, GenG);
-						ConnectionDBL.ConnectNapadi();
-        	    		NapadiDBL.insertAbilityNamesIntoArray(redniBroj);
-        	    		ObservableList<String> Abilities = FXCollections.observableArrayList(NapadiDBL.getListaImenaNapada());
-        	    		comboboxA1.setItems(Abilities);
-        	    		comboboxA2.setItems(Abilities);
-        	    		comboboxA3.setItems(Abilities);
-        	    		NapadiDBL.getListaImenaNapada().clear();
-        	    		ConnectionDBL.Disconnect();
+						
+						TeamBuilderController.setAbilities(comboboxA1, comboboxA2, comboboxA3, redniBroj);
+						
         	    		ListenerAbility(comboboxA1, redniBroj, 0);
         	    		ListenerAbility(comboboxA2, redniBroj, 1);
         	    		ListenerAbility(comboboxA3, redniBroj, 2);
@@ -270,9 +255,7 @@ public class CompareNinjasController implements Initializable {
         	return cell ;
     	});
 	}
-	/*
-     * metoda za selekciju, povlacenje izabrane iz baze i iscitavanje ability
-     */
+    
     public void ListenerAbility(ComboBox<String> combobox, int redniBrojNinje, int redniBrojAbility) {
 		combobox.setCellFactory(lv -> {
         	ListCell<String> cell = new ListCell<String>() {
@@ -286,7 +269,43 @@ public class CompareNinjasController implements Initializable {
             	if (! cell.isEmpty()) {
             		ConnectionDBL.ConnectNapadi();
     	    		try {
-    	    	    	NapadiDBL.pullNapadiV2(String.format("%s",combobox.getValue()), redniBrojNinje, redniBrojAbility);
+    	    	    	//NapadiDBL.pullNapadiV2(String.format("%s",combobox.getValue()), redniBrojNinje, redniBrojAbility);
+    	    	    	
+    	    	    	int tempIDNinja = Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getIdNinje();
+    	    			
+    	    	    	Ability ability = NapadiDBL.pullNapadiV2(String.format("%s",combobox.getValue()), tempIDNinja);
+    	    	    	
+    	    	    	Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setName(ability.getName());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setTaijutsu(ability.getTaijutsu());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setNinjutsu(ability.getNinjutsu());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setBukijutsu(ability.getBukijutsu());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setElement(ability.getElement());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGen(ability.getGen());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setStamina(ability.getStamina());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setAttack(ability.getAttack());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setBukiRec(ability.getBukiRec());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setBukiBoost(ability.getBukiBoost());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setCritChance(ability.getCritChance());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setCritStrike(ability.getCritStrike());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setReroll(ability.getReroll());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setEndurance(ability.getEndurance());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setFatigue(ability.getFatigue());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setTaiImmunity(ability.getTaiImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setNinImmunity(ability.getNinImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setBukiImmunity(ability.getBukiImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setAttackImmunity(ability.getAttackImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenImmunity(ability.getGenImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setPoisonImmunity(ability.getPoisonImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setPoison(ability.getPoisonImmunity());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGuard(ability.getGuard());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setAbsorb(ability.getAbsorb());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setLvl5Death(ability.getLvl5Death());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenAct(ability.getGenAct());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenMast(ability.getGenMast());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenRec(ability.getGenRec());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenAbs(ability.getGenAbs());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenLearn(ability.getGenLearn());
+    					Main.fight.getTeam().get_ninjas().get(redniBrojNinje).getAbilities().get(redniBrojAbility).setGenCopy(ability.getGenCopy());
     	    	    	
     	    	    	ConnectionDBL.Disconnect();
 					} catch (SQLException e1) {
@@ -300,17 +319,15 @@ public class CompareNinjasController implements Initializable {
     	});
 	}
     
-	/*
-	 * metoda za inicijalizaciju potrebnih listi nindzi i podesavanje istih na ComboBox
-	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		ObservableList<String> genins = FXCollections.observableArrayList(NinjaDBL.getListaImena());
-		ObservableList<String> jounins = FXCollections.observableArrayList(NinjaDBL.getListaImena());
+		
 		CNCBGen1.setItems(genins);
 		CNCBGen2.setItems(genins);
 		CNCBGen3.setItems(genins);
-		CNCBJounin1.setItems(jounins);
+		CNCBJounin1.setItems(genins);
 	
 		ListenerName(CNCBGen1, CNCBGen1A1, CNCBGen1A2, CNCBGen1A3, 0, CNbaseTaiGen1Id, CNbaseNinGen1Id, CNbaseBukiGen1Id, CNbaseStaGen1Id, 
 				CNbaseEleGen1Id, CNbaseGenGen1Id, lblGen1S, CNgrowthTaiGen1, CNgrowthNinGen1, CNgrowthBukiGen1, CNgrowthStaGen1, CNgrowthEleGen1,

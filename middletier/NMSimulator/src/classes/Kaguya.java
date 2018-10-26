@@ -3,7 +3,6 @@ package classes;
 import java.io.Serializable;
 
 import enums.StanjaKaguya;
-import interfaces.IBasicOperations;
 
 /*
  * @author Nikola Corkovic - cnik996@gmail.com
@@ -12,6 +11,10 @@ import interfaces.IBasicOperations;
 
 public class Kaguya implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected double health, taijutsu, ninjutsu, bukijutsu, bukijutsuBoost;
 	protected StanjaKaguya tezina;
 	

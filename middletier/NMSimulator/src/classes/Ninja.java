@@ -13,6 +13,10 @@ import java.util.Random;
 
 public class Ninja implements IBasicOperations, Serializable { 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected ArrayList <Ability> abilities;
 	protected int idNinje;
 	protected String name, picPath;
@@ -39,10 +43,9 @@ public class Ninja implements IBasicOperations, Serializable {
 		this.Kaguya = new Kaguya();
 		
 		abilities = new ArrayList<Ability>();
-		Ability abil = new Ability();
-		this.abilities.add(abil = new Ability());
-		this.abilities.add(abil = new Ability());
-		this.abilities.add(abil = new Ability());
+		this.abilities.add(new Ability());
+		this.abilities.add(new Ability());
+		this.abilities.add(new Ability());
 		
 		this.stats = new Stats();
 		

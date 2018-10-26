@@ -9,6 +9,10 @@ import java.io.Serializable;
 
 public class Fight implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Team Team;
 	Kaguya Kaguya;
 	
